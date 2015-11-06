@@ -14,12 +14,12 @@ Affichage::Affichage(int width,int height)
     P = new Pacman(width/2,height/2);
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
-    gscene->addItem(P->getgpac());
-    time.setInterval(500);
-    time.start();
+    gscene->addItem(P->getgpac());    
+    time=new QTimer(this);
     //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
     //connect(signalMapper,SIGNAL(mapped(int)),this,SLOT(pos(int)));
-    connect(&time,SIGNAL(timeout()),this,SLOT(pos()));
+    connect(time,SIGNAL(timeout()),this,SLOT(pos()));
+    time->start(500);
 
 }
 
@@ -35,13 +35,12 @@ void Affichage::pos(){
         case down:
             break;
 
-    }
-    time.start();
+    }    
 }
 
 void Affichage::change_direction(direction d){   
     dpac=d;
-    offset=100;
+    offset=10;
 }
 
 QGraphicsScene *Affichage::getscene(){

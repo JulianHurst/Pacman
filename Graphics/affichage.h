@@ -26,7 +26,7 @@ private:
     Pacman *P;
     direction dpac;
     int offset;
-    QTimer time;
+    QTimer *time;
 };
 
 #endif // AFFICHAGE_H
