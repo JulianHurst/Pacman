@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Sprites/sprites.qrc">
+        <file>pac.png</file>
+    </qresource>
+</RCC>
