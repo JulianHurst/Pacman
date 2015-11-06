@@ -28,6 +28,7 @@ void MainWindow::resizeEvent(QResizeEvent *){
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e){    
+    qDebug() << "Touche appuyee : " << e->text() << endl;
     switch(e->key()){
     case Qt::Key_Right:
         a->change_direction(Affichage::right);
