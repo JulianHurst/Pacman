@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/Sprites/sprites.qrc">
         <file>pac.png</file>
+        <file>labyrinthe_pac.png</file>
     </qresource>
 </RCC>

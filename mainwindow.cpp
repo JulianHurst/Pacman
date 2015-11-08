@@ -21,6 +21,7 @@ void MainWindow::showEvent(QShowEvent *){
     ui->graphicsView->setSceneRect(0,0,1,1);
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());      //+ LE DÉPLACEMENT TOTAL
     ui->graphicsView->setScene(a->getscene());
+
 }
 
 void MainWindow::resizeEvent(QResizeEvent *){

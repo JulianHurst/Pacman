@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     Graphics/affichage.cpp \
-    pacman.cpp
+    pacman.cpp \
+    labyrinthe.cpp
 
 HEADERS  += mainwindow.h \
     Graphics/affichage.h \
-    pacman.h
+    pacman.h \
+    labyrinthe.h
 
 FORMS    += mainwindow.ui
 
