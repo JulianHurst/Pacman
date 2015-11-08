@@ -15,6 +15,14 @@ QGraphicsPixmapItem *Pacman::getgpac(){
     return gpac;
 }
 
+void Pacman::setx(int x){
+    this->x=x;
+}
+
+void Pacman::sety(int y){
+    this->y=y;
+}
+
 int Pacman::getx(){
     return x;
 }

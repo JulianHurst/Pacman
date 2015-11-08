@@ -21,7 +21,6 @@ void MainWindow::showEvent(QShowEvent *){
     ui->graphicsView->setSceneRect(0,0,1,1);
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());      //+ LE DÉPLACEMENT TOTAL
     ui->graphicsView->setScene(a->getscene());
-
 }
 
 void MainWindow::resizeEvent(QResizeEvent *){
@@ -34,6 +33,15 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
     switch(e->key()){
     case Qt::Key_Right:
         a->change_direction(Affichage::right);
+        break;
+    case Qt::Key_Left:
+        a->change_direction(Affichage::left);
+        break;
+    case Qt::Key_Up:
+        a->change_direction(Affichage::up);
+        break;
+    case Qt::Key_Down:
+        a->change_direction(Affichage::down);
         break;
     }
 }
