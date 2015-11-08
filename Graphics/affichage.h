@@ -2,7 +2,6 @@
 #define AFFICHAGE_H
 #include <QGraphicsScene>
 #include "../pacman.h"
-#include "../labyrinthe.h"
 #include <QTimer>
 
 class Affichage : public QObject
@@ -25,7 +24,6 @@ public slots:
 private:
     QGraphicsScene *gscene;    
     Pacman *P;
-    Labyrinthe *l;
     direction dpac;
     int offset;
     QTimer *time;

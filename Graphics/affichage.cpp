@@ -10,13 +10,11 @@ using namespace std;
 
 Affichage::Affichage(int width,int height)
 {    
-    l=new Labyrinthe(0,0);
     gscene=new QGraphicsScene();
     P = new Pacman(width/2,height/2);
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
-    gscene->addItem(l->getLab());
-    gscene->addItem(P->getgpac());
+    gscene->addItem(P->getgpac());    
     time=new QTimer(this);
     //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
     //connect(signalMapper,SIGNAL(mapped(int)),this,SLOT(pos(int)));
@@ -27,16 +25,22 @@ Affichage::Affichage(int width,int height)
 
 void Affichage::pos(){    
     switch(dpac){
-        case right:            
-            P->getgpac()->setPos(P->getx()+offset,P->gety());
+        case right:
+            P->setx(P->getx()+offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
         case left:
+            P->setx(P->getx()-offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
         case up:
+            P->sety(P->gety()-offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
         case down:
+            P->sety(P->gety()+offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
-
     }    
 }
 
