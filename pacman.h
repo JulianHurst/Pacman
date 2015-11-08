@@ -10,6 +10,8 @@ public:
     QGraphicsPixmapItem *getgpac();
     int getx();
     int gety();
+    void setx(int x);
+    void sety(int y);
 
 private:
     QGraphicsPixmapItem *gpac;

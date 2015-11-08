@@ -27,16 +27,22 @@ Affichage::Affichage(int width,int height)
 
 void Affichage::pos(){    
     switch(dpac){
-        case right:            
-            P->getgpac()->setPos(P->getx()+offset,P->gety());
+        case right:
+            P->setx(P->getx()+offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
         case left:
+            P->setx(P->getx()-offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
         case up:
+            P->sety(P->gety()-offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
         case down:
+            P->sety(P->gety()+offset);
+            P->getgpac()->setPos(P->getx(),P->gety());
             break;
-
     }    
 }
 
