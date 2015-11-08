@@ -10,10 +10,12 @@ using namespace std;
 
 Affichage::Affichage(int width,int height)
 {    
+    l=new Labyrinthe(0,0);
     gscene=new QGraphicsScene();
     P = new Pacman(width/2,height/2);
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
+    gscene->addItem(l->getLab());
     gscene->addItem(P->getgpac());    
     time=new QTimer(this);
     //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
