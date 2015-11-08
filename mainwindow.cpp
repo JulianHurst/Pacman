@@ -13,18 +13,30 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFocus();
-
+    t_xoffset=t_yoffset=xperc=yperc=0;
+    dpac=Affichage::none;
+    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,0,0);
 }
 
-void MainWindow::showEvent(QShowEvent *){
+void MainWindow::showEvent(QShowEvent *){    
+    xperc+=a->getxoffset()/(float)a->getw();
+    yperc+=a->getyoffset()/(float)a->geth();
+    t_xoffset=xperc*(float)ui->graphicsView->width();
+    t_yoffset=yperc*(float)ui->graphicsView->height();
+    dpac=a->getdpac();
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     ui->graphicsView->setSceneRect(0,0,1,1);
-    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());      //+ LE DÉPLACEMENT TOTAL
+    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,t_xoffset,t_yoffset);
     ui->graphicsView->setScene(a->getscene());
 }
 
-void MainWindow::resizeEvent(QResizeEvent *){
-    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());      //+ LE DÉPLACEMENT TOTAL
+void MainWindow::resizeEvent(QResizeEvent *){    
+    xperc+=a->getxoffset()/(float)a->getw();
+    yperc+=a->getyoffset()/(float)a->geth();
+    t_xoffset=xperc*(float)ui->graphicsView->width();
+    t_yoffset=yperc*(float)ui->graphicsView->height();
+    dpac=a->getdpac();
+    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,t_xoffset,t_yoffset);
     ui->graphicsView->setScene(a->getscene());
 }
 
@@ -45,6 +57,13 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         break;
     }
 }
+
+
+
+void MainWindow::mousePressEvent(QMouseEvent *){
+    this->setFocus();
+}
+
 
 MainWindow::~MainWindow()
 {

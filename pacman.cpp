@@ -23,10 +23,11 @@ void Pacman::sety(int y){
     this->y=y;
 }
 
-int Pacman::getx(){
+float Pacman::getx(){
     return x;
 }
 
-int Pacman::gety(){
+float Pacman::gety(){
     return y;
 }
+

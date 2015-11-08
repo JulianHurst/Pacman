@@ -1,13 +1,14 @@
 #include "labyrinthe.h"
+#include <QDebug>
 
-Labyrinthe::Labyrinthe(float x, float y)
+Labyrinthe::Labyrinthe(float x, float y, int width, int height)
 {
     this->x=x;
     this->y=y;
-    QPixmap gLab;
+    QPixmap gLab;    
     lab = new QGraphicsPixmapItem();
-    gLab.load(":/Sprites/sprites.qrc/labyrinthe_pac.png");
-    lab->setPixmap(gLab);
+    gLab.load(":/Sprites/sprites.qrc/labyrinthe_pac.png");    
+    lab->setPixmap(gLab.scaled(width,height,Qt::IgnoreAspectRatio,Qt::FastTransformation));
     lab->setPos(this->x,this->y);
 }
 
