@@ -16,7 +16,7 @@ Affichage::Affichage(int width,int height)
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
     gscene->addItem(l->getLab());
-    gscene->addItem(P->getgpac());    
+    gscene->addItem(P->getgpac());
     time=new QTimer(this);
     //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
     //connect(signalMapper,SIGNAL(mapped(int)),this,SLOT(pos(int)));
