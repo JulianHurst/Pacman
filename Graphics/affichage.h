@@ -25,6 +25,7 @@ public slots:
 private:
     QGraphicsScene *gscene;    
     Pacman *P;
+    Labyrinthe *l;
     direction dpac;
     int offset;
     QTimer *time;
