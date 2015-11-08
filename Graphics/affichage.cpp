@@ -13,8 +13,8 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     t_xoffset=t_yoffset=0;
     w=width;
     h=height;
-    xoffset=0.05*width;
-    yoffset=0.05*height;
+    xoffset=0.02*width;
+    yoffset=0.02*height;
     this->dpac=dpac;
     l=new Labyrinthe(0,0,width,height);
     gscene=new QGraphicsScene();
