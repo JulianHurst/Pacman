@@ -18,10 +18,16 @@ public:
     void showEvent(QShowEvent *);
     void resizeEvent(QResizeEvent *);
     void keyPressEvent(QKeyEvent *);
+    void mousePressEvent(QMouseEvent *);
 
 private:
     Ui::MainWindow *ui;    
     Affichage *a;
+    float xperc;
+    float yperc;
+    float t_xoffset;
+    float t_yoffset;
+    Affichage::direction dpac;
 };
 
 #endif // MAINWINDOW_H

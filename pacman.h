@@ -8,8 +8,8 @@ class Pacman
 public:
     Pacman(float x, float y);
     QGraphicsPixmapItem *getgpac();
-    int getx();
-    int gety();
+    float getx();
+    float gety();
     void setx(int x);
     void sety(int y);
 
