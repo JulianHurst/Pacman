@@ -13,8 +13,8 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     t_xoffset=t_yoffset=0;
     w=width;
     h=height;
-    xoffset=0.02*width;
-    yoffset=0.02*height;
+    xoffset=0.005*width;
+    yoffset=0.005*height;
     this->dpac=dpac;
     l=new Labyrinthe(0,0,width,height);
     gscene=new QGraphicsScene();
@@ -27,7 +27,7 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
     //connect(signalMapper,SIGNAL(mapped(int)),this,SLOT(pos(int)));
     connect(time,SIGNAL(timeout()),this,SLOT(pos()));
-    time->start(500);
+    time->start(250);
 }
 
 void Affichage::pos(){    
