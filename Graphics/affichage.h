@@ -34,8 +34,7 @@ private:
     Pacman *P;
     Labyrinthe *l;
     direction dpac;
-    int xoffset;
-    int yoffset;
+    int offset;
     int t_yoffset;
     int t_xoffset;
     int w;

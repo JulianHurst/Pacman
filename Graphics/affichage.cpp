@@ -13,8 +13,7 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     t_xoffset=t_yoffset=0;
     w=width;
     h=height;
-    xoffset=0.01*width;
-    yoffset=xoffset;
+    offset=0.01*width;
     this->dpac=dpac;
     l=new Labyrinthe(0,0,width,height);
     gscene=new QGraphicsScene();
@@ -33,36 +32,36 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
 void Affichage::pos(){    
     switch(dpac){
         case right:
-            if(P->getx()+xoffset<w)
-                P->setx(P->getx()+xoffset);
+            if(P->getx()+offset<w)
+                P->setx(P->getx()+offset);
             else
                 P->setx(0);
             P->getgpac()->setPos(P->getx(),P->gety());
-            t_xoffset+=xoffset;
+            t_xoffset+=offset;
             break;
         case left:
-            if(P->getx()-xoffset>0)
-                P->setx(P->getx()-xoffset);
+            if(P->getx()-offset>0)
+                P->setx(P->getx()-offset);
             else
                 P->setx(w);
             P->getgpac()->setPos(P->getx(),P->gety());
-            t_xoffset-=xoffset;
+            t_xoffset-=offset;
             break;
         case up:
-            if(P->gety()-yoffset>0)
-                P->sety(P->gety()-yoffset);
+            if(P->gety()-offset>0)
+                P->sety(P->gety()-offset);
             else
                 P->sety(h);
             P->getgpac()->setPos(P->getx(),P->gety());
-            t_yoffset-=yoffset;
+            t_yoffset-=offset;
             break;
         case down:
-            if(P->gety()+yoffset<h)
-                P->sety(P->gety()+yoffset);
+            if(P->gety()+offset<h)
+                P->sety(P->gety()+offset);
             else
                 P->sety(0);
             P->getgpac()->setPos(P->getx(),P->gety());
-            t_yoffset+=yoffset;
+            t_yoffset+=offset;
             break;
         case none:
             break;
