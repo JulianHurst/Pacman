@@ -32,36 +32,49 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
 void Affichage::pos(){    
     switch(dpac){
         case right:
-            if(P->getx()+offset<w)
+            if(P->getx()+offset<w){
                 P->setx(P->getx()+offset);
-            else
+                t_xoffset+=offset;
+            }
+            else{
                 P->setx(0);
-            P->getgpac()->setPos(P->getx(),P->gety());
-            t_xoffset+=offset;
+                t_xoffset-=w;
+            }
+            P->getgpac()->setPos(P->getx(),P->gety());            
             break;
         case left:
-            if(P->getx()-offset>0)
+            if(P->getx()-offset>0){
                 P->setx(P->getx()-offset);
-            else
+                t_xoffset-=offset;
+            }
+            else{
                 P->setx(w);
+                t_xoffset+=w;
+            }
             P->getgpac()->setPos(P->getx(),P->gety());
-            t_xoffset-=offset;
+
             break;
         case up:
-            if(P->gety()-offset>0)
+            if(P->gety()-offset>0){
                 P->sety(P->gety()-offset);
-            else
+                t_yoffset-=offset;
+            }
+            else{
                 P->sety(h);
-            P->getgpac()->setPos(P->getx(),P->gety());
-            t_yoffset-=offset;
+                t_yoffset+=h;
+            }
+            P->getgpac()->setPos(P->getx(),P->gety());            
             break;
         case down:
-            if(P->gety()+offset<h)
+            if(P->gety()+offset<h){
                 P->sety(P->gety()+offset);
-            else
+                t_yoffset+=offset;
+            }
+            else{
                 P->sety(0);
-            P->getgpac()->setPos(P->getx(),P->gety());
-            t_yoffset+=offset;
+                t_yoffset-=h;
+            }
+            P->getgpac()->setPos(P->getx(),P->gety());            
             break;
         case none:
             break;
