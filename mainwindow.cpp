@@ -55,6 +55,9 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
     case Qt::Key_Down:
         a->change_direction(Affichage::down);
         break;
+    case Qt::Key_Escape:
+        QApplication::quit();
+        break;
     }
 }
 
