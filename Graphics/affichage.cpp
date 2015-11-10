@@ -26,7 +26,7 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
     //connect(signalMapper,SIGNAL(mapped(int)),this,SLOT(pos(int)));
     connect(time,SIGNAL(timeout()),this,SLOT(pos()));
-    time->start(250);
+    time->start(60);
 }
 
 void Affichage::pos(){    

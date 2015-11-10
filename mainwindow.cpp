@@ -56,12 +56,14 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         a->change_direction(Affichage::down);
         break;
     case Qt::Key_Escape:
-        QApplication::quit();
-        break;
+        qApp->quit();
+        break;        
     }
 }
 
-
+void MainWindow::keyReleaseEvent(QKeyEvent *){
+    a->change_direction(Affichage::none);
+}
 
 void MainWindow::mousePressEvent(QMouseEvent *){
     this->setFocus();
