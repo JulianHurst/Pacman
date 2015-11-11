@@ -14,9 +14,9 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     w=width;
     h=height;
     if(width<=height)
-        offset=0.01*width;
+        offset=0.03*width;
     else
-        offset=0.01*height;
+        offset=0.03*height;
     this->dpac=dpac;
     l=new Labyrinthe(0,0,width,height);
     gscene=new QGraphicsScene();
