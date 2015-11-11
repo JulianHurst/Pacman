@@ -16,12 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     Graphics/affichage.cpp \
     pacman.cpp \
-    labyrinthe.cpp
+    labyrinthe.cpp \
+    personnage.cpp \
+    fantome.cpp
 
 HEADERS  += mainwindow.h \
     Graphics/affichage.h \
     pacman.h \
-    labyrinthe.h
+    labyrinthe.h \
+    personnage.h \
+    fantome.h
 
 FORMS    += mainwindow.ui
 

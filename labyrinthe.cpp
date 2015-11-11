@@ -7,7 +7,7 @@ Labyrinthe::Labyrinthe(float x, float y, int width, int height)
     this->y=y;
     QPixmap gLab;    
     lab = new QGraphicsPixmapItem();
-    gLab.load(":/Sprites/sprites.qrc/labyrinthe_pac.png");    
+    gLab.load(":/Sprites/sprites.qrc/res/labyrinthe_pac.png");
     lab->setPixmap(gLab.scaled(width,height,Qt::IgnoreAspectRatio,Qt::FastTransformation));
     lab->setPos(this->x,this->y);
 }

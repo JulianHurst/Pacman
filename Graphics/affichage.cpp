@@ -21,10 +21,12 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     l=new Labyrinthe(0,0,width,height);
     gscene=new QGraphicsScene();
     P = new Pacman(width/2+i_xoffset,height/2+(0.15*h)+i_yoffset,w,h);
+    F = new Fantome(width/2,height/2,w,h);
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
     gscene->addItem(l->getLab());
-    gscene->addItem(P->getgpac());
+    gscene->addItem(P->getgobj());
+    gscene->addItem(F->getgobj());
     time=new QTimer(this);   
     connect(time,SIGNAL(timeout()),this,SLOT(pos()));
     time->start(60);
@@ -41,7 +43,7 @@ void Affichage::pos(){
                 P->setx(0);
                 t_xoffset-=w;
             }
-            P->getgpac()->setPos(P->getx(),P->gety());            
+            P->getgobj()->setPos(P->getx(),P->gety());
             break;
         case left:
             if(P->getx()-offset>0){
@@ -52,7 +54,7 @@ void Affichage::pos(){
                 P->setx(w);
                 t_xoffset+=w;
             }
-            P->getgpac()->setPos(P->getx(),P->gety());
+            P->getgobj()->setPos(P->getx(),P->gety());
 
             break;
         case up:
@@ -64,7 +66,7 @@ void Affichage::pos(){
                 P->sety(h);
                 t_yoffset+=h;
             }
-            P->getgpac()->setPos(P->getx(),P->gety());            
+            P->getgobj()->setPos(P->getx(),P->gety());
             break;
         case down:
             if(P->gety()+offset<h){
@@ -75,7 +77,7 @@ void Affichage::pos(){
                 P->sety(0);
                 t_yoffset-=h;
             }
-            P->getgpac()->setPos(P->getx(),P->gety());            
+            P->getgobj()->setPos(P->getx(),P->gety());
             break;
         case none:
             break;
