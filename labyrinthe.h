@@ -2,6 +2,7 @@
 #define LABYRINTHE_H
 
 #include <QGraphicsPixmapItem>
+#include <QImage>
 
 class Labyrinthe
 {
@@ -9,7 +10,8 @@ public:
     Labyrinthe(float, float, int, int);
     int getX();
     int getY();
-    QGraphicsPixmapItem *getLab();    
+    QGraphicsPixmapItem *getLab();
+    void openImage();
 
 private:
     int x;
