@@ -13,18 +13,19 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     t_xoffset=t_yoffset=0;
     w=width;
     h=height;
-    offset=0.01*width;
+    if(width<=height)
+        offset=0.01*width;
+    else
+        offset=0.01*height;
     this->dpac=dpac;
     l=new Labyrinthe(0,0,width,height);
     gscene=new QGraphicsScene();
-    P = new Pacman(width/2+i_xoffset,height/2+i_yoffset);
+    P = new Pacman(width/2+i_xoffset,height/2+(0.15*h)+i_yoffset,w,h);
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
     gscene->addItem(l->getLab());
     gscene->addItem(P->getgpac());
-    time=new QTimer(this);
-    //connect(&time,&QTimer::timeout,signalMapper,&QSignalMapper::map);
-    //connect(signalMapper,SIGNAL(mapped(int)),this,SLOT(pos(int)));
+    time=new QTimer(this);   
     connect(time,SIGNAL(timeout()),this,SLOT(pos()));
     time->start(60);
 }
