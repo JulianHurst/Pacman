@@ -38,10 +38,9 @@ void Labyrinthe::openImage(){
     for (int i = 0; i < img.height(); i++){
         QRgb* rgb = (QRgb*)img.scanLine(i); //Stock la ligne courante
         //Largeur
-        for (int j = 0; j < img.width(); i++){
+        for (int j = 0; j < img.width(); j++){
             //Exemple de traitement par couleur
-            //rgb[j] = qRgba((qRed(rgb[j])*2)%255, (qGreen(rgb[j])*2)%255, (qBlue(rgb[j])+25)%255, qAlpha(rgb[j]));
+            rgb[j] = qRgba((qRed(rgb[j])*2)%255, (qGreen(rgb[j])*2)%255, (qBlue(rgb[j])+25)%255, qAlpha(rgb[j]));
         }
-        qDebug()<<"new Line";
     }
 }
