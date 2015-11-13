@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,0,0);
 }
 
-void MainWindow::showEvent(QShowEvent *){    
+void MainWindow::showEvent(QShowEvent *){
     xperc+=a->getxoffset()/(float)a->getw();
     yperc+=a->getyoffset()/(float)a->geth();
     t_xoffset=xperc*(float)ui->graphicsView->width();
@@ -30,7 +30,7 @@ void MainWindow::showEvent(QShowEvent *){
     ui->graphicsView->setScene(a->getscene());
 }
 
-void MainWindow::resizeEvent(QResizeEvent *){    
+void MainWindow::resizeEvent(QResizeEvent *){        
     xperc+=a->getxoffset()/(float)a->getw();
     yperc+=a->getyoffset()/(float)a->geth();
     t_xoffset=xperc*(float)ui->graphicsView->width();
@@ -41,7 +41,7 @@ void MainWindow::resizeEvent(QResizeEvent *){
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e){    
-    qDebug() << "Touche appuyee : " << e->text() << endl;
+    qDebug() << "Touche appuyee : " << e->text();
     switch(e->key()){
     case Qt::Key_Right:
         a->change_direction(Affichage::right);
@@ -57,7 +57,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         break;
     case Qt::Key_Escape:
         qApp->quit();
-        break;        
+        break;
+    case Qt::Key_C:
+        qDebug() << a->getPac()->getx() << " " << a->getw();
+        qDebug() << a->getPac()->gety() << " " << a->geth();
+        break;
     }
 }
 

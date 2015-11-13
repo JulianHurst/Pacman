@@ -2,6 +2,7 @@
 #define AFFICHAGE_H
 #include <QGraphicsScene>
 #include "../pacman.h"
+#include "../fantome.h"
 #include "../labyrinthe.h"
 #include <QTimer>
 
@@ -32,6 +33,7 @@ public slots:
 private:
     QGraphicsScene *gscene;    
     Pacman *P;
+    Fantome *F;
     Labyrinthe *l;
     direction dpac;
     int offset;
