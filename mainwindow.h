@@ -21,6 +21,9 @@ public:
     void keyReleaseEvent(QKeyEvent *);
     void mousePressEvent(QMouseEvent *);
 
+public slots:
+    void actiontrigger(QAction *action);
+
 private:
     Ui::MainWindow *ui;    
     Affichage *a;
@@ -29,6 +32,7 @@ private:
     float t_xoffset;
     float t_yoffset;
     Affichage::direction dpac;
+    QMenu *menu;
 };
 
 #endif // MAINWINDOW_H
