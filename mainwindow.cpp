@@ -4,18 +4,23 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QTimer>
+#include <QGraphicsOpacityEffect>
+#include <unistd.h>
 
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+{    
+    menu=new QMenu(this);
+    menu->addAction("Exit");        
     ui->setupUi(this);
     this->setFocus();
     t_xoffset=t_yoffset=xperc=yperc=0;
     dpac=Affichage::none;
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,0,0);
+    connect(menu,SIGNAL(triggered(QAction*)),this,SLOT(actiontrigger(QAction*)));
 }
 
 void MainWindow::showEvent(QShowEvent *){
@@ -55,14 +60,26 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
     case Qt::Key_Down:
         a->change_direction(Affichage::down);
         break;
-    case Qt::Key_Escape:
-        qApp->quit();
-        break;
     case Qt::Key_C:
         qDebug() << a->getPac()->getx() << " " << a->getw();
         qDebug() << a->getPac()->gety() << " " << a->geth();
         break;
+    case Qt::Key_Escape:
+        /*QList<QGraphicsItem *> list;
+        QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
+        effect->setOpacity(0.5);
+        list=ui->graphicsView->items();
+        list.first()->setGraphicsEffect(effect);
+*/
+        menu->exec(ui->graphicsView->mapToGlobal(QPoint(ui->graphicsView->width()/2,ui->graphicsView->height()/2)));
+        //qApp->quit();
+        break;
     }
+}
+
+void MainWindow::actiontrigger(QAction *action){
+    if(action->text().compare("Exit")==0)
+        qApp->quit();
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent *){
