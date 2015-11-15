@@ -96,10 +96,6 @@ void Affichage::pos(){
                 t_yoffset-=h;
             }
             P->getgobj()->setPos(P->getx(),P->gety());
-            /*if(P->getgobj()->collidesWithItem(W->getgobj())){
-                P->sety(P->gety()-offset);
-                P->getgobj()->setPos(P->getx(),P->gety());
-            }*/
             break;
         case none:
             break;
