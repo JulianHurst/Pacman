@@ -9,12 +9,14 @@ public:
     Labyrinthe(float, float, int, int);
     int getX();
     int getY();
-    QGraphicsPixmapItem *getLab();    
+    QGraphicsPixmapItem *getLab();
+    QColor getCouleur();
 
 private:
     int x;
     int y;
     QGraphicsPixmapItem *lab;
+    QColor couleurMur;
 };
 
 #endif // LABYRINTHE_H

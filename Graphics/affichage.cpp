@@ -18,7 +18,9 @@ Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i
     else
         offset=0.03*height;
     this->dpac=dpac;
+
     l=new Labyrinthe(0,0,width,height);
+    labyrinthe=l->getLab()->pixmap();
     gscene=new QGraphicsScene();
     P = new Pacman(width/2+i_xoffset,height/2+(0.15*h)+i_yoffset,w,h);
     F = new Fantome(width/2,height/2,w,h);
@@ -84,7 +86,10 @@ void Affichage::pos(){
     }    
 }
 
-void Affichage::change_direction(direction d){   
+void Affichage::change_direction(direction d){
+    int test=detecteCouleur(d);
+    if(test==1)
+        d=none;
     dpac=d;    
 }
 
@@ -114,4 +119,38 @@ Pacman *Affichage::getPac(){
 
 Affichage::direction Affichage::getdpac(){
     return dpac;
+}
+
+int Affichage::detecteCouleur(direction d)
+{
+    QColor positionP;
+    QRgb pixel;
+    QColor couleur=l->getCouleur();
+    switch(d)
+    {
+    case right:
+       pixel=labyrinthe.toImage().pixel(P->getx()+offset,P->gety());
+       positionP.setRgb(pixel);
+         break;
+    case left:
+        pixel=labyrinthe.toImage().pixel(P->getx()-offset,P->gety());
+        positionP.setRgb(pixel);
+          break;
+    case up:
+        pixel=labyrinthe.toImage().pixel(P->getx(),P->gety()-offset);
+        positionP.setRgb(pixel);
+          break;
+    case down:
+        pixel=labyrinthe.toImage().pixel(P->getx(),P->gety()+offset);
+        positionP.setRgb(pixel);
+          break;
+    default:
+       positionP.setRgb(0,0,0);
+        break;
+    }
+    qDebug() << "PositionP=" << positionP << "couleur=" << couleur;
+    if(positionP==couleur)
+        return 1;
+    else
+        return 0;
 }

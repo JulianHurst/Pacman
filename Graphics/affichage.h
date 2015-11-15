@@ -24,6 +24,8 @@ public:
     int getyoffset();
     Pacman *getPac();
     direction getdpac();
+    QPixmap labyrinthe;
+    int detecteCouleur(direction);
     int getw();
     int geth();
 
