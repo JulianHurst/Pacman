@@ -37,9 +37,11 @@ void Affichage::pos(){
     QColor col1,col2,col3;
     switch(dpac){
         case right:
-        col1=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth()/2);
-        col2=img.pixel(P->getx()+offset+P->getw(),P->gety());
-        col3=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth());
+            if(img.valid(P->getx()+offset+P->getw(),P->gety())){
+                col1=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth()/2);
+                col2=img.pixel(P->getx()+offset+P->getw(),P->gety());
+                col3=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth());
+            }
             if(P->getx()+offset<w){
                 if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->setx(P->getx()+offset);
@@ -68,7 +70,7 @@ void Affichage::pos(){
             }
             P->getgobj()->setPos(P->getx(),P->gety());
             break;
-        case up:
+        case up:            
             col1=img.pixel(P->getx(),P->gety()-offset);
             col2=img.pixel(P->getx()+P->getw()/2,P->gety()-offset);
             col3=img.pixel(P->getx()+P->getw(),P->gety()-offset);
@@ -85,9 +87,11 @@ void Affichage::pos(){
             P->getgobj()->setPos(P->getx(),P->gety());
             break;
         case down:
-            col1=img.pixel(P->getx(),P->gety()+offset+P->geth());
-            col2=img.pixel(P->getx()+P->getw()/2,P->gety()+offset+P->geth());
-            col3=img.pixel(P->getx()+P->getw(),P->gety()+offset+P->geth());
+            if(img.valid(P->getx(),P->gety()+offset+P->geth())){
+                col1=img.pixel(P->getx(),P->gety()+offset+P->geth());
+                col2=img.pixel(P->getx()+P->getw()/2,P->gety()+offset+P->geth());
+                col3=img.pixel(P->getx()+P->getw(),P->gety()+offset+P->geth());
+            }
             if(P->gety()+offset<h){
                 if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->sety(P->gety()+offset);

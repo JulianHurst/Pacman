@@ -3,5 +3,6 @@
         <file>res/labyrinthe_pac.png</file>
         <file>res/pac.png</file>
         <file>res/ghost.png</file>
+        <file>res/labyrinthe_pac_port.png</file>
     </qresource>
 </RCC>
