@@ -41,9 +41,10 @@ void Affichage::pos(){
         col2=img.pixel(P->getx()+offset+P->getw(),P->gety());
         col3=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth());
             if(P->getx()+offset<w){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0)
+                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->setx(P->getx()+offset);
-                t_xoffset+=offset;
+                    t_xoffset+=offset;
+                }
             }
             else{
                 P->setx(0);
@@ -56,9 +57,10 @@ void Affichage::pos(){
             col2=img.pixel(P->getx()-offset,P->gety());
             col3=img.pixel(P->getx()-offset,P->gety()+P->geth());
             if(P->getx()-offset>0){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0)
+                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->setx(P->getx()-offset);
-                t_xoffset-=offset;
+                    t_xoffset-=offset;
+                }
             }
             else{
                 P->setx(w);
@@ -71,10 +73,11 @@ void Affichage::pos(){
             col2=img.pixel(P->getx()+P->getw()/2,P->gety()-offset);
             col3=img.pixel(P->getx()+P->getw(),P->gety()-offset);
             if(P->gety()-offset>0){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0)
+                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->sety(P->gety()-offset);
                     t_yoffset-=offset;
                 }
+            }
             else{
                 P->sety(h);
                 t_yoffset+=h;
@@ -86,10 +89,10 @@ void Affichage::pos(){
             col2=img.pixel(P->getx()+P->getw()/2,P->gety()+offset+P->geth());
             col3=img.pixel(P->getx()+P->getw(),P->gety()+offset+P->geth());
             if(P->gety()+offset<h){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0)
+                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->sety(P->gety()+offset);
-
-                t_yoffset+=offset;
+                    t_yoffset+=offset;
+                }
             }
             else{
                 P->sety(0);
