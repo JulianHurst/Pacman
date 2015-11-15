@@ -65,12 +65,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         qDebug() << a->getPac()->gety() << " " << a->geth();
         break;
     case Qt::Key_Escape:
-        /*QList<QGraphicsItem *> list;
+        QList<QGraphicsItem *> list;
         QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
         effect->setOpacity(0.5);
         list=ui->graphicsView->items();
         list.first()->setGraphicsEffect(effect);
-*/
         menu->exec(ui->graphicsView->mapToGlobal(QPoint(ui->graphicsView->width()/2,ui->graphicsView->height()/2)));
         //qApp->quit();
         break;
