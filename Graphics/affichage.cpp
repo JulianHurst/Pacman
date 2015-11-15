@@ -121,7 +121,6 @@ void Affichage::pos(){
         dpac=none;
         t_xoffset=t_yoffset=0;
     }
-    l->openImage();
 }
 
 void Affichage::change_direction(direction d){   
