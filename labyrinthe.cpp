@@ -26,4 +26,3 @@ int Labyrinthe::getY()
 {
     return y;
 }
-

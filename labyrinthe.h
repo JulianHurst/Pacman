@@ -9,7 +9,7 @@ public:
     Labyrinthe(float, float, int, int);
     int getX();
     int getY();
-    QGraphicsPixmapItem *getLab();    
+    QGraphicsPixmapItem *getLab();
 
 private:
     int x;
