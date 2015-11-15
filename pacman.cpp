@@ -1,33 +1,17 @@
 #include "pacman.h"
 
-Pacman::Pacman(float x,float y)
-{
-    this->x=x;
-    this->y=y;
+Pacman::Pacman(float x,float y,int w,int h)
+    :Personnage(x,y,w,h)
+{    
+    this->w=w*0.03;
+    this->h=0.062*h;
+    this->x=x-this->w/2;    
     QPixmap pac;
-    gpac = new QGraphicsPixmapItem();    
-    pac.load(":/Sprites/sprites.qrc/pac.png");
-    gpac->setPixmap(pac);
-    gpac->setPos(this->x,this->y);
+    gobj = new QGraphicsPixmapItem();
+    pac.load(":/Sprites/sprites.qrc/res/pac.png");
+    gobj->setPixmap(pac.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::FastTransformation));
+    gobj->setPos(this->x,this->y);
 }
 
-QGraphicsPixmapItem *Pacman::getgpac(){
-    return gpac;
-}
 
-void Pacman::setx(int x){
-    this->x=x;
-}
-
-void Pacman::sety(int y){
-    this->y=y;
-}
-
-float Pacman::getx(){
-    return x;
-}
-
-float Pacman::gety(){
-    return y;
-}
 

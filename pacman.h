@@ -2,20 +2,12 @@
 #define PACMAN_H
 
 #include <QGraphicsPixmapItem>
+#include "personnage.h"
 
-class Pacman
+class Pacman : public Personnage
 {
 public:
-    Pacman(float x, float y);
-    QGraphicsPixmapItem *getgpac();
-    float getx();
-    float gety();
-    void setx(int x);
-    void sety(int y);
-
-private:
-    QGraphicsPixmapItem *gpac;
-    int x,y;
+    Pacman(float x, float y, int w, int h);
 };
 
 #endif // PACMAN_H
