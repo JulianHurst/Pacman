@@ -43,16 +43,16 @@ void MainWindow::resizeEvent(QResizeEvent *){
 void MainWindow::keyPressEvent(QKeyEvent *e){    
     qDebug() << "Touche appuyee : " << e->text();
     switch(e->key()){
-    case Qt::Key_D:
+    case Qt::Key_Right:
         a->change_direction(Affichage::right);
         break;
-    case Qt::Key_Q:
+    case Qt::Key_Left:
         a->change_direction(Affichage::left);
         break;
-    case Qt::Key_Z:
+    case Qt::Key_Up:
         a->change_direction(Affichage::up);
         break;
-    case Qt::Key_S:
+    case Qt::Key_Down:
         a->change_direction(Affichage::down);
         break;
     case Qt::Key_Escape:
