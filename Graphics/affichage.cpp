@@ -55,9 +55,11 @@ void Affichage::pos(){
             P->getgobj()->setPos(P->getx(),P->gety());
             break;
         case left:
-            col1=img.pixel(P->getx()-offset,P->gety()+P->geth()/2);
-            col2=img.pixel(P->getx()-offset,P->gety());
-            col3=img.pixel(P->getx()-offset,P->gety()+P->geth());
+            if(img.valid(P->getx()-offset,P->gety())){
+                col1=img.pixel(P->getx()-offset,P->gety()+P->geth()/2);
+                col2=img.pixel(P->getx()-offset,P->gety());
+                col3=img.pixel(P->getx()-offset,P->gety()+P->geth());
+            }
             if(P->getx()-offset>0){
                 if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->setx(P->getx()-offset);
@@ -71,9 +73,11 @@ void Affichage::pos(){
             P->getgobj()->setPos(P->getx(),P->gety());
             break;
         case up:            
-            col1=img.pixel(P->getx(),P->gety()-offset);
-            col2=img.pixel(P->getx()+P->getw()/2,P->gety()-offset);
-            col3=img.pixel(P->getx()+P->getw(),P->gety()-offset);
+            if(img.valid(P->getx(),P->gety()-offset)){
+                col1=img.pixel(P->getx(),P->gety()-offset);
+                col2=img.pixel(P->getx()+P->getw()/2,P->gety()-offset);
+                col3=img.pixel(P->getx()+P->getw(),P->gety()-offset);
+            }
             if(P->gety()-offset>0){
                 if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
                     P->sety(P->gety()-offset);
