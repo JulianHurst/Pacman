@@ -17,8 +17,7 @@ public:
     ~MainWindow();
     void showEvent(QShowEvent *);
     void resizeEvent(QResizeEvent *);
-    void keyPressEvent(QKeyEvent *);
-    void keyReleaseEvent(QKeyEvent *);
+    void keyPressEvent(QKeyEvent *);    
     void mousePressEvent(QMouseEvent *);
 
 private:

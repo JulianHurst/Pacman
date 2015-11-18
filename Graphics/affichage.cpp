@@ -36,77 +36,69 @@ void Affichage::pos(){
     QImage img(l->getLab()->pixmap().toImage());
     QColor col1,col2,col3;
     switch(dpac){
-        case right:
-            if(img.valid(P->getx()+offset+P->getw(),P->gety())){
-                col1=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth()/2);
-                col2=img.pixel(P->getx()+offset+P->getw(),P->gety());
-                col3=img.pixel(P->getx()+offset+P->getw(),P->gety()+P->geth());
-            }
-            if(P->getx()+offset<w){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
-                    P->setx(P->getx()+offset);
-                    t_xoffset+=offset;
-                }
+        case right:            
+            if(P->getx()+offset<w){                
+                P->setx(P->getx()+offset);
+                t_xoffset+=offset;
             }
             else{
                 P->setx(0);
                 t_xoffset-=w;
             }
             P->getgobj()->setPos(P->getx(),P->gety());
-            break;
-        case left:
-            if(img.valid(P->getx()-offset,P->gety())){
-                col1=img.pixel(P->getx()-offset,P->gety()+P->geth()/2);
-                col2=img.pixel(P->getx()-offset,P->gety());
-                col3=img.pixel(P->getx()-offset,P->gety()+P->geth());
+            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
+                P->setx(P->getx()-1);
+                t_xoffset--;
+                P->getgobj()->setPos(P->getx(),P->gety());
             }
-            if(P->getx()-offset>0){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
-                    P->setx(P->getx()-offset);
-                    t_xoffset-=offset;
-                }
+            break;
+        case left:            
+            if(P->getx()-offset>0){                
+                P->setx(P->getx()-offset);
+                t_xoffset-=offset;
             }
             else{
                 P->setx(w);
                 t_xoffset+=w;
             }
             P->getgobj()->setPos(P->getx(),P->gety());
-            break;
-        case up:            
-            if(img.valid(P->getx(),P->gety()-offset)){
-                col1=img.pixel(P->getx(),P->gety()-offset);
-                col2=img.pixel(P->getx()+P->getw()/2,P->gety()-offset);
-                col3=img.pixel(P->getx()+P->getw(),P->gety()-offset);
+            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
+                P->setx(P->getx()+1);
+                t_xoffset++;
+                P->getgobj()->setPos(P->getx(),P->gety());
             }
-            if(P->gety()-offset>0){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
-                    P->sety(P->gety()-offset);
-                    t_yoffset-=offset;
-                }
+            break;
+        case up:                        
+            if(P->gety()-offset>0){                
+                P->sety(P->gety()-offset);
+                t_yoffset-=offset;
             }
             else{
                 P->sety(h);
                 t_yoffset+=h;
             }
             P->getgobj()->setPos(P->getx(),P->gety());
-            break;
-        case down:
-            if(img.valid(P->getx(),P->gety()+offset+P->geth())){
-                col1=img.pixel(P->getx(),P->gety()+offset+P->geth());
-                col2=img.pixel(P->getx()+P->getw()/2,P->gety()+offset+P->geth());
-                col3=img.pixel(P->getx()+P->getw(),P->gety()+offset+P->geth());
+            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
+                P->sety(P->gety()+1);
+                t_yoffset++;
+                P->getgobj()->setPos(P->getx(),P->gety());
             }
-            if(P->gety()+offset<h){
-                if(col1.blue()==0 && col2.blue()==0 && col3.blue()==0){
-                    P->sety(P->gety()+offset);
-                    t_yoffset+=offset;
-                }
+            break;
+        case down:            
+            if(P->gety()+offset<h){               
+                P->sety(P->gety()+offset);
+                t_yoffset+=offset;
             }
             else{
                 P->sety(0);
                 t_yoffset-=h;
             }
             P->getgobj()->setPos(P->getx(),P->gety());
+            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
+                P->sety(P->gety()-1);
+                t_yoffset--;
+                P->getgobj()->setPos(P->getx(),P->gety());
+            }
             break;
         case none:
             break;
@@ -116,13 +108,13 @@ void Affichage::pos(){
         if(P->getlives()<0)
             qApp->quit();
         int lives=P->getlives();
-        l=new Labyrinthe(0,0,w,h);
+        gscene->removeItem(P->getgobj());
+        gscene->removeItem(F->getgobj());
         P = new Pacman(w/2,h/2+(0.15*h),w,h);
         P->setlives(lives);
-        F = new Fantome(w/2,h/2,w,h);
+        F = new Fantome(w/2,h/2,w,h);        
         gscene->setBackgroundBrush(Qt::black);
-        gscene->setItemIndexMethod(QGraphicsScene::NoIndex);
-        gscene->addItem(l->getLab());
+        gscene->setItemIndexMethod(QGraphicsScene::NoIndex);        
         gscene->addItem(P->getgobj());
         gscene->addItem(F->getgobj());
         dpac=none;
