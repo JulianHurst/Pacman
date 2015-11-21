@@ -35,6 +35,21 @@ void MainWindow::tick(){
         a->reinit();
 }
 
+void MainWindow::showEvent(QShowEvent *){
+    xperc+=a->getxoffset()/(float)a->getw();
+    yperc+=a->getyoffset()/(float)a->geth();
+    t_xoffset=xperc*(float)ui->graphicsView->width();
+    t_yoffset=yperc*(float)ui->graphicsView->height();
+    a->getPac()->setxoffset(t_xoffset);
+    a->getPac()->setyoffset(t_yoffset);
+    width=ui->graphicsView->width();
+    height=ui->graphicsView->height();
+    ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    ui->graphicsView->setSceneRect(0,0,1,1);
+    a->resize(width,height);
+    ui->graphicsView->setScene(a->getscene());
+}
+
 void MainWindow::resizeEvent(QResizeEvent *){        
     xperc+=a->getPac()->getxoffset()/(float)a->getw();
     yperc+=a->getPac()->getyoffset()/(float)a->geth();
@@ -43,7 +58,7 @@ void MainWindow::resizeEvent(QResizeEvent *){
     a->getPac()->setxoffset(t_xoffset);
     a->getPac()->setyoffset(t_yoffset);
     width=ui->graphicsView->width();
-    height=ui->graphicsView->height();
+    height=ui->graphicsView->height();    
     a->resize(width,height);
     ui->graphicsView->setScene(a->getscene());
 }
