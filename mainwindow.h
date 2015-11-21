@@ -28,9 +28,6 @@ private:
     Ui::MainWindow *ui;    
     Affichage *a;
     Collisions *c;
-    Pacman *P;
-    Fantome *F;
-    Labyrinthe *l;
     float xperc;
     float yperc;
     float t_xoffset;
