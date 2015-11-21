@@ -6,7 +6,8 @@
 class Fantome : public Personnage
 {
 public:
-    Fantome(float x,float y,int w,int h);
+    Fantome(float x, float y, float w, float h);
+    Fantome * resize(int w,int h);
 };
 
 #endif // FANTOME_H

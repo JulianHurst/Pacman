@@ -8,122 +8,53 @@
 
 using namespace std;
 
-Affichage::Affichage(int width,int height,direction dpac,float i_xoffset,float i_yoffset)
+Affichage::Affichage(int width,int height)
 {        
     t_xoffset=t_yoffset=0;
     w=width;
-    h=height;
-    if(width<=height)
-        offset=0.02*width;
-    else
-        offset=0.02*height;
-    this->dpac=dpac;
-    l=new Labyrinthe(0,0,width,height);
+    h=height;    
     gscene=new QGraphicsScene();    
-    P = new Pacman(width/2+i_xoffset,height/2+(0.15*h)+i_yoffset,w,h);
-    F = new Fantome(width/2,height/2,w,h);
+    l=new Labyrinthe(0,0,width,height);
+    P = new Pacman(width/2,height/2+(0.15*height),width,height);
+    F = new Fantome(width/2,height/2,width,height);
     gscene->setBackgroundBrush(Qt::black);
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
-    gscene->addItem(l->getLab());
+    gscene->addItem(l->getgobj());
     gscene->addItem(P->getgobj());
-    gscene->addItem(F->getgobj());
-    time=new QTimer(this);   
-    connect(time,SIGNAL(timeout()),this,SLOT(pos()));
-    time->start(40);
+    gscene->addItem(F->getgobj());    
 }
 
 void Affichage::pos(){
-    QImage img(l->getLab()->pixmap().toImage());
-    QColor col1,col2,col3;
-    switch(dpac){
-        case right:            
-            if(P->getx()+offset<w){                
-                P->setx(P->getx()+offset);
-                t_xoffset+=offset;
-            }
-            else{
-                P->setx(0);
-                t_xoffset-=w;
-            }
-            P->getgobj()->setPos(P->getx(),P->gety());
-            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
-                P->setx(P->getx()-1);
-                t_xoffset--;
-                P->getgobj()->setPos(P->getx(),P->gety());
-            }
-            break;
-        case left:            
-            if(P->getx()-offset>0){                
-                P->setx(P->getx()-offset);
-                t_xoffset-=offset;
-            }
-            else{
-                P->setx(w);
-                t_xoffset+=w;
-            }
-            P->getgobj()->setPos(P->getx(),P->gety());
-            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
-                P->setx(P->getx()+1);
-                t_xoffset++;
-                P->getgobj()->setPos(P->getx(),P->gety());
-            }
-            break;
-        case up:                        
-            if(P->gety()-offset>0){                
-                P->sety(P->gety()-offset);
-                t_yoffset-=offset;
-            }
-            else{
-                P->sety(h);
-                t_yoffset+=h;
-            }
-            P->getgobj()->setPos(P->getx(),P->gety());
-            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
-                P->sety(P->gety()+1);
-                t_yoffset++;
-                P->getgobj()->setPos(P->getx(),P->gety());
-            }
-            break;
-        case down:            
-            if(P->gety()+offset<h){               
-                P->sety(P->gety()+offset);
-                t_yoffset+=offset;
-            }
-            else{
-                P->sety(0);
-                t_yoffset-=h;
-            }
-            P->getgobj()->setPos(P->getx(),P->gety());
-            while(P->getgobj()->collidesWithItem(l->getLab(),Qt::IntersectsItemBoundingRect)){
-                P->sety(P->gety()-1);
-                t_yoffset--;
-                P->getgobj()->setPos(P->getx(),P->gety());
-            }
-            break;
-        case none:
-            break;
-    }
-    if(P->getgobj()->collidesWithItem(F->getgobj())){
-        P->die();
-        if(P->getlives()<0)
-            qApp->quit();
-        int lives=P->getlives();
-        gscene->removeItem(P->getgobj());
-        gscene->removeItem(F->getgobj());
-        P = new Pacman(w/2,h/2+(0.15*h),w,h);
-        P->setlives(lives);
-        F = new Fantome(w/2,h/2,w,h);        
-        gscene->setBackgroundBrush(Qt::black);
-        gscene->setItemIndexMethod(QGraphicsScene::NoIndex);        
-        gscene->addItem(P->getgobj());
-        gscene->addItem(F->getgobj());
-        dpac=none;
-        t_xoffset=t_yoffset=0;
-    }
+
+    P->move(l);    
+    F->move(l);
 }
 
-void Affichage::change_direction(direction d){   
-    dpac=d;    
+void Affichage::reinit(){
+    P->reinit();
+    F->reinit();
+}
+
+void Affichage::resize(int w,int h){
+    this->w=w;
+    this->h=h;
+    resizechildren();
+}
+
+void Affichage::resizechildren(){
+    gscene->removeItem(P->getgobj());
+    gscene->removeItem(F->getgobj());
+    gscene->removeItem(l->getgobj());
+    P=P->resize(w,h);
+    F=F->resize(w,h);
+    l=l->resize(w,h);
+    gscene->addItem(P->getgobj());
+    gscene->addItem(F->getgobj());
+    gscene->addItem(l->getgobj());
+}
+
+void Affichage::change_direction(Personnage::direction d){    
+    P->setdir(d);
 }
 
 QGraphicsScene *Affichage::getscene(){
@@ -150,6 +81,14 @@ Pacman *Affichage::getPac(){
     return P;
 }
 
-Affichage::direction Affichage::getdpac(){
+Labyrinthe *Affichage::getLab(){
+    return l;
+}
+
+Fantome *Affichage::getFan(){
+    return F;
+}
+
+Personnage::direction Affichage::getdpac(){
     return dpac;
 }
