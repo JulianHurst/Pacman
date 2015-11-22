@@ -29,9 +29,12 @@ int Labyrinthe::getY()
 {
     return y;
 }
+<<<<<<< HEAD
 
 QColor Labyrinthe::getCouleur()
 {
     return couleurMur;
 }
 
+=======
+>>>>>>> master

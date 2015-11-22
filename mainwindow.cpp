@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "Graphics/affichage.h"
+#include "Graphics/MoteurPhysique.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <QKeyEvent>
@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setFocus();
     t_xoffset=t_yoffset=xperc=yperc=0;
-    dpac=Affichage::none;
-    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,0,0);
+    dpac=MoteurPhysique::none;
+    a=new MoteurPhysique(ui->graphicsView->width(),ui->graphicsView->height(),dpac,0,0);
 }
 
 void MainWindow::showEvent(QShowEvent *){
@@ -26,7 +26,7 @@ void MainWindow::showEvent(QShowEvent *){
     dpac=a->getdpac();
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     ui->graphicsView->setSceneRect(0,0,1,1);
-    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,t_xoffset,t_yoffset);
+    a=new MoteurPhysique(ui->graphicsView->width(),ui->graphicsView->height(),dpac,t_xoffset,t_yoffset);
     ui->graphicsView->setScene(a->getscene());
 }
 
@@ -36,24 +36,23 @@ void MainWindow::resizeEvent(QResizeEvent *){
     t_xoffset=xperc*(float)ui->graphicsView->width();
     t_yoffset=yperc*(float)ui->graphicsView->height();
     dpac=a->getdpac();
-    a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height(),dpac,t_xoffset,t_yoffset);
+    a=new MoteurPhysique(ui->graphicsView->width(),ui->graphicsView->height(),dpac,t_xoffset,t_yoffset);
     ui->graphicsView->setScene(a->getscene());
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e){    
-    qDebug() << "Touche appuyee : " << e->text();
     switch(e->key()){
     case Qt::Key_Right:
-        a->change_direction(Affichage::right);
+        a->change_direction(MoteurPhysique::right);
         break;
     case Qt::Key_Left:
-        a->change_direction(Affichage::left);
+        a->change_direction(MoteurPhysique::left);
         break;
     case Qt::Key_Up:
-        a->change_direction(Affichage::up);
+        a->change_direction(MoteurPhysique::up);
         break;
     case Qt::Key_Down:
-        a->change_direction(Affichage::down);
+        a->change_direction(MoteurPhysique::down);
         break;
     case Qt::Key_Escape:
         qApp->quit();
@@ -65,9 +64,6 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
     }
 }
 
-void MainWindow::keyReleaseEvent(QKeyEvent *){
-    a->change_direction(Affichage::none);
-}
 
 void MainWindow::mousePressEvent(QMouseEvent *){
     this->setFocus();

@@ -1,12 +1,14 @@
-#ifndef AFFICHAGE_H
-#define AFFICHAGE_H
+#ifndef MoteurPhysique_H
+#define MoteurPhysique_H
 #include <QGraphicsScene>
 #include "../pacman.h"
 #include "../fantome.h"
 #include "../labyrinthe.h"
+#include "../croquette.h"
 #include <QTimer>
+#include <vector>
 
-class Affichage : public QObject
+class MoteurPhysique : public QObject
 {
     Q_OBJECT
 public:
@@ -17,9 +19,10 @@ public:
         down,
         none
     };
-    Affichage(int width, int height, direction dpac, float i_xoffset, float i_yoffset);
+    MoteurPhysique(int width, int height, direction dpac, float i_xoffset, float i_yoffset);
     QGraphicsScene *getscene();
     void change_direction(direction d);
+    void initialiseBonus();
     int getxoffset();
     int getyoffset();
     Pacman *getPac();
@@ -37,6 +40,7 @@ private:
     Pacman *P;
     Fantome *F;
     Labyrinthe *l;
+    std::vector <Croquette*> listeCroquette;
     direction dpac;
     int offset;
     int t_yoffset;
@@ -46,4 +50,4 @@ private:
     QTimer *time;
 };
 
-#endif // AFFICHAGE_H
+#endif // MoteurPhysique_H

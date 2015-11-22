@@ -2,6 +2,8 @@
     <qresource prefix="/Sprites/sprites.qrc">
         <file>res/labyrinthe_pac.png</file>
         <file>res/pac.png</file>
-        <file>res/ghost.png</file>
+        <file>res/labyrinthe_pac_port.png</file>
+        <file>res/pinky.png</file>
+        <file>res/croquette.png</file>
     </qresource>
 </RCC>

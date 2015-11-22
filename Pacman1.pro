@@ -14,18 +14,24 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    Graphics/affichage.cpp \
     pacman.cpp \
     labyrinthe.cpp \
     personnage.cpp \
-    fantome.cpp
+    fantome.cpp \
+    bonus.cpp \
+    modeleg.cpp \
+    Graphics/MoteurPhysique.cpp \
+    croquette.cpp
 
 HEADERS  += mainwindow.h \
-    Graphics/affichage.h \
     pacman.h \
     labyrinthe.h \
     personnage.h \
-    fantome.h
+    fantome.h \
+    bonus.h \
+    modeleg.h \
+    Graphics/MoteurPhysique.h \
+    croquette.h
 
 FORMS    += mainwindow.ui
 

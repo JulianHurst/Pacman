@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "Graphics/affichage.h"
+#include "Graphics/MoteurPhysique.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,18 +17,17 @@ public:
     ~MainWindow();
     void showEvent(QShowEvent *);
     void resizeEvent(QResizeEvent *);
-    void keyPressEvent(QKeyEvent *);
-    void keyReleaseEvent(QKeyEvent *);
+    void keyPressEvent(QKeyEvent *);    
     void mousePressEvent(QMouseEvent *);
 
 private:
     Ui::MainWindow *ui;    
-    Affichage *a;
+    MoteurPhysique *a;
     float xperc;
     float yperc;
     float t_xoffset;
     float t_yoffset;
-    Affichage::direction dpac;
+    MoteurPhysique::direction dpac;
 };
 
 #endif // MAINWINDOW_H

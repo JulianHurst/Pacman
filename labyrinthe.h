@@ -10,7 +10,10 @@ public:
     int getX();
     int getY();
     QGraphicsPixmapItem *getLab();
+<<<<<<< HEAD
     QColor getCouleur();
+=======
+>>>>>>> master
 
 private:
     int x;

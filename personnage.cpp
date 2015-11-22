@@ -6,7 +6,6 @@ Personnage::Personnage(float x, float y, int w, int h)
     this->y=y;
     this->w=w;
     this->h=h;
-
 }
 
 void Personnage::setx(float x){

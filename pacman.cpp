@@ -5,7 +5,8 @@ Pacman::Pacman(float x,float y,int w,int h)
 {    
     this->w=w*0.03;
     this->h=0.062*h;
-    this->x=x-this->w/2;    
+    this->x=x-this->w/2;
+    this->lives=3;
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();
     pac.load(":/Sprites/sprites.qrc/res/pac.png");
@@ -13,5 +14,14 @@ Pacman::Pacman(float x,float y,int w,int h)
     gobj->setPos(this->x,this->y);
 }
 
+void Pacman::die(){
+    lives--;
+}
 
+int Pacman::getlives(){
+    return lives;
+}
 
+void Pacman::setlives(int lives){
+    this->lives=lives;
+}
