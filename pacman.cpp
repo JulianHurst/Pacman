@@ -1,6 +1,7 @@
 #include "pacman.h"
 #include "fantome.h"
 #include <QDebug>
+#include <QMessageBox>
 
 Pacman::Pacman(float x,float y,double w,double h)
     :Personnage(x,y,w,h)
@@ -38,6 +39,10 @@ Pacman * Pacman::resize(int w,int h){
 
 void Pacman::CollisionFantome(){
     die();
-    if(lives==0)
-        qDebug() << "Plus de vies";                    
+    if(lives==0){
+        QMessageBox B;
+        B.setText("Vous n'avez plus de vies !");
+        B.setWindowTitle("Game Over");
+        B.exec();
+    }
 }
