@@ -104,6 +104,7 @@ void Personnage::move(Labyrinthe *l){
                 t_xoffset-=offset;
             }
             else{
+                qDebug() << "hi";
                 x=width;
                 t_xoffset+=width;
             }            

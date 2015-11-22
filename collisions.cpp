@@ -15,7 +15,7 @@ bool Collisions::colliding(Pacman *obj1,Fantome *obj2){
     return false;
 }
 
-void Collisions::colliding(Personnage *obj1, Labyrinthe *obj2){
+void Collisions::colliding(Personnage *obj1, Labyrinthe *obj2){    
     while(obj1->getgobj()->collidesWithItem(obj2->getgobj(),Qt::IntersectsItemBoundingRect))
         obj1->CollisionLab();
 }

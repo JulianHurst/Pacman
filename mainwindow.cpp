@@ -15,7 +15,12 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFocus();    
     width=ui->graphicsView->width();
     height=ui->graphicsView->height();
-    t_xoffset=t_yoffset=xperc=yperc=0;
+    t_xoffset=t_yoffset=0;
+    ppac.xperc=ppac.yperc=0;
+    pblinky.xperc=pblinky.yperc=0;
+    ppinky.xperc=ppinky.yperc=0;
+    pinky.xperc=pinky.yperc=0;
+    pclyde.xperc=pclyde.yperc=0;
     dpac=Personnage::none;    
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());
     c=new Collisions();
@@ -23,48 +28,52 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(time,SIGNAL(timeout()),this,SLOT(tick()));
     time->start(40);
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    ui->graphicsView->setSceneRect(0,0,1,1);
+    ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
+    //ui->graphicsView->setScene(a->getscene());
     ghost=1;
+    resizing=false;
 }
 
 void MainWindow::tick(){
-    a->pos();
-    c->colliding(a->getPac(),a->getLab());
-    //pour tous les fantômes
-    c->colliding(a->getPinky(),a->getLab());
-    c->colliding(a->getBlinky(),a->getLab());
-    c->colliding(a->getInky(),a->getLab());
-    c->colliding(a->getClyde(),a->getLab());
-    if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
-        a->reinit();
+    if(!resizing){
+        //qDebug() << "move";
+        a->pos();
+        c->colliding(a->getPac(),a->getLab());
+        //pour tous les fantômes
+        c->colliding(a->getPinky(),a->getLab());
+        c->colliding(a->getBlinky(),a->getLab());
+        c->colliding(a->getInky(),a->getLab());
+        c->colliding(a->getClyde(),a->getLab());
+        if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
+            a->reinit();
+    }
 }
 
 void MainWindow::showEvent(QShowEvent *){
-    xperc+=a->getxoffset()/(float)a->getw();
-    yperc+=a->getyoffset()/(float)a->geth();
-    t_xoffset=xperc*(float)ui->graphicsView->width();
-    t_yoffset=yperc*(float)ui->graphicsView->height();
-    a->getPac()->setxoffset(t_xoffset);
-    a->getPac()->setyoffset(t_yoffset);
+    QRectF bounds = a->getscene()->itemsBoundingRect();
+    ui->graphicsView->fitInView(bounds);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->centerOn(0,0);
+    width=ui->graphicsView->width();
+    height=ui->graphicsView->height();
+
     width=ui->graphicsView->width();
     height=ui->graphicsView->height();
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    ui->graphicsView->setSceneRect(0,0,1,1);
+    ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
     a->resize(width,height);
     ui->graphicsView->setScene(a->getscene());
 }
 
-void MainWindow::resizeEvent(QResizeEvent *){        
-    xperc+=a->getPac()->getxoffset()/(float)a->getw();
-    yperc+=a->getPac()->getyoffset()/(float)a->geth();
-    t_xoffset=xperc*(float)ui->graphicsView->width();
-    t_yoffset=yperc*(float)ui->graphicsView->height();
-    a->getPac()->setxoffset(t_xoffset);
-    a->getPac()->setyoffset(t_yoffset);
+void MainWindow::resizeEvent(QResizeEvent *){
+    QRectF bounds = a->getscene()->itemsBoundingRect();
+    ui->graphicsView->fitInView(bounds);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->centerOn(0,0);
     width=ui->graphicsView->width();
-    height=ui->graphicsView->height();    
-    a->resize(width,height);
-    ui->graphicsView->setScene(a->getscene());
+    height=ui->graphicsView->height();        
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e){
@@ -97,8 +106,8 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         qApp->quit();
         break;
     case Qt::Key_C:
-        qDebug() << a->getPac()->getx() << " " << a->getw();
-        qDebug() << a->getPac()->gety() << " " << a->geth();
+        qDebug() << a->getPinky()->getx() << " " << a->getw();
+        qDebug() << a->getPinky()->gety() << " " << a->geth();
         break;
     default:
         if(ghost==1)

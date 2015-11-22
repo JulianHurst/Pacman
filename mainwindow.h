@@ -29,14 +29,17 @@ private:
     Ui::MainWindow *ui;    
     Affichage *a;
     Collisions *c;
-    float xperc;
-    float yperc;
+    struct perc{
+        float xperc;
+        float yperc;
+    }ppac,pblinky,ppinky,pinky,pclyde;
     float t_xoffset;
     float t_yoffset;
     Personnage::direction dpac;
     QTimer *time;
     int width, height;
     int ghost;
+    bool resizing;
 };
 
 #endif // MAINWINDOW_H

@@ -20,7 +20,7 @@ Affichage::Affichage(int width,int height)
     Blinky = new Fantome((width/2)-(0.1*width),height/2,width,height,Fantome::blinky);
     Inky = new Fantome((width/2)-(0.1*width),height/2,width,height,Fantome::inky);
     Clyde = new Fantome((width/2)-(0.1*width),height/2,width,height,Fantome::clyde);
-    gscene->setBackgroundBrush(Qt::black);
+    gscene->setBackgroundBrush(Qt::black);    
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);    
     gscene->addItem(l->getgobj());
     gscene->addItem(P->getgobj());
@@ -66,12 +66,12 @@ void Affichage::resizechildren(){
     Inky=Inky->resize(w,h);
     Clyde=Clyde->resize(w,h);
     l=l->resize(w,h);
+    gscene->addItem(l->getgobj());
     gscene->addItem(P->getgobj());
     gscene->addItem(Pinky->getgobj());
     gscene->addItem(Blinky->getgobj());
     gscene->addItem(Inky->getgobj());
-    gscene->addItem(Clyde->getgobj());
-    gscene->addItem(l->getgobj());
+    gscene->addItem(Clyde->getgobj());    
 }
 
 void Affichage::change_direction(Personnage::direction d){    
