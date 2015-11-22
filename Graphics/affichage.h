@@ -35,7 +35,9 @@ public:
     static void pos();*/
 
 private:
-    QGraphicsScene *gscene;    
+    QGraphicsScene *gscene;
+    QGraphicsTextItem *Score;
+    QGraphicsTextItem *Lives;
     Pacman *P;
     Fantome *Pinky;
     Fantome *Blinky;

@@ -5,7 +5,7 @@ Fantome::Fantome(float x, float y, float w, float h,name N)
 {
     this->w=w*0.03;
     this->h=0.062*h;
-    this->y=y-this->h/2;
+    this->y=y-this->h/20+0.06*h;
     QPixmap ghost;
     gobj = new QGraphicsPixmapItem();
     this->N=N;
