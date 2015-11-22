@@ -24,14 +24,18 @@ MainWindow::MainWindow(QWidget *parent) :
     time->start(40);
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     ui->graphicsView->setSceneRect(0,0,1,1);
+    ghost=1;
 }
 
 void MainWindow::tick(){
     a->pos();
     c->colliding(a->getPac(),a->getLab());
-    c->colliding(a->getFan(),a->getLab());
     //pour tous les fantômes
-    if(c->colliding(a->getPac(),a->getFan()))
+    c->colliding(a->getPinky(),a->getLab());
+    c->colliding(a->getBlinky(),a->getLab());
+    c->colliding(a->getInky(),a->getLab());
+    c->colliding(a->getClyde(),a->getLab());
+    if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
         a->reinit();
 }
 
@@ -63,7 +67,7 @@ void MainWindow::resizeEvent(QResizeEvent *){
     ui->graphicsView->setScene(a->getscene());
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *e){    
+void MainWindow::keyPressEvent(QKeyEvent *e){
     switch(e->key()){
     case Qt::Key_Right:
         a->getPac()->setdir(Personnage::right);
@@ -76,18 +80,18 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         break;
     case Qt::Key_Down:
         a->getPac()->setdir(Personnage::down);
+        break;                   
+    case Qt::Key_1:
+        ghost=1;
         break;
-    case Qt::Key_D:
-        a->getFan()->setdir(Personnage::right);
+    case Qt::Key_2:
+        ghost=2;
         break;
-    case Qt::Key_Q:
-        a->getFan()->setdir(Personnage::left);
+    case Qt::Key_3:
+        ghost=3;
         break;
-    case Qt::Key_Z:
-        a->getFan()->setdir(Personnage::up);
-        break;
-    case Qt::Key_S:
-        a->getFan()->setdir(Personnage::down);
+    case Qt::Key_4:
+        ghost=4;
         break;
     case Qt::Key_Escape:
         qApp->quit();
@@ -96,6 +100,33 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         qDebug() << a->getPac()->getx() << " " << a->getw();
         qDebug() << a->getPac()->gety() << " " << a->geth();
         break;
+    default:
+        if(ghost==1)
+            moveGhost(e,Fantome::blinky);
+        else if(ghost==2)
+            moveGhost(e,Fantome::pinky);
+        else if(ghost==3)
+            moveGhost(e,Fantome::inky);
+        else
+            moveGhost(e,Fantome::clyde);
+        break;
+    }
+}
+
+void MainWindow::moveGhost(QKeyEvent *e,Fantome::name N){
+    switch(e->key()){
+        case Qt::Key_D:
+            a->getFan(N)->setdir(Personnage::right);
+            break;
+        case Qt::Key_Q:
+            a->getFan(N)->setdir(Personnage::left);
+            break;
+        case Qt::Key_Z:
+            a->getFan(N)->setdir(Personnage::up);
+            break;
+            case Qt::Key_S:
+            a->getFan(N)->setdir(Personnage::down);
+            break;
     }
 }
 

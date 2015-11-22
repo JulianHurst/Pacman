@@ -16,7 +16,11 @@ public:
     int getxoffset();
     int getyoffset();
     Pacman *getPac();
-    Fantome *getFan();
+    Fantome *getFan(Fantome::name N);
+    Fantome *getPinky();
+    Fantome *getBlinky();
+    Fantome *getInky();
+    Fantome *getClyde();
     Labyrinthe *getLab();
     Personnage::direction getdpac();
     int getw();
@@ -33,7 +37,10 @@ public:
 private:
     QGraphicsScene *gscene;    
     Pacman *P;
-    Fantome *F;
+    Fantome *Pinky;
+    Fantome *Blinky;
+    Fantome *Inky;
+    Fantome *Clyde;
     Labyrinthe *l;
     Personnage::direction dpac;
     int offset;

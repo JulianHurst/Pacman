@@ -20,6 +20,7 @@ public:
     void resizeEvent(QResizeEvent *);
     void keyPressEvent(QKeyEvent *);    
     void mousePressEvent(QMouseEvent *);
+    void moveGhost(QKeyEvent *e,Fantome::name N);
 
 public slots:
     void tick();
@@ -35,6 +36,7 @@ private:
     Personnage::direction dpac;
     QTimer *time;
     int width, height;
+    int ghost;
 };
 
 #endif // MAINWINDOW_H
