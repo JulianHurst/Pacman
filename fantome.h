@@ -6,7 +6,18 @@
 class Fantome : public Personnage
 {
 public:
-    Fantome(float x,float y,int w,int h);
+    enum name{
+        blinky,
+        pinky,
+        inky,
+        clyde
+    };
+    Fantome(float x, float y, float w, float h, name N);
+    name getName();
+    Fantome * resize(int w,int h);
+
+private:
+    name N;
 };
 
 #endif // FANTOME_H

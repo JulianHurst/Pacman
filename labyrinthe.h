@@ -9,11 +9,16 @@ public:
     Labyrinthe(float, float, int, int);
     int getX();
     int getY();
-    QGraphicsPixmapItem *getLab();
+    int getW();
+    int getH();
+    QGraphicsPixmapItem *getgobj();
+    Labyrinthe * resize(int w,int h);
 
 private:
     int x;
     int y;
+    int w;
+    int h;
     QGraphicsPixmapItem *lab;
 };
 

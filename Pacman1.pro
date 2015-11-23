@@ -18,14 +18,16 @@ SOURCES += main.cpp\
     pacman.cpp \
     labyrinthe.cpp \
     personnage.cpp \
-    fantome.cpp
+    fantome.cpp \
+    collisions.cpp
 
 HEADERS  += mainwindow.h \
     Graphics/affichage.h \
     pacman.h \
     labyrinthe.h \
     personnage.h \
-    fantome.h
+    fantome.h \
+    collisions.h
 
 FORMS    += mainwindow.ui
 
