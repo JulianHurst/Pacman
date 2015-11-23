@@ -36,7 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::tick(){
     if(!resizing){
-        //qDebug() << "move";
         a->pos();
         c->colliding(a->getPac(),a->getLab());
         //pour tous les fantômes
