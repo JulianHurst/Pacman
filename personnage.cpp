@@ -6,8 +6,7 @@ Personnage::Personnage(float x, float y, int w, int h)
     if(w<=h)
         offset=0.02*w;
     else
-        offset=0.02*h;
-    t_xoffset=t_yoffset=0;
+        offset=0.02*h;    
     this->x=x;
     this->y=y;
     this->w=w;
@@ -35,14 +34,6 @@ void Personnage::setdir(direction dir){
     this->dir=dir;
 }
 
-void Personnage::setxoffset(int x){
-    t_xoffset=x;
-}
-
-void Personnage::setyoffset(int y){
-    t_yoffset=y;
-}
-
 float Personnage::getx(){
     return x;
 }
@@ -67,18 +58,9 @@ QGraphicsPixmapItem *Personnage::getgobj(){
     return gobj;
 }
 
-int Personnage::getxoffset(){
-    return t_xoffset;
-}
-
-int Personnage::getyoffset(){
-    return t_yoffset;
-}
-
 void Personnage::reinit(){
     x=initx;
-    y=inity;
-    t_xoffset=t_yoffset=0;
+    y=inity;    
     setdir(none);
     getgobj()->setPos(x,y);
 }
@@ -90,43 +72,34 @@ void Personnage::move(Labyrinthe *l){
     switch(dir){
         case right:
             if(x+offset<width){
-                x+=offset;
-                t_xoffset+=offset;
+                x+=offset;                
             }
             else{
-                x=0;
-                t_xoffset-=width;
+                x=0;                
             }                     
             break;
         case left:
             if(x-offset>0){
-                x-=offset;
-                t_xoffset-=offset;
+                x-=offset;                
             }
-            else{
-                qDebug() << "hi";
-                x=width;
-                t_xoffset+=width;
+            else{                
+                x=width;                
             }            
             break;
         case up:
             if(y-offset>0){
-                y-=offset;
-                t_yoffset-=offset;
+                y-=offset;                
             }
             else{
-                y=height;
-                t_yoffset+=height;
+                y=height;                
             }            
             break;
         case down:
             if(y+offset<height){
-                y+=offset;
-                t_yoffset+=offset;
+                y+=offset;                
             }
             else{
-                y=0;
-                t_yoffset-=height;
+                y=0;                
             }            
             break;
         case none:
@@ -139,19 +112,15 @@ void Personnage::CollisionLab(){
     switch(dir){
         case right:
             x--;
-            t_xoffset--;
             break;
         case left:
-            x++;
-            t_xoffset++;
+            x++;            
             break;
         case up:
-            y++;
-            t_yoffset++;
+            y++;            
             break;
         case down:
-            y--;
-            t_yoffset--;
+            y--;            
             break;
         case none:
             break;

@@ -15,37 +15,27 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFocus();    
     width=ui->graphicsView->width();
     height=ui->graphicsView->height();
-    t_xoffset=t_yoffset=0;
-    ppac.xperc=ppac.yperc=0;
-    pblinky.xperc=pblinky.yperc=0;
-    ppinky.xperc=ppinky.yperc=0;
-    pinky.xperc=pinky.yperc=0;
-    pclyde.xperc=pclyde.yperc=0;
-    dpac=Personnage::none;    
+    t_xoffset=t_yoffset=0;      
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());
     c=new Collisions();
     time=new QTimer(this);
     connect(time,SIGNAL(timeout()),this,SLOT(tick()));
     time->start(40);
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
-    //ui->graphicsView->setScene(a->getscene());
-    ghost=1;
-    resizing=false;
+    ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());    
+    ghost=1;    
 }
 
-void MainWindow::tick(){
-    if(!resizing){
-        a->pos();
-        c->colliding(a->getPac(),a->getLab());
-        //pour tous les fantômes
-        c->colliding(a->getPinky(),a->getLab());
-        c->colliding(a->getBlinky(),a->getLab());
-        c->colliding(a->getInky(),a->getLab());
-        c->colliding(a->getClyde(),a->getLab());
-        if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
-            a->reinit();
-    }
+void MainWindow::tick(){    
+    a->pos();
+    c->colliding(a->getPac(),a->getLab());
+    //pour tous les fantômes
+    c->colliding(a->getPinky(),a->getLab());
+    c->colliding(a->getBlinky(),a->getLab());
+    c->colliding(a->getInky(),a->getLab());
+    c->colliding(a->getClyde(),a->getLab());
+    if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
+        a->reinit();
 }
 
 void MainWindow::showEvent(QShowEvent *){

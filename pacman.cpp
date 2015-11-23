@@ -32,7 +32,7 @@ void Pacman::setlives(int lives){
 }
 
 Pacman * Pacman::resize(int w,int h){
-    Pacman *P=new Pacman(w/2+t_xoffset,h/2+t_yoffset+(0.15*h),w,h);
+    Pacman *P=new Pacman(w/2,h/2+(0.15*h),w,h);
     P->setdir(this->dir);
     return P;
 }

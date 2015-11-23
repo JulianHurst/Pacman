@@ -38,7 +38,7 @@ Fantome::name Fantome::getName(){
 }
 
 Fantome * Fantome::resize(int w,int h){
-    Fantome *P=new Fantome(w/2+t_xoffset,h/2+t_yoffset,w,h,this->N);
+    Fantome *P=new Fantome(w/2,h/2,w,h,this->N);
     P->setdir(this->dir);
     return P;
 }

@@ -25,11 +25,7 @@ public:
     void setw(int w);
     void seth(int h);
     void setdir(direction dir);
-    void setxoffset(int x);
-    void setyoffset(int y);
-    QGraphicsPixmapItem *getgobj();
-    int getxoffset();
-    int getyoffset();
+    QGraphicsPixmapItem *getgobj();    
     void reinit();
     void move(Labyrinthe *l);        
     void CollisionLab();
@@ -41,8 +37,6 @@ protected:
     int x,y;
     int w,h;
     int offset;
-    int t_xoffset;
-    int t_yoffset;
     int initx,inity;
     direction dir;
 };
