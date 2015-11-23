@@ -2,6 +2,12 @@
 #include "fantome.h"
 #include <QDebug>
 
+Pacman::Pacman():
+    Personnage()
+{
+    gobj = new QGraphicsPixmapItem();
+}
+
 Pacman::Pacman(float x,float y,double w,double h)
     :Personnage(x,y,w,h)
 {    

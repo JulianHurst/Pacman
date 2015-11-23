@@ -1,6 +1,10 @@
 #include "personnage.h"
 #include <QDebug>
 
+Personnage::Personnage(){
+    this->dir=none;
+}
+
 Personnage::Personnage(float x, float y, int w, int h)
 {
     if(w<=h)
@@ -127,4 +131,3 @@ void Personnage::CollisionLab(){
     }
     getgobj()->setPos(x,y);
 }
-

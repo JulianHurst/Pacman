@@ -8,5 +8,6 @@
         <file>res/clyde.png</file>
         <file>res/inky.png</file>
         <file>res/pacright1.png</file>
+        <file>res/bille.png</file>
     </qresource>
 </RCC>

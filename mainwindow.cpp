@@ -23,7 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     time->start(40);
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());    
-    ghost=1;    
+    ghost=1;
+    ui->graphicsView->setScene(a->getscene());
 }
 
 void MainWindow::tick(){    
@@ -46,13 +47,9 @@ void MainWindow::showEvent(QShowEvent *){
     ui->graphicsView->centerOn(0,0);
     width=ui->graphicsView->width();
     height=ui->graphicsView->height();
-
-    width=ui->graphicsView->width();
-    height=ui->graphicsView->height();
     ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
-    a->resize(width,height);
-    ui->graphicsView->setScene(a->getscene());
+    a->show(width,height);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *){
@@ -136,5 +133,8 @@ void MainWindow::mousePressEvent(QMouseEvent *){
 
 MainWindow::~MainWindow()
 {
+    delete a;
+    delete c;
+    delete time;
     delete ui;
 }

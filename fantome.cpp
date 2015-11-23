@@ -1,5 +1,12 @@
 #include "fantome.h"
 
+Fantome::Fantome(Fantome::name N):
+    Personnage()
+{
+    this->N=N;
+    gobj=new QGraphicsPixmapItem();
+}
+
 Fantome::Fantome(float x, float y, float w, float h,name N)
     :Personnage(x,y,w,h)
 {

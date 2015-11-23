@@ -10,37 +10,24 @@
 using namespace std;
 
 Affichage::Affichage(int width,int height)
-{        
-    t_xoffset=t_yoffset=0;
+{            
     w=width;
     h=height;    
     gscene=new QGraphicsScene();        
     Score=new QGraphicsTextItem("Score : 0");
     l=new Labyrinthe(0,0,width,height);
-    P = new Pacman(width/2,height/2+(0.15*height),width,height);
-    Pinky = new Fantome(width/2,height/2,width,height,Fantome::pinky);
-    Blinky = new Fantome((width/2)-(0.1*width),height/2,width,height,Fantome::blinky);
-    Inky = new Fantome((width/2)-(0.1*width),height/2,width,height,Fantome::inky);
-    Clyde = new Fantome((width/2)-(0.1*width),height/2,width,height,Fantome::clyde);    
-    QString S;
-    S="Vies : ";
-    S.append(QString::number(P->getlives()));
-    Lives=new QGraphicsTextItem();
-    Lives->setPlainText(S);
+    P = new Pacman();
+    Pinky = new Fantome(Fantome::pinky);
+    Blinky = new Fantome(Fantome::blinky);
+    Inky = new Fantome(Fantome::inky);
+    Clyde = new Fantome(Fantome::clyde);        
+    Lives=new QGraphicsTextItem();    
     Score->setPos(0,0);
     Score->setDefaultTextColor(Qt::red);
     Lives->setPos(w+w*0.20,0);
     Lives->setDefaultTextColor(Qt::red);
     gscene->setBackgroundBrush(Qt::black);    
-    gscene->setItemIndexMethod(QGraphicsScene::NoIndex);            
-    gscene->addItem(l->getgobj());
-    gscene->addItem(P->getgobj());
-    gscene->addItem(Pinky->getgobj());
-    gscene->addItem(Blinky->getgobj());
-    gscene->addItem(Inky->getgobj());
-    gscene->addItem(Clyde->getgobj());
-    gscene->addItem(Score);
-    gscene->addItem(Lives);
+    gscene->setItemIndexMethod(QGraphicsScene::NoIndex);
 }
 
 void Affichage::pos(){
@@ -69,35 +56,31 @@ void Affichage::reinit(){
     }
 }
 
-void Affichage::resize(int w,int h){
+void Affichage::show(int w,int h){
     this->w=w;
     this->h=h;
-    resizechildren();
+    showchildren();
 }
 
-void Affichage::resizechildren(){
-    gscene->removeItem(P->getgobj());
-    gscene->removeItem(Pinky->getgobj());
-    gscene->removeItem(Blinky->getgobj());
-    gscene->removeItem(Inky->getgobj());
-    gscene->removeItem(Clyde->getgobj());
-    gscene->removeItem(l->getgobj());
-    gscene->removeItem(Score);
-    gscene->removeItem(Lives);
+void Affichage::showchildren(){
+    QString S;
+    S="Vies : ";
     P=P->resize(w,h);
     Pinky=Pinky->resize(w,h);
     Blinky=Blinky->resize(w,h);
     Inky=Inky->resize(w,h);
     Clyde=Clyde->resize(w,h);
     l=l->resize(w,h);
-    gscene->addItem(l->getgobj());
+    S.append(QString::number(P->getlives()));
+    Lives->setPlainText(S);
+    gscene->addItem(l->getgobj());    
     gscene->addItem(P->getgobj());
     gscene->addItem(Pinky->getgobj());
     gscene->addItem(Blinky->getgobj());
     gscene->addItem(Inky->getgobj());
     gscene->addItem(Clyde->getgobj());    
     gscene->addItem(Score);
-    gscene->addItem(Lives);
+    gscene->addItem(Lives); 
 }
 
 void Affichage::change_direction(Personnage::direction d){    
@@ -106,14 +89,6 @@ void Affichage::change_direction(Personnage::direction d){
 
 QGraphicsScene *Affichage::getscene(){
     return gscene;
-}
-
-int Affichage::getxoffset(){
-    return t_xoffset;
-}
-
-int Affichage::getyoffset(){
-    return t_yoffset;
 }
 
 int Affichage::getw(){
@@ -126,6 +101,14 @@ int Affichage::geth(){
 
 Pacman *Affichage::getPac(){
     return P;
+}
+
+QGraphicsTextItem *Affichage::getScore(){
+    return Score;
+}
+
+QGraphicsTextItem *Affichage::getLives(){
+    return Lives;
 }
 
 Fantome *Affichage::getFan(Fantome::name N){
@@ -159,6 +142,13 @@ Fantome *Affichage::getClyde(){
     return Clyde;
 }
 
-Personnage::direction Affichage::getdpac(){
-    return dpac;
+Affichage::~Affichage(){
+    delete P;
+    delete Blinky;
+    delete Pinky;
+    delete Inky;
+    delete Clyde;
+    delete Score;
+    delete Lives;
+
 }

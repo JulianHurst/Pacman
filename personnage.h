@@ -14,6 +14,8 @@ public:
         down,
         none
     };
+    Personnage();
+    virtual ~Personnage(){delete gobj;}
     Personnage(float x, float y, int w, int h);
     float getx();
     float gety();
