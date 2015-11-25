@@ -8,7 +8,7 @@ Fantome::Fantome(Fantome::name N):
 }
 
 /**
- * @brief Fantome::Fantome prépare l'affichage des fantômes
+ * @brief Fantome::Fantome constructeur avec paramètre des fantômes
  * @param x Position sur la largeur du fantôme
  * @param y Position sur la hauteur du fantôme
  * @param w Taille en largeur du fantôme
