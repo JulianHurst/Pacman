@@ -10,35 +10,37 @@ class Affichage : public QObject
 {
     Q_OBJECT
 public:
-    enum direction{
-        right,
-        left,
-        up,
-        down,
-        none
-    };
-    Affichage(int width, int height, direction dpac, float i_xoffset, float i_yoffset);
+    Affichage(int width, int height);
+    ~Affichage();
     QGraphicsScene *getscene();
-    void change_direction(direction d);
-    int getxoffset();
-    int getyoffset();
+    void change_direction(Personnage::direction d);
     Pacman *getPac();
-    direction getdpac();
+    Fantome *getFan(Fantome::name N);
+    Fantome *getPinky();
+    Fantome *getBlinky();
+    Fantome *getInky();
+    Fantome *getClyde();
+    Labyrinthe *getLab();
+    QGraphicsTextItem *getScore();
+    QGraphicsTextItem *getLives();
+    Personnage::direction getdpac();
     int getw();
     int geth();
-
-public slots:
+    void reinit();
     void pos();
+    void show(int w,int h);
+    void showchildren();
 
 private:
-    QGraphicsScene *gscene;    
+    QGraphicsScene *gscene;
+    QGraphicsTextItem *Score;
+    QGraphicsTextItem *Lives;
     Pacman *P;
-    Fantome *F;
-    Labyrinthe *l;
-    direction dpac;
-    int offset;
-    int t_yoffset;
-    int t_xoffset;
+    Fantome *Pinky;
+    Fantome *Blinky;
+    Fantome *Inky;
+    Fantome *Clyde;
+    Labyrinthe *l;     
     int w;
     int h;
     QTimer *time;

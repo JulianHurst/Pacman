@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Graphics/affichage.h"
+#include "collisions.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,21 +15,25 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    ~MainWindow();    
     void showEvent(QShowEvent *);
     void resizeEvent(QResizeEvent *);
-    void keyPressEvent(QKeyEvent *);
-    void keyReleaseEvent(QKeyEvent *);
+    void keyPressEvent(QKeyEvent *);    
     void mousePressEvent(QMouseEvent *);
+    void moveGhost(QKeyEvent *e,Fantome::name N);
+
+public slots:
+    void tick();
 
 private:
     Ui::MainWindow *ui;    
     Affichage *a;
-    float xperc;
-    float yperc;
+    Collisions *c;
     float t_xoffset;
-    float t_yoffset;
-    Affichage::direction dpac;
+    float t_yoffset;    
+    QTimer *time;
+    int width, height;
+    int ghost;    
 };
 
 #endif // MAINWINDOW_H
