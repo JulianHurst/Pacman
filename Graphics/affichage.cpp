@@ -20,7 +20,7 @@ Affichage::Affichage(int width,int height)
     Pinky = new Fantome(Fantome::pinky);
     Blinky = new Fantome(Fantome::blinky);
     Inky = new Fantome(Fantome::inky);
-    Clyde = new Fantome(Fantome::clyde);        
+    Clyde = new Fantome(Fantome::clyde);
     Lives=new QGraphicsTextItem();    
     Score->setPos(0,0);
     Score->setDefaultTextColor(Qt::red);
@@ -53,6 +53,12 @@ void Affichage::reinit(){
         B.setText("Vous n'avez plus de vies !");
         B.setWindowTitle("Game Over");
         B.exec();
+        gscene->removeItem(P->getgobj());
+        P=new Pacman(w/2,h/2);
+        gscene->addItem(P->getgobj());
+        S="Vies : ";
+        S.append(QString::number(P->getlives()));
+        Lives->setPlainText(S);
     }
 }
 
@@ -78,9 +84,12 @@ void Affichage::showchildren(){
     gscene->addItem(Pinky->getgobj());
     gscene->addItem(Blinky->getgobj());
     gscene->addItem(Inky->getgobj());
-    gscene->addItem(Clyde->getgobj());    
+    gscene->addItem(Clyde->getgobj());
     gscene->addItem(Score);
-    gscene->addItem(Lives); 
+    gscene->addItem(Lives);
+    B=new BilleArray(104,26,8.3,10,l);
+    for(int i=0;i<B->getlength();i++)
+        gscene->addItem(B->at(i)->getgobj());
 }
 
 void Affichage::change_direction(Personnage::direction d){    

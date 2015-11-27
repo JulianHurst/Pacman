@@ -8,9 +8,9 @@ Personnage::Personnage(){
 Personnage::Personnage(float x, float y)
 {
     if(w<=h)
-        offset=3;
+        offset=2;
     else
-        offset=3;
+        offset=2;
     this->x=x;
     this->y=y;   
     dir=none;    

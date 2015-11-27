@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include "../pacman.h"
 #include "../fantome.h"
+#include "../billearray.h"
 #include "../labyrinthe.h"
 #include <QTimer>
 
@@ -40,6 +41,7 @@ private:
     Fantome *Blinky;
     Fantome *Inky;
     Fantome *Clyde;
+    BilleArray *B;
     Labyrinthe *l;     
     int w;
     int h;

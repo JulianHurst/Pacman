@@ -10,31 +10,31 @@ Fantome::Fantome(Fantome::name N):
 Fantome::Fantome(float x, float y,name N)
     :Personnage(x,y)
 {
-    this->w=13;//w*0.03;
-    this->h=13;//0.062*h;
-    this->y+=20;//y-this->h/20+0.06*h;
+    this->w=8;//w*0.03;
+    this->h=8;//0.062*h;
+    this->y-=8;//y-this->h/20+0.06*h;
     QPixmap ghost;
     gobj = new QGraphicsPixmapItem();
     this->N=N;
     switch(this->N){
         case blinky:
             ghost.load(":/Sprites/sprites.qrc/res/blinky.png");
-            this->x=x+this->w*2;
+            this->x+=10;
         break;
         case pinky:
             ghost.load(":/Sprites/sprites.qrc/res/pinky.png");
-            this->x=x+this->w/2;
+            //this->x;
         break;
         case inky:
             ghost.load(":/Sprites/sprites.qrc/res/inky.png");
-            this->x=x-this->w*1.5;
+            this->x-=9;
         break;
         case clyde:
             ghost.load(":/Sprites/sprites.qrc/res/clyde.png");
-            this->x=x-this->w*3;
+            this->x=x-this->w*2.2;
         break;
     }
-    gobj->setPixmap(ghost.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::FastTransformation));
+    gobj->setPixmap(ghost.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
     gobj->setPos(this->x,this->y);
     initx=this->x;
     inity=this->y;

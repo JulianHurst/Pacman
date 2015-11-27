@@ -11,10 +11,10 @@ Pacman::Pacman():
 Pacman::Pacman(float x,float y)
     :Personnage(x,y)
 {    
-    this->w=13;
-    this->h=13;
+    this->w=8;
+    this->h=8;
     this->x=x-this->w/2;
-    this->y+=60;
+    this->y+=53;
     this->lives=3;    
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();

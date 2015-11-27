@@ -9,5 +9,7 @@
         <file>res/inky.png</file>
         <file>res/pacright1.png</file>
         <file>res/bille.png</file>
+        <file>res/maze.png</file>
+        <file>res/maze1.png</file>
     </qresource>
 </RCC>

@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     time=new QTimer(this);
     connect(time,SIGNAL(timeout()),this,SLOT(tick()));
     time->start(40);
-    ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    ui->graphicsView->setAlignment(Qt::AlignCenter);
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());    
     ghost=1;
     ui->graphicsView->setScene(a->getscene());
@@ -47,14 +47,14 @@ void MainWindow::showEvent(QShowEvent *){
     ui->graphicsView->centerOn(0,0);
     width=ui->graphicsView->width();
     height=ui->graphicsView->height();
-    ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    ui->graphicsView->setAlignment(Qt::AlignCenter);
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
     a->show(width,height);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *){
     QRectF bounds = a->getscene()->itemsBoundingRect();
-    ui->graphicsView->fitInView(bounds);
+    ui->graphicsView->fitInView(bounds,Qt::KeepAspectRatio);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->centerOn(0,0);
@@ -92,8 +92,8 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         qApp->quit();
         break;
     case Qt::Key_C:
-        qDebug() << a->getPinky()->getx() << " " << a->getw();
-        qDebug() << a->getPinky()->gety() << " " << a->geth();
+        qDebug() << a->getPac()->getx() << " " << a->getw();
+        qDebug() << a->getPac()->gety() << " " << a->geth();
         break;
     default:
         if(ghost==1)

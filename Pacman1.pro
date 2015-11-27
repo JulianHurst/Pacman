@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     labyrinthe.cpp \
     personnage.cpp \
     fantome.cpp \
-    collisions.cpp
+    collisions.cpp \
+    bille.cpp \
+    billearray.cpp
 
 HEADERS  += mainwindow.h \
     Graphics/affichage.h \
@@ -27,7 +29,9 @@ HEADERS  += mainwindow.h \
     labyrinthe.h \
     personnage.h \
     fantome.h \
-    collisions.h
+    collisions.h \
+    bille.h \
+    billearray.h
 
 FORMS    += mainwindow.ui
 
