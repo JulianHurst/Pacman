@@ -54,7 +54,7 @@ void Affichage::reinit(){
         B.setWindowTitle("Game Over");
         B.exec();
         gscene->removeItem(P->getgobj());
-        P=new Pacman(w/2,h/2+(0.15*h),w,h);
+        P=new Pacman(w/2,h/2);
         gscene->addItem(P->getgobj());
         S="Vies : ";
         S.append(QString::number(P->getlives()));
