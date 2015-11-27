@@ -16,7 +16,7 @@ public:
     };
     Personnage();
     virtual ~Personnage(){delete gobj;}
-    Personnage(float x, float y, int w, int h);
+    Personnage(float x, float y);
     float getx();
     float gety();
     int getw();
@@ -31,7 +31,7 @@ public:
     void reinit();
     void move(Labyrinthe *l);        
     void CollisionLab();
-    virtual Personnage * resize(int w,int h){return new Personnage(0,0,w,h);}
+    virtual Personnage * resize(int w,int h){return new Personnage(w/2,h/2);}
 
 
 protected:

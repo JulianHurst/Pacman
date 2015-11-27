@@ -5,16 +5,14 @@ Personnage::Personnage(){
     this->dir=none;
 }
 
-Personnage::Personnage(float x, float y, int w, int h)
+Personnage::Personnage(float x, float y)
 {
     if(w<=h)
-        offset=0.02*w;
+        offset=3;
     else
-        offset=0.02*h;    
+        offset=3;
     this->x=x;
-    this->y=y;
-    this->w=w;
-    this->h=h;
+    this->y=y;   
     dir=none;    
 }
 
