@@ -9,7 +9,7 @@ class Pacman : public Personnage
 {
 public:
     Pacman();
-    Pacman(float x, float y, double w, double h);
+    Pacman(float x, float y);
     void die();
     int getlives();
     void setlives(int lives);    

@@ -8,13 +8,13 @@ Pacman::Pacman():
     gobj = new QGraphicsPixmapItem();
 }
 
-Pacman::Pacman(float x,float y,double w,double h)
-    :Personnage(x,y,w,h)
+Pacman::Pacman(float x,float y)
+    :Personnage(x,y)
 {    
-    this->w=w*0.03;
-    this->h=0.062*h;
+    this->w=13;//w*0.03;
+    this->h=13;//0.062*h;
     this->x=x-this->w/2;
-    this->y+=0.08*h;
+    this->y+=20;
     this->lives=3;    
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();
@@ -38,7 +38,7 @@ void Pacman::setlives(int lives){
 }
 
 Pacman * Pacman::resize(int w,int h){
-    Pacman *P=new Pacman(w/2,h/2+(0.15*h),w,h);
+    Pacman *P=new Pacman(w/2,h/2+(0.15*h));
     P->setdir(this->dir);
     return P;
 }

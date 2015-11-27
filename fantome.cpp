@@ -7,12 +7,12 @@ Fantome::Fantome(Fantome::name N):
     gobj=new QGraphicsPixmapItem();
 }
 
-Fantome::Fantome(float x, float y, float w, float h,name N)
-    :Personnage(x,y,w,h)
+Fantome::Fantome(float x, float y,name N)
+    :Personnage(x,y)
 {
-    this->w=w*0.03;
-    this->h=0.062*h;
-    this->y=y-this->h/20+0.06*h;
+    this->w=13;//w*0.03;
+    this->h=13;//0.062*h;
+    this->y+=20;//y-this->h/20+0.06*h;
     QPixmap ghost;
     gobj = new QGraphicsPixmapItem();
     this->N=N;
@@ -45,7 +45,7 @@ Fantome::name Fantome::getName(){
 }
 
 Fantome * Fantome::resize(int w,int h){
-    Fantome *P=new Fantome(w/2,h/2,w,h,this->N);
+    Fantome *P=new Fantome(w/2,h/2,this->N);
     P->setdir(this->dir);
     return P;
 }
