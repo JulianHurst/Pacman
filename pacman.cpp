@@ -1,6 +1,11 @@
 #include "pacman.h"
 #include "fantome.h"
 #include <QDebug>
+#ifndef Q_OS_WIN32
+#define YAXIS 53
+#else
+#define YAXIS 50
+#endif
 
 Pacman::Pacman():
     Personnage()
@@ -14,7 +19,7 @@ Pacman::Pacman(float x,float y)
     this->w=8;
     this->h=8;
     this->x=x-this->w/2;
-    this->y+=50;
+    this->y+=YAXIS;
     this->lives=3;    
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();
