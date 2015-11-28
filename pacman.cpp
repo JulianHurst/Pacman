@@ -24,15 +24,33 @@ Pacman::Pacman(float x,float y)
     this->lives=3;    
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();
-    pac.load(":/Sprites/sprites.qrc/res/pac1.png");
-    gobj->setPixmap(pac.scaled(this->w,this->h,Qt::KeepAspectRatio,Qt::SmoothTransformation));
+    pac.load(":/Sprites/res/pac1.png");
+    gobj->setPixmap(pac.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
     gobj->setPos(this->x,this->y);
     initx=this->x;
     inity=this->y;
+    animleft=animright=animup=animdown=animdying=0;
+    power=false;
+    powertimer=0;
 }
 
 void Pacman::die(){
     lives--;
+}
+
+bool Pacman::getpower(){
+    return power;
+}
+
+void Pacman::powerup(){
+    power=true;
+    powertimer=50;
+}
+
+void Pacman::powerdown(){
+    powertimer--;
+    if(powertimer==0)
+        power=false;
 }
 
 int Pacman::getlives(){
@@ -50,5 +68,57 @@ Pacman * Pacman::resize(int w,int h){
 }
 
 void Pacman::CollisionFantome(){
-    die();    
+    if(!power)
+        die();
+}
+
+void Pacman::animate(){
+    QPixmap pac;
+    switch(dir){
+        case left:
+            if(animleft==0)
+                pac.load(":/Sprites/res/pacleft1.png");
+            else if(animleft==1){
+                pac.load(":/Sprites/res/pacleft2.png");
+                animleft=-1;
+            }
+            animleft++;
+            break;
+        case right:
+            if(animright==0)
+                pac.load(":/Sprites/res/pacright1.png");
+            else if(animright==1){
+                pac.load(":/Sprites/res/pacright2.png");
+                animright=-1;
+            }
+            animright++;
+            break;
+        case up:
+            if(animup==0)
+                pac.load(":/Sprites/res/pacup1.png");
+            else if(animup==1){
+                pac.load(":/Sprites/res/pacup2.png");
+                animup=-1;
+            }
+            animup++;
+            break;
+        case down:
+            if(animdown==0)
+                pac.load(":/Sprites/res/pacdown1.png");
+            else if(animdown==1){
+                pac.load(":/Sprites/res/pacdown2.png");
+                animdown=-1;
+            }
+            animdown++;
+            break;
+        case none:
+            animleft=animright=animup=animdown=animdying=0;
+            pac.load(":/Sprites/res/pac.png");
+            break;
+        default:
+            animleft=animright=animup=animdown=animdying=0;
+            pac.load(":/Sprites/res/pac.png");
+    }
+    gobj->setPixmap(pac.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+    gobj->setPos(this->x,this->y);
 }

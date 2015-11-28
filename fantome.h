@@ -15,10 +15,14 @@ public:
     Fantome(name N);
     Fantome(float x, float y, name N);
     name getName();
-    Fantome * resize(int w,int h);    
+    bool getblue();
+    Fantome * resize(int w,int h);
+    void blueon();
+    void blueoff();
 
 private:
-    name N;    
+    name N;
+    bool blue;
 };
 
 #endif // FANTOME_H

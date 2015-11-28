@@ -23,19 +23,18 @@ Fantome::Fantome(float x, float y,name N)
     this->N=N;
     switch(this->N){
         case blinky:
-            ghost.load(":/Sprites/sprites.qrc/res/blinky.png");
+            ghost.load(":/Sprites/res/blinky.png");
             this->x+=10;
         break;
         case pinky:
-            ghost.load(":/Sprites/sprites.qrc/res/pinky.png");
-            //this->x;
+            ghost.load(":/Sprites/res/pinky.png");
         break;
         case inky:
-            ghost.load(":/Sprites/sprites.qrc/res/inky.png");
+            ghost.load(":/Sprites/res/inky.png");
             this->x-=9;
         break;
         case clyde:
-            ghost.load(":/Sprites/sprites.qrc/res/clyde.png");
+            ghost.load(":/Sprites/res/clyde.png");
             this->x-=19;
         break;
     }    
@@ -43,6 +42,7 @@ Fantome::Fantome(float x, float y,name N)
     gobj->setPos(this->x,this->y);
     initx=this->x;
     inity=this->y;
+    blue=false;
 }
 
 Fantome::name Fantome::getName(){
@@ -53,4 +53,37 @@ Fantome * Fantome::resize(int w,int h){
     Fantome *P=new Fantome(w/2,h/2,this->N);
     P->setdir(this->dir);
     return P;
+}
+
+bool Fantome::getblue(){
+    return blue;
+}
+
+void Fantome::blueon(){
+    blue=true;
+    QPixmap ghost;
+    ghost.load(":/Sprites/res/blueghost.png");
+    gobj->setPixmap(ghost.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+    gobj->setPos(this->x,this->y);
+}
+
+void Fantome::blueoff(){
+    blue=false;
+    QPixmap ghost;
+    switch(this->N){
+        case blinky:
+            ghost.load(":/Sprites/res/blinky.png");
+        break;
+        case pinky:
+            ghost.load(":/Sprites/res/pinky.png");
+        break;
+        case inky:
+            ghost.load(":/Sprites/res/inky.png");
+        break;
+        case clyde:
+            ghost.load(":/Sprites/res/clyde.png");
+        break;
+    }
+    gobj->setPixmap(ghost.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+    gobj->setPos(this->x,this->y);
 }

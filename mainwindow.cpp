@@ -18,17 +18,20 @@ MainWindow::MainWindow(QWidget *parent) :
     t_xoffset=t_yoffset=0;      
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());
     c=new Collisions();
+    s=new Sound();
     time=new QTimer(this);
+    animtimer=new QTimer(this);
     connect(time,SIGNAL(timeout()),this,SLOT(tick()));
+    connect(animtimer,SIGNAL(timeout()),this,SLOT(animtick()));
     time->start(40);
+    animtimer->start(200);
     ui->graphicsView->setAlignment(Qt::AlignCenter);
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());    
-    ghost=1;
-    //score=new int;
+    ghost=1;    
     partie=0;
-    score.resize(partie+1,0);
-    //score.at(partie)=0;
-    ui->graphicsView->setScene(a->getscene());    
+    score.resize(partie+1,0);    
+    ui->graphicsView->setScene(a->getscene());
+    s->playintro();
 }
 
 void MainWindow::tick(){
@@ -40,19 +43,51 @@ void MainWindow::tick(){
     c->colliding(a->getBlinky(),a->getLab());
     c->colliding(a->getInky(),a->getLab());
     c->colliding(a->getClyde(),a->getLab());
-    if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
-        if(a->reinit()){
-            partie++;
-            score.resize(partie+1,0);
-            //score[partie]=0;
+    if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde())){
+        if(a->getPac()->getpower()){
+            if(c->colliding(a->getPac(),a->getBlinky()))
+                a->getBlinky()->reinit();
+            if(c->colliding(a->getPac(),a->getPinky()))
+                a->getPinky()->reinit();
+            if(c->colliding(a->getPac(),a->getInky()))
+                 a->getInky()->reinit();
+            if(c->colliding(a->getPac(),a->getClyde()))
+                 a->getClyde()->reinit();
+            score[partie]+=50;
+            a->updatescore(score[partie]);
         }
+        else{
+            s->playdying();
+            if(a->reinit()){
+                partie++;
+                score.resize(partie+1,0);
+            }
+        }
+    }
     if((i=c->colliding(a->getPac(),a->getBilleArray()))!=-1){
+        s->setchomploop(2);
+        if(s->getchomp()->isFinished())
+            s->playchomp();
+        if(a->getPac()->getpower())
+            a->blueghost(true);
         score[partie]+=10;
         if(a->removeBille(i,score[partie])){
             partie++;
             score.resize(partie+1,0);
         }
     }
+    else
+        s->setchomploop(0);
+}
+
+void MainWindow::animtick(){
+    a->animate();
+    if(a->getPac()->getpower()){
+        a->getPac()->powerdown();
+        if(!a->getPac()->getpower())
+            a->blueghost(false);
+    }
+
 }
 
 void MainWindow::showEvent(QShowEvent *){
@@ -79,51 +114,56 @@ void MainWindow::resizeEvent(QResizeEvent *){
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e){
-    switch(e->key()){
-    case Qt::Key_Right:
-        a->getPac()->setdir(Personnage::right);
-        break;
-    case Qt::Key_Left:
-        a->getPac()->setdir(Personnage::left);
-        break;
-    case Qt::Key_Up:
-        a->getPac()->setdir(Personnage::up);
-        break;
-    case Qt::Key_Down:
-        a->getPac()->setdir(Personnage::down);
-        break;                   
-    case Qt::Key_1:
-        ghost=1;
-        break;
-    case Qt::Key_2:
-        ghost=2;
-        break;
-    case Qt::Key_3:
-        ghost=3;
-        break;
-    case Qt::Key_4:
-        ghost=4;
-        break;
-    case Qt::Key_Return:
-        a->showscores(score);
-        break;
-    case Qt::Key_Escape:
-        qApp->quit();
-        break;
-    case Qt::Key_C:
-        qDebug() << a->getPac()->getx() << " " << a->getw();
-        qDebug() << a->getPac()->gety() << " " << a->geth();
-        break;
-    default:
-        if(ghost==1)
-            moveGhost(e,Fantome::blinky);
-        else if(ghost==2)
-            moveGhost(e,Fantome::pinky);
-        else if(ghost==3)
-            moveGhost(e,Fantome::inky);
-        else
-            moveGhost(e,Fantome::clyde);
-        break;
+    if(s->getintro()->isFinished() && s->getdying()->isFinished()){
+        Personnage::direction d=a->getPac()->getdir();
+        switch(e->key()){
+        case Qt::Key_Right:
+            a->getPac()->setdir(Personnage::right);
+            break;
+        case Qt::Key_Left:
+            a->getPac()->setdir(Personnage::left);
+            break;
+        case Qt::Key_Up:
+            a->getPac()->setdir(Personnage::up);
+            break;
+        case Qt::Key_Down:
+            a->getPac()->setdir(Personnage::down);
+            break;
+        case Qt::Key_1:
+            ghost=1;
+            break;
+        case Qt::Key_2:
+            ghost=2;
+            break;
+        case Qt::Key_3:
+            ghost=3;
+            break;
+        case Qt::Key_4:
+            ghost=4;
+            break;
+        case Qt::Key_Return:
+            a->showscores(score);
+            break;
+        case Qt::Key_Escape:
+            qApp->quit();
+            break;
+        case Qt::Key_C:
+            qDebug() << a->getPac()->getx() << " " << a->getw();
+            qDebug() << a->getPac()->gety() << " " << a->geth();
+            break;
+        default:
+            if(ghost==1)
+                moveGhost(e,Fantome::blinky);
+            else if(ghost==2)
+                moveGhost(e,Fantome::pinky);
+            else if(ghost==3)
+                moveGhost(e,Fantome::inky);
+            else
+                moveGhost(e,Fantome::clyde);
+            break;
+        }
+        if(d!=a->getPac()->getdir())
+            a->animate();
     }
 }
 

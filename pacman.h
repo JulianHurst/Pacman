@@ -15,9 +15,20 @@ public:
     void setlives(int lives);    
     void CollisionFantome();
     Pacman * resize(int w,int h);
+    bool getpower();
+    void powerup();
+    void powerdown();
+    void animate();
 
 private:
-    int lives;    
+    int lives;
+    bool power;
+    int powertimer;
+    int animleft;
+    int animright;
+    int animup;
+    int animdown;
+    int animdying;
 };
 
 #endif // PACMAN_H

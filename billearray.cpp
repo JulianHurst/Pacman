@@ -6,19 +6,23 @@ BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe
     int i=0;
     int j=217;
     B=new Bille*[j];
-    float inity=y;
+    float initx=x,inity=y;
     Bille *tmp;
     while(x<l->getW()){
         while(y<l->getH()){
-            tmp=new Bille(x,y);
+            tmp=new Bille(x,y,false);
             while((tmp->getgobj()->collidesWithItem(l->getgobj()) || tmp->getgobj()->collidesWithItem(P->getgobj()) ||
                    (F->gety()-8<y && F->gety()+8>y && F->getx()-30<x && F->getx()+16>x)) && y<l->getH()){
                 y+=yoffset;
                 tmp->sety(y);
                 tmp->getgobj()->setPos(x,y);
             }
-            if(y<l->getH()){                
-                B[i]= new Bille(tmp->getx(),tmp->gety());
+            if(y<l->getH()){
+                if((x==initx && y==inity) || (y==inity && x+xoffset+5>l->getW()) || (y+yoffset>l->getH() && x+xoffset+5>l->getW())
+                        || (x==initx && y+yoffset>l->getH()))
+                    B[i]= new Bille(tmp->getx(),tmp->gety(),true);
+                else
+                    B[i]= new Bille(tmp->getx(),tmp->gety(),false);
                 i++;
                 y+=yoffset;
 

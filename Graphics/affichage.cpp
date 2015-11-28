@@ -136,21 +136,25 @@ void Affichage::showchildren(){
 
 bool Affichage::removeBille(int i,int score){
     gscene->removeItem(B->at(i)->getgobj());
-    B->rearrange(i);
-    QString S;
-    S="Score : ";
-    S.append(QString::number(score));
-    Score->setPlainText(S);
+    B->rearrange(i);    
+    updatescore(score);
     this->score=score;
     if(B->getlength()==0){
         QMessageBox M;
-        M.setText("Gagné !");
+        M.setText("Gagné !\nScore : "+QString::number(score));
         M.setWindowTitle("Victoire !");
         M.exec();
         reset();
         return true;
     }
     return false;
+}
+
+void Affichage::updatescore(int score){
+    QString S;
+    S="Score : ";
+    S.append(QString::number(score));
+    Score->setPlainText(S);
 }
 
 void Affichage::showscores(std::vector<int> score){
@@ -164,6 +168,25 @@ void Affichage::showscores(std::vector<int> score){
     M.setText("Scores :\n"+S);
     M.setWindowTitle("Scores");
     M.exec();
+}
+
+void Affichage::animate(){
+ P->animate();
+}
+
+void Affichage::blueghost(bool blue){
+    if(blue){
+        Blinky->blueon();
+        Pinky->blueon();
+        Inky->blueon();
+        Clyde->blueon();
+    }
+    else{
+        Blinky->blueoff();
+        Pinky->blueoff();
+        Inky->blueoff();
+        Clyde->blueoff();
+    }
 }
 
 void Affichage::change_direction(Personnage::direction d){    

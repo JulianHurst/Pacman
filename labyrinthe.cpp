@@ -9,7 +9,7 @@ Labyrinthe::Labyrinthe(float x, float y, int width, int height)
     h=height-20;
     QPixmap gLab;    
     lab = new QGraphicsPixmapItem();
-    gLab.load(":/Sprites/sprites.qrc/res/maze1.png");
+    gLab.load(":/Sprites/res/maze.png");
     lab->setPixmap(gLab.scaled(w,h,Qt::KeepAspectRatio,Qt::SmoothTransformation));
     this->x+=w/2;
     this->y+=0.05*h;

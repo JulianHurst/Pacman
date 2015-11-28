@@ -35,6 +35,9 @@ public:
     void showchildren();
     void showscores(std::vector<int> score);
     void reset();
+    void animate();
+    void blueghost(bool blue);
+    void updatescore(int score);
 
 private:
     QGraphicsScene *gscene;
