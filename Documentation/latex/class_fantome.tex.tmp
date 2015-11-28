@@ -1,0 +1,121 @@
+\hypertarget{class_fantome}{}\section{Fantome Class Reference}
+\label{class_fantome}\index{Fantome@{Fantome}}
+
+
+Inheritance diagram for Fantome\+:
+% FIG 0
+
+
+Collaboration diagram for Fantome\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fantome_a4221ad1458bf13cefa0c33a477e548be}{}enum {\bfseries name} \{ {\bfseries blinky}, 
+{\bfseries pinky}, 
+{\bfseries inky}, 
+{\bfseries clyde}
+ \}\label{class_fantome_a4221ad1458bf13cefa0c33a477e548be}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fantome_ad5a64d4dcf429453c95dd01caf6b1d8f}{}{\bfseries Fantome} (name N)\label{class_fantome_ad5a64d4dcf429453c95dd01caf6b1d8f}
+
+\item 
+\hyperlink{class_fantome_a1e2a66978228bd309af600a7d7d3c9d8}{Fantome} (float x, float y, float w, float h, name N)
+\begin{DoxyCompactList}\small\item\em Fantome\+::\+Fantome prépare l\textquotesingle{}affichage des fantômes. \end{DoxyCompactList}\item 
+name \hyperlink{class_fantome_a531907b77cb6efebed53a67e0a66a12e}{get\+Name} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_fantome_a531907b77cb6efebed53a67e0a66a12e}{Fantome\+::get\+Name} renvoie le nom du fantôme. \end{DoxyCompactList}\item 
+\hyperlink{class_fantome}{Fantome} $\ast$ \hyperlink{class_fantome_aeed02df3c2f8a8942f88120a2722aabe}{resize} (int w, int h)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_fantome_aeed02df3c2f8a8942f88120a2722aabe}{Fantome\+::resize} redimensionnement du fantôme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_fantome_a1e2a66978228bd309af600a7d7d3c9d8}{}\index{Fantome@{Fantome}!Fantome@{Fantome}}
+\index{Fantome@{Fantome}!Fantome@{Fantome}}
+\subsubsection[{Fantome(float x, float y, float w, float h, name N)}]{\setlength{\rightskip}{0pt plus 5cm}Fantome\+::\+Fantome (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{w, }
+\item[{float}]{h, }
+\item[{name}]{N}
+\end{DoxyParamCaption}
+)}\label{class_fantome_a1e2a66978228bd309af600a7d7d3c9d8}
+
+
+Fantome\+::\+Fantome prépare l\textquotesingle{}affichage des fantômes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Position sur la largeur du fantôme \\
+\hline
+{\em y} & Position sur la hauteur du fantôme \\
+\hline
+{\em w} & Taille en largeur du fantôme \\
+\hline
+{\em h} & Taille en hauteur du fantôme \\
+\hline
+{\em N} & Nom du fantôme \\
+\hline
+\end{DoxyParams}
+$<$ redimensionnement du fantôme en largeur
+
+$<$ redimensionnement du fantôme en hauteur
+
+$<$ Evite l\textquotesingle{}initialisation dans un mur
+
+$<$ initialisation de la position sur x
+
+$<$ initialisation de la position sur y 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fantome_a531907b77cb6efebed53a67e0a66a12e}{}\index{Fantome@{Fantome}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Fantome@{Fantome}}
+\subsubsection[{get\+Name()}]{\setlength{\rightskip}{0pt plus 5cm}Fantome\+::name Fantome\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_fantome_a531907b77cb6efebed53a67e0a66a12e}
+
+
+\hyperlink{class_fantome_a531907b77cb6efebed53a67e0a66a12e}{Fantome\+::get\+Name} renvoie le nom du fantôme. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_fantome_aeed02df3c2f8a8942f88120a2722aabe}{}\index{Fantome@{Fantome}!resize@{resize}}
+\index{resize@{resize}!Fantome@{Fantome}}
+\subsubsection[{resize(int w, int h)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fantome} $\ast$ Fantome\+::resize (
+\begin{DoxyParamCaption}
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_fantome_aeed02df3c2f8a8942f88120a2722aabe}
+
+
+\hyperlink{class_fantome_aeed02df3c2f8a8942f88120a2722aabe}{Fantome\+::resize} redimensionnement du fantôme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & largeur du fantôme \\
+\hline
+{\em h} & hauteur du fantôme \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_personnage}{Personnage}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/fantome.\+h\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/fantome.\+cpp\end{DoxyCompactItemize}
