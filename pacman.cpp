@@ -14,7 +14,7 @@ Pacman::Pacman(float x,float y)
     this->w=8;
     this->h=8;
     this->x=x-this->w/2;
-    this->y+=53;
+    this->y+=50;
     this->lives=3;    
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();
