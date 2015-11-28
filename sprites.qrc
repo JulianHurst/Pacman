@@ -1,13 +1,25 @@
 <RCC>
-    <qresource prefix="/Sprites/sprites.qrc">
-        <file>res/labyrinthe_pac.png</file>
-        <file>res/pac.png</file>
-        <file>res/labyrinthe_pac_port.png</file>
+    <qresource prefix="/Sprites">
         <file>res/pinky.png</file>
         <file>res/blinky.png</file>
         <file>res/clyde.png</file>
         <file>res/inky.png</file>
         <file>res/pacright1.png</file>
         <file>res/bille.png</file>
+        <file>res/maze.png</file>
+        <file>res/pac1.png</file>
+        <file>res/pacdown1.png</file>
+        <file>res/pacdown2.png</file>
+        <file>res/pacleft1.png</file>
+        <file>res/pacleft2.png</file>
+        <file>res/pacright2.png</file>
+        <file>res/pacup1.png</file>
+        <file>res/pacup2.png</file>
+        <file>res/blueghost.png</file>
+    </qresource>
+    <qresource prefix="/Sounds">
+        <file>res/sound/pacman_beginning.wav</file>
+        <file>res/sound/pacman_death.wav</file>
+        <file>res/sound/chomp.wav</file>
     </qresource>
 </RCC>

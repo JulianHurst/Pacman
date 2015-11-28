@@ -5,13 +5,18 @@ Labyrinthe::Labyrinthe(float x, float y, int width, int height)
 {
     this->x=x;
     this->y=y;
-    w=width;
-    h=height;
+    w=width/2;
+    h=height-20;
     QPixmap gLab;    
     lab = new QGraphicsPixmapItem();
-    gLab.load(":/Sprites/sprites.qrc/res/labyrinthe_pac.png");
-    lab->setPixmap(gLab.scaled(w,h,Qt::IgnoreAspectRatio,Qt::FastTransformation));
-    lab->setPos(this->x,this->y+0.08*h);
+    gLab.load(":/Sprites/res/maze.png");
+    lab->setPixmap(gLab.scaled(w,h,Qt::KeepAspectRatio,Qt::SmoothTransformation));
+    this->x+=w/2;
+    this->y+=0.05*h;
+    lab->setPos(this->x,this->y);
+    w=this->x+w;
+    h=this->y+h-10;
+
 }
 
 QGraphicsPixmapItem *Labyrinthe::getgobj()

@@ -1,6 +1,7 @@
 #include "personnage.h"
 #include <QDebug>
 
+
 Personnage::Personnage(){
     this->dir=none;
 }
@@ -8,9 +9,9 @@ Personnage::Personnage(){
 Personnage::Personnage(float x, float y)
 {
     if(w<=h)
-        offset=3;
+        offset=2;
     else
-        offset=3;
+        offset=2;
     this->x=x;
     this->y=y;   
     dir=none;    
@@ -68,40 +69,37 @@ void Personnage::reinit(){
 }
 
 void Personnage::move(Labyrinthe *l){
-    int width,height;
-    width=l->getW();
-    height=l->getH();
     switch(dir){
         case right:
-            if(x+offset<width){
+            if(x+offset<l->getW()-w){
                 x+=offset;                
             }
             else{
-                x=0;                
+                x=l->getX();
             }                     
             break;
         case left:
-            if(x-offset>0){
+            if(x-offset>l->getX()){
                 x-=offset;                
             }
             else{                
-                x=width;                
+                x=l->getW();
             }            
             break;
         case up:
-            if(y-offset>0){
+            if(y-offset>l->getY()+h){
                 y-=offset;                
             }
             else{
-                y=height;                
+                y=l->getH();
             }            
             break;
         case down:
-            if(y+offset<height){
+            if(y+offset<l->getH()){
                 y+=offset;                
             }
             else{
-                y=0;                
+                y=l->getY()+h;
             }            
             break;
         case none:

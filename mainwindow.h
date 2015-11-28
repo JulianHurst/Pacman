@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "Graphics/affichage.h"
 #include "collisions.h"
+#include "sound.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,16 +25,21 @@ public:
 
 public slots:
     void tick();
+    void animtick();
 
 private:
     Ui::MainWindow *ui;    
     Affichage *a;
     Collisions *c;
+    Sound *s;
     float t_xoffset;
     float t_yoffset;    
     QTimer *time;
+    QTimer *animtimer;
     int width, height;
     int ghost;    
+    std::vector<int> score;
+    int partie;
 };
 
 #endif // MAINWINDOW_H
