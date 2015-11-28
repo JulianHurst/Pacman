@@ -1,6 +1,7 @@
 #include "personnage.h"
 #include <QDebug>
 
+
 Personnage::Personnage(){
     this->dir=none;
 }

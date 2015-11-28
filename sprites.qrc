@@ -11,5 +11,8 @@
         <file>res/bille.png</file>
         <file>res/maze.png</file>
         <file>res/maze1.png</file>
+        <file>res/pac1.png</file>
+        <file>res/pac2.png</file>
+        <file>res/pac3.png</file>
     </qresource>
 </RCC>

@@ -1,6 +1,7 @@
 #include "pacman.h"
 #include "fantome.h"
 #include <QDebug>
+#include <QPainter>
 #ifndef Q_OS_WIN32
 #define YAXIS 53
 #else
@@ -23,8 +24,8 @@ Pacman::Pacman(float x,float y)
     this->lives=3;    
     QPixmap pac;
     gobj = new QGraphicsPixmapItem();
-    pac.load(":/Sprites/sprites.qrc/res/pac.png");
-    gobj->setPixmap(pac.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::FastTransformation));
+    pac.load(":/Sprites/sprites.qrc/res/pac1.png");
+    gobj->setPixmap(pac.scaled(this->w,this->h,Qt::KeepAspectRatio,Qt::SmoothTransformation));
     gobj->setPos(this->x,this->y);
     initx=this->x;
     inity=this->y;

@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     partie=0;
     score.resize(partie+1,0);
     //score.at(partie)=0;
-    ui->graphicsView->setScene(a->getscene());
+    ui->graphicsView->setScene(a->getscene());    
 }
 
 void MainWindow::tick(){
