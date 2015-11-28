@@ -15,10 +15,10 @@ public:
     Fantome(name N);
     Fantome(float x, float y, name N);
     name getName();
-    Fantome * resize(int w,int h);
+    Fantome * resize(int w,int h);    
 
 private:
-    name N;
+    name N;    
 };
 
 #endif // FANTOME_H

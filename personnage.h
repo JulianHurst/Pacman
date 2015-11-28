@@ -36,7 +36,7 @@ public:
 
 protected:
     QGraphicsPixmapItem *gobj;
-    int x,y;
+    float x,y;
     int w,h;
     int offset;
     int initx,inity;

@@ -24,10 +24,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setAlignment(Qt::AlignCenter);
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());    
     ghost=1;
+    //score=new int;
+    partie=0;
+    score.resize(partie+1,0);
+    //score.at(partie)=0;
     ui->graphicsView->setScene(a->getscene());
 }
 
-void MainWindow::tick(){    
+void MainWindow::tick(){
+    int i;
     a->pos();
     c->colliding(a->getPac(),a->getLab());
     //pour tous les fantômes
@@ -36,7 +41,15 @@ void MainWindow::tick(){
     c->colliding(a->getInky(),a->getLab());
     c->colliding(a->getClyde(),a->getLab());
     if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde()))
-        a->reinit();
+        if(a->reinit()){
+            partie++;
+            score.resize(partie+1,0);
+            //score[partie]=0;
+        }
+    if((i=c->colliding(a->getPac(),a->getBilleArray()))!=-1){
+        score[partie]+=10;
+        a->removeBille(i,score[partie]);
+    }
 }
 
 void MainWindow::showEvent(QShowEvent *){
@@ -87,6 +100,9 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         break;
     case Qt::Key_4:
         ghost=4;
+        break;
+    case Qt::Key_Return:
+        a->showscores(score);
         break;
     case Qt::Key_Escape:
         qApp->quit();

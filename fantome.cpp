@@ -31,9 +31,9 @@ Fantome::Fantome(float x, float y,name N)
         break;
         case clyde:
             ghost.load(":/Sprites/sprites.qrc/res/clyde.png");
-            this->x=x-this->w*2.2;
+            this->x-=19;
         break;
-    }
+    }    
     gobj->setPixmap(ghost.scaled(this->w,this->h,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
     gobj->setPos(this->x,this->y);
     initx=this->x;

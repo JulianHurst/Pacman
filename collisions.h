@@ -5,12 +5,14 @@
 #include "personnage.h"
 #include "fantome.h"
 #include "pacman.h"
+#include "billearray.h"
 
 class Collisions
 {
 public:
     Collisions();
     bool colliding(Pacman *obj1, Fantome *obj2);
+    int colliding(Pacman *obj1, BilleArray *obj2);
     void colliding(Personnage *obj1,Labyrinthe *obj2);
 
 };

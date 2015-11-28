@@ -14,8 +14,10 @@ public:
     Affichage(int width, int height);
     ~Affichage();
     QGraphicsScene *getscene();
+    void removeBille(int i, int score);
     void change_direction(Personnage::direction d);
     Pacman *getPac();
+    BilleArray *getBilleArray();
     Fantome *getFan(Fantome::name N);
     Fantome *getPinky();
     Fantome *getBlinky();
@@ -27,10 +29,11 @@ public:
     Personnage::direction getdpac();
     int getw();
     int geth();
-    void reinit();
+    bool reinit();
     void pos();
     void show(int w,int h);
     void showchildren();
+    void showscores(std::vector<int> score);
 
 private:
     QGraphicsScene *gscene;
@@ -46,6 +49,7 @@ private:
     int w;
     int h;
     QTimer *time;
+    int score;
 };
 
 #endif // AFFICHAGE_H

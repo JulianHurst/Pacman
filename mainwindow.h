@@ -34,6 +34,8 @@ private:
     QTimer *time;
     int width, height;
     int ghost;    
+    std::vector<int> score;
+    int partie;
 };
 
 #endif // MAINWINDOW_H

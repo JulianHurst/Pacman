@@ -13,15 +13,15 @@ Affichage::Affichage(int width,int height)
 {            
     w=width;
     h=height;    
-    gscene=new QGraphicsScene();        
-    Score=new QGraphicsTextItem("Score : 0");
+    gscene=new QGraphicsScene();            
     l=new Labyrinthe(0,0,width,height);
     P = new Pacman();
     Pinky = new Fantome(Fantome::pinky);
     Blinky = new Fantome(Fantome::blinky);
     Inky = new Fantome(Fantome::inky);
     Clyde = new Fantome(Fantome::clyde);
-    Lives=new QGraphicsTextItem();    
+    Lives=new QGraphicsTextItem();
+    Score=new QGraphicsTextItem();
     Score->setPos(0,0);
     Score->setDefaultTextColor(Qt::red);
     Lives->setPos(w+w*0.20,0);
@@ -39,7 +39,7 @@ void Affichage::pos(){
     Clyde->move(l);
 }
 
-void Affichage::reinit(){
+bool Affichage::reinit(){
     QString S="Vies : ";
     S.append(QString::number(P->getlives()));
     P->reinit();
@@ -49,17 +49,27 @@ void Affichage::reinit(){
     Clyde->reinit();
     Lives->setPlainText(S);
     if(P->getlives()==0){
-        QMessageBox B;
-        B.setText("Vous n'avez plus de vies !");
-        B.setWindowTitle("Game Over");
-        B.exec();
+        for(int i=0;i<B->getlength();i++)
+            gscene->removeItem(B->at(i)->getgobj());
+        B=new BilleArray(104,26,8.3,10,l,P,Blinky);
+        for(int i=0;i<B->getlength();i++)
+            gscene->addItem(B->at(i)->getgobj());
+        QMessageBox M;
+        M.setText("Vous n'avez plus de vies !\nScore : "+QString::number(score));
+        M.setWindowTitle("Game Over");
+        M.exec();
         gscene->removeItem(P->getgobj());
         P=new Pacman(w/2,h/2);
         gscene->addItem(P->getgobj());
         S="Vies : ";
         S.append(QString::number(P->getlives()));
         Lives->setPlainText(S);
+        S="Score : ";
+        S.append(QString::number(0));
+        Score->setPlainText(S);
+        return true;
     }
+    return false;
 }
 
 void Affichage::show(int w,int h){
@@ -79,6 +89,9 @@ void Affichage::showchildren(){
     l=l->resize(w,h);
     S.append(QString::number(P->getlives()));
     Lives->setPlainText(S);
+    S="Score : ";
+    S.append(QString::number(0));
+    Score->setPlainText(S);
     gscene->addItem(l->getgobj());    
     gscene->addItem(P->getgobj());
     gscene->addItem(Pinky->getgobj());
@@ -87,9 +100,30 @@ void Affichage::showchildren(){
     gscene->addItem(Clyde->getgobj());
     gscene->addItem(Score);
     gscene->addItem(Lives);
-    B=new BilleArray(104,26,8.3,10,l);
+    B=new BilleArray(104,26,8.3,10,l,P,Blinky);
     for(int i=0;i<B->getlength();i++)
         gscene->addItem(B->at(i)->getgobj());
+}
+
+void Affichage::removeBille(int i,int score){
+    gscene->removeItem(B->at(i)->getgobj());
+    B->rearrange(i);
+    QString S;
+    S="Score : ";
+    S.append(QString::number(score));
+    Score->setPlainText(S);
+    this->score=score;
+}
+
+void Affichage::showscores(std::vector<int> score){
+    QMessageBox M;
+    QString S="";
+    for(unsigned int i=0;i<score.size();i++){
+        S.append(QString::number(score[i])+"\n");
+    }
+    M.setText("Scores :\n"+S);
+    M.setWindowTitle("Scores");
+    M.exec();
 }
 
 void Affichage::change_direction(Personnage::direction d){    
@@ -110,6 +144,10 @@ int Affichage::geth(){
 
 Pacman *Affichage::getPac(){
     return P;
+}
+
+BilleArray *Affichage::getBilleArray(){
+    return B;
 }
 
 QGraphicsTextItem *Affichage::getScore(){
