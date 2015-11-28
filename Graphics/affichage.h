@@ -14,7 +14,7 @@ public:
     Affichage(int width, int height);
     ~Affichage();
     QGraphicsScene *getscene();
-    void removeBille(int i, int score);
+    bool removeBille(int i, int score);
     void change_direction(Personnage::direction d);
     Pacman *getPac();
     BilleArray *getBilleArray();
@@ -34,6 +34,7 @@ public:
     void show(int w,int h);
     void showchildren();
     void showscores(std::vector<int> score);
+    void reset();
 
 private:
     QGraphicsScene *gscene;

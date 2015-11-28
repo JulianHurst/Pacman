@@ -48,7 +48,10 @@ void MainWindow::tick(){
         }
     if((i=c->colliding(a->getPac(),a->getBilleArray()))!=-1){
         score[partie]+=10;
-        a->removeBille(i,score[partie]);
+        if(a->removeBille(i,score[partie])){
+            partie++;
+            score.resize(partie+1,0);
+        }
     }
 }
 

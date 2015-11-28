@@ -72,6 +72,35 @@ bool Affichage::reinit(){
     return false;
 }
 
+void Affichage::reset(){
+    Pinky->reinit();
+    Blinky->reinit();
+    Inky->reinit();
+    Clyde->reinit();
+    QString S;
+    gscene->removeItem(P->getgobj());
+    gscene->removeItem(Blinky->getgobj());
+    gscene->removeItem(Pinky->getgobj());
+    gscene->removeItem(Inky->getgobj());
+    gscene->removeItem(Clyde->getgobj());
+    P=new Pacman(w/2,h/2);
+    B=new BilleArray(104,26,8.3,10,l,P,Blinky);
+    for(int i=0;i<B->getlength();i++){
+        gscene->addItem(B->at(i)->getgobj());
+    }
+    gscene->addItem(P->getgobj());
+    gscene->addItem(Blinky->getgobj());
+    gscene->addItem(Pinky->getgobj());
+    gscene->addItem(Inky->getgobj());
+    gscene->addItem(Clyde->getgobj());
+    S="Vies : ";
+    S.append(QString::number(P->getlives()));
+    Lives->setPlainText(S);
+    S="Score : ";
+    S.append(QString::number(0));
+    Score->setPlainText(S);
+}
+
 void Affichage::show(int w,int h){
     this->w=w;
     this->h=h;
@@ -92,7 +121,10 @@ void Affichage::showchildren(){
     S="Score : ";
     S.append(QString::number(0));
     Score->setPlainText(S);
-    gscene->addItem(l->getgobj());    
+    gscene->addItem(l->getgobj());
+    B=new BilleArray(104,26,8.3,10,l,P,Blinky);
+    for(int i=0;i<B->getlength();i++)
+        gscene->addItem(B->at(i)->getgobj());
     gscene->addItem(P->getgobj());
     gscene->addItem(Pinky->getgobj());
     gscene->addItem(Blinky->getgobj());
@@ -100,12 +132,9 @@ void Affichage::showchildren(){
     gscene->addItem(Clyde->getgobj());
     gscene->addItem(Score);
     gscene->addItem(Lives);
-    B=new BilleArray(104,26,8.3,10,l,P,Blinky);
-    for(int i=0;i<B->getlength();i++)
-        gscene->addItem(B->at(i)->getgobj());
 }
 
-void Affichage::removeBille(int i,int score){
+bool Affichage::removeBille(int i,int score){
     gscene->removeItem(B->at(i)->getgobj());
     B->rearrange(i);
     QString S;
@@ -113,13 +142,24 @@ void Affichage::removeBille(int i,int score){
     S.append(QString::number(score));
     Score->setPlainText(S);
     this->score=score;
+    if(B->getlength()==0){
+        QMessageBox M;
+        M.setText("Gagné !");
+        M.setWindowTitle("Victoire !");
+        M.exec();
+        reset();
+        return true;
+    }
+    return false;
 }
 
 void Affichage::showscores(std::vector<int> score){
     QMessageBox M;
     QString S="";
-    for(unsigned int i=0;i<score.size();i++){
-        S.append(QString::number(score[i])+"\n");
+    S.append(QString::number(score[0]));
+    for(unsigned int i=1;i<score.size();i++){
+        S.append("\n");
+        S.append(QString::number(score[i]));
     }
     M.setText("Scores :\n"+S);
     M.setWindowTitle("Scores");

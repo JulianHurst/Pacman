@@ -17,7 +17,7 @@ bool Collisions::colliding(Pacman *obj1,Fantome *obj2){
 
 int Collisions::colliding(Pacman *obj1,BilleArray *obj2){
     for(int i=0;i<obj2->getlength();i++){
-        if(obj1->getgobj()->collidesWithItem(obj2->at(i)->getgobj()))
+        if(obj1->getgobj()->collidesWithItem(obj2->at(i)->getgobj(),Qt::IntersectsItemBoundingRect))
             return i;
     }
     return -1;
