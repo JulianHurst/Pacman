@@ -1,0 +1,77 @@
+\hypertarget{class_main_window}{}\section{Main\+Window Class Reference}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_main_window_a48965b8c40edf53d61e2d41977c1566d}{}void \hyperlink{class_main_window_a48965b8c40edf53d61e2d41977c1566d}{tick} ()\label{class_main_window_a48965b8c40edf53d61e2d41977c1566d}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_main_window_a48965b8c40edf53d61e2d41977c1566d}{Main\+Window\+::tick} vérifie si il y a collision entre les différentes entités du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{}{\bfseries Main\+Window} (Q\+Widget $\ast$parent=0)\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+
+\item 
+\hypertarget{class_main_window_a2e0ce6e999817f456b6d94adf80b8faf}{}void \hyperlink{class_main_window_a2e0ce6e999817f456b6d94adf80b8faf}{show\+Event} (Q\+Show\+Event $\ast$)\label{class_main_window_a2e0ce6e999817f456b6d94adf80b8faf}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_main_window_a2e0ce6e999817f456b6d94adf80b8faf}{Main\+Window\+::show\+Event} Fabrique la scence en y incluant le labyrinthe, et les différentes entités qui vont y être. \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_a8851a931482834eeec527490eedaf20e}{}void \hyperlink{class_main_window_a8851a931482834eeec527490eedaf20e}{resize\+Event} (Q\+Resize\+Event $\ast$)\label{class_main_window_a8851a931482834eeec527490eedaf20e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_main_window_a8851a931482834eeec527490eedaf20e}{Main\+Window\+::resize\+Event} Permet de modifier la taille des éléments lors d\textquotesingle{}un changement de la taille de la fenêtre. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}{key\+Press\+Event} (Q\+Key\+Event $\ast$)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}{Main\+Window\+::key\+Press\+Event} Permet de gérer les évennement en fonction de la touche enfoncé sur le clavier. \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_a849e207918b12307f9cd0a576076946b}{}void {\bfseries mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$)\label{class_main_window_a849e207918b12307f9cd0a576076946b}
+
+\item 
+void \hyperlink{class_main_window_aa626dd9c66b3231ec5d8f123e991af1b}{move\+Ghost} (Q\+Key\+Event $\ast$e, Fantome\+::name N)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_main_window_aa626dd9c66b3231ec5d8f123e991af1b}{Main\+Window\+::move\+Ghost} Permet de gérer le déplacement des fantômes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}{}\index{Main\+Window@{Main\+Window}!key\+Press\+Event@{key\+Press\+Event}}
+\index{key\+Press\+Event@{key\+Press\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection[{key\+Press\+Event(\+Q\+Key\+Event $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::key\+Press\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Key\+Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}
+
+
+\hyperlink{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}{Main\+Window\+::key\+Press\+Event} Permet de gérer les évennement en fonction de la touche enfoncé sur le clavier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & touche appuyé \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_aa626dd9c66b3231ec5d8f123e991af1b}{}\index{Main\+Window@{Main\+Window}!move\+Ghost@{move\+Ghost}}
+\index{move\+Ghost@{move\+Ghost}!Main\+Window@{Main\+Window}}
+\subsubsection[{move\+Ghost(\+Q\+Key\+Event $\ast$e, Fantome\+::name N)}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::move\+Ghost (
+\begin{DoxyParamCaption}
+\item[{Q\+Key\+Event $\ast$}]{e, }
+\item[{Fantome\+::name}]{N}
+\end{DoxyParamCaption}
+)}\label{class_main_window_aa626dd9c66b3231ec5d8f123e991af1b}
+
+
+\hyperlink{class_main_window_aa626dd9c66b3231ec5d8f123e991af1b}{Main\+Window\+::move\+Ghost} Permet de gérer le déplacement des fantômes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & touche appuyé \\
+\hline
+{\em N} & fantôme sélectionné \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/mainwindow.\+h\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/mainwindow.\+cpp\end{DoxyCompactItemize}

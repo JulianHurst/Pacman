@@ -1,0 +1,124 @@
+\hypertarget{class_pacman}{}\section{Pacman Class Reference}
+\label{class_pacman}\index{Pacman@{Pacman}}
+Inheritance diagram for Pacman\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pacman}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_pacman_a499408baab38f119ebd4f41e90fbe3fe}{}\hyperlink{class_pacman_a499408baab38f119ebd4f41e90fbe3fe}{Pacman} ()\label{class_pacman_a499408baab38f119ebd4f41e90fbe3fe}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pacman_a499408baab38f119ebd4f41e90fbe3fe}{Pacman\+::\+Pacman} constructeur par défaut de pacman. \end{DoxyCompactList}\item 
+\hyperlink{class_pacman_a459aba0fb8132acea8d96cd391b3e007}{Pacman} (float x, float y, double w, double h)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pacman_a499408baab38f119ebd4f41e90fbe3fe}{Pacman\+::\+Pacman} Constructeur avec paramètre de pacman. \end{DoxyCompactList}\item 
+\hypertarget{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}{}void \hyperlink{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}{die} ()\label{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}{Pacman\+::die} réduit le nombre de vie de pacman. \end{DoxyCompactList}\item 
+int \hyperlink{class_pacman_a9866de257a7fc67f56fee117ecff3060}{getlives} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pacman_a9866de257a7fc67f56fee117ecff3060}{Pacman\+::getlives} renvoie le nombre de vie courante. \end{DoxyCompactList}\item 
+void \hyperlink{class_pacman_ac2b56b7581f999fb374ef04f8d8ac9a4}{setlives} (int lives)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pacman_ac2b56b7581f999fb374ef04f8d8ac9a4}{Pacman\+::setlives} permet d\textquotesingle{}attribuer un nombre de vie. \end{DoxyCompactList}\item 
+\hypertarget{class_pacman_a5945a47618f294f298dfda06c4ef1094}{}void {\bfseries Collision\+Fantome} ()\label{class_pacman_a5945a47618f294f298dfda06c4ef1094}
+
+\item 
+\hyperlink{class_pacman}{Pacman} $\ast$ \hyperlink{class_pacman_adc9142f8bd016165ddd5ed42ab34f54f}{resize} (int w, int h)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pacman_adc9142f8bd016165ddd5ed42ab34f54f}{Pacman\+::resize} redimensionne le pacman. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_pacman_a459aba0fb8132acea8d96cd391b3e007}{}\index{Pacman@{Pacman}!Pacman@{Pacman}}
+\index{Pacman@{Pacman}!Pacman@{Pacman}}
+\subsubsection[{Pacman(float x, float y, double w, double h)}]{\setlength{\rightskip}{0pt plus 5cm}Pacman\+::\+Pacman (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{double}]{w, }
+\item[{double}]{h}
+\end{DoxyParamCaption}
+)}\label{class_pacman_a459aba0fb8132acea8d96cd391b3e007}
+
+
+\hyperlink{class_pacman_a499408baab38f119ebd4f41e90fbe3fe}{Pacman\+::\+Pacman} Constructeur avec paramètre de pacman. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position de pacman sur la largeur \\
+\hline
+{\em y} & position de pacman sur la hauteur \\
+\hline
+{\em w} & taille de pacman en largeur \\
+\hline
+{\em h} & taille de pacman en hauteur \\
+\hline
+\end{DoxyParams}
+$<$ redimensionnement sur la largeur
+
+$<$ redimensionnement sur la hauteur 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_pacman_a9866de257a7fc67f56fee117ecff3060}{}\index{Pacman@{Pacman}!getlives@{getlives}}
+\index{getlives@{getlives}!Pacman@{Pacman}}
+\subsubsection[{getlives()}]{\setlength{\rightskip}{0pt plus 5cm}int Pacman\+::getlives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_pacman_a9866de257a7fc67f56fee117ecff3060}
+
+
+\hyperlink{class_pacman_a9866de257a7fc67f56fee117ecff3060}{Pacman\+::getlives} renvoie le nombre de vie courante. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_pacman_adc9142f8bd016165ddd5ed42ab34f54f}{}\index{Pacman@{Pacman}!resize@{resize}}
+\index{resize@{resize}!Pacman@{Pacman}}
+\subsubsection[{resize(int w, int h)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pacman} $\ast$ Pacman\+::resize (
+\begin{DoxyParamCaption}
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_pacman_adc9142f8bd016165ddd5ed42ab34f54f}
+
+
+\hyperlink{class_pacman_adc9142f8bd016165ddd5ed42ab34f54f}{Pacman\+::resize} redimensionne le pacman. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & largeur de pacman \\
+\hline
+{\em h} & hauteur de pacman \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pacman redimensionné 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_personnage}{Personnage}.
+
+\hypertarget{class_pacman_ac2b56b7581f999fb374ef04f8d8ac9a4}{}\index{Pacman@{Pacman}!setlives@{setlives}}
+\index{setlives@{setlives}!Pacman@{Pacman}}
+\subsubsection[{setlives(int lives)}]{\setlength{\rightskip}{0pt plus 5cm}void Pacman\+::setlives (
+\begin{DoxyParamCaption}
+\item[{int}]{lives}
+\end{DoxyParamCaption}
+)}\label{class_pacman_ac2b56b7581f999fb374ef04f8d8ac9a4}
+
+
+\hyperlink{class_pacman_ac2b56b7581f999fb374ef04f8d8ac9a4}{Pacman\+::setlives} permet d\textquotesingle{}attribuer un nombre de vie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lives} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/pacman.\+h\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/pacman.\+cpp\end{DoxyCompactItemize}

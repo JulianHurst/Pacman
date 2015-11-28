@@ -5,6 +5,13 @@ Personnage::Personnage(){
     this->dir=none;
 }
 
+/**
+ * @brief Personnage::Personnage Constructeur
+ * @param x Position horizontale
+ * @param y Position verticale
+ * @param w Largeur du personnage
+ * @param h Hauteru du personnage
+ */
 Personnage::Personnage(float x, float y, int w, int h)
 {
     if(w<=h)
@@ -18,6 +25,7 @@ Personnage::Personnage(float x, float y, int w, int h)
     dir=none;    
 }
 
+//Mutateur
 void Personnage::setx(float x){
     this->x=x;
 }
@@ -38,6 +46,7 @@ void Personnage::setdir(direction dir){
     this->dir=dir;
 }
 
+//Accesseur
 float Personnage::getx(){
     return x;
 }
@@ -62,6 +71,9 @@ QGraphicsPixmapItem *Personnage::getgobj(){
     return gobj;
 }
 
+/**
+ * @brief Personnage::reinit
+ */
 void Personnage::reinit(){
     x=initx;
     y=inity;    
@@ -69,6 +81,10 @@ void Personnage::reinit(){
     getgobj()->setPos(x,y);
 }
 
+/**
+ * @brief Personnage::move Permet de le déplacement du personnage en fonction du labyrinthe
+ * @param l le labyrinthe courant
+ */
 void Personnage::move(Labyrinthe *l){
     int width,height;
     width=l->getW();
@@ -112,6 +128,9 @@ void Personnage::move(Labyrinthe *l){
     getgobj()->setPos(x,y);  
 }
 
+/**
+ * @brief Personnage::CollisionLab Permet la gestion des collisions avec les murs du labyrinthe
+ */
 void Personnage::CollisionLab(){
     switch(dir){
         case right:

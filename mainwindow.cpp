@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(a->getscene());
 }
 
+/**
+ * @brief MainWindow::tick vérifie si il y a collision entre les différentes entités du jeu
+ */
 void MainWindow::tick(){    
     a->pos();
     c->colliding(a->getPac(),a->getLab());
@@ -39,6 +42,9 @@ void MainWindow::tick(){
         a->reinit();
 }
 
+/**
+ * @brief MainWindow::showEvent Fabrique la scence en y incluant le labyrinthe, et les différentes entités qui vont y être
+ */
 void MainWindow::showEvent(QShowEvent *){
     QRectF bounds = a->getscene()->itemsBoundingRect();
     ui->graphicsView->fitInView(bounds);
@@ -52,6 +58,9 @@ void MainWindow::showEvent(QShowEvent *){
     a->show(width,height);
 }
 
+/**
+ * @brief MainWindow::resizeEvent Permet de modifier la taille des éléments lors d'un changement de la taille de la fenêtre
+ */
 void MainWindow::resizeEvent(QResizeEvent *){
     QRectF bounds = a->getscene()->itemsBoundingRect();
     ui->graphicsView->fitInView(bounds);
@@ -62,6 +71,10 @@ void MainWindow::resizeEvent(QResizeEvent *){
     height=ui->graphicsView->height();        
 }
 
+/**
+ * @brief MainWindow::keyPressEvent Permet de gérer les évennement en fonction de la touche enfoncé sur le clavier
+ * @param e touche appuyé
+ */
 void MainWindow::keyPressEvent(QKeyEvent *e){
     switch(e->key()){
     case Qt::Key_Right:
@@ -107,7 +120,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         break;
     }
 }
-
+/**
+ * @brief MainWindow::moveGhost Permet de gérer le déplacement des fantômes
+ * @param e touche appuyé
+ * @param N fantôme sélectionné
+ */
 void MainWindow::moveGhost(QKeyEvent *e,Fantome::name N){
     switch(e->key()){
         case Qt::Key_D:
