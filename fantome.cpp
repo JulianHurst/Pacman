@@ -43,6 +43,11 @@ Fantome::Fantome(float x, float y,name N)
     initx=this->x;
     inity=this->y;
     blue=false;
+    score=100;
+}
+
+int Fantome::getscore(){
+    return score;
 }
 
 Fantome::name Fantome::getName(){

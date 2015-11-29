@@ -29,9 +29,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());    
     ghost=1;    
     partie=0;
+    nbghostseaten=0;
+    ghostmul=1;
+    fruit=0;
+    fruittimer=0;
     score.resize(partie+1,0);    
     ui->graphicsView->setScene(a->getscene());
-    s->playintro();
+    s->playintro();    
 }
 
 void MainWindow::tick(){
@@ -53,12 +57,19 @@ void MainWindow::tick(){
                  a->getInky()->reinit();
             if(c->colliding(a->getPac(),a->getClyde()))
                  a->getClyde()->reinit();
-            score[partie]+=50;
+            score[partie]+=a->getBlinky()->getscore()*ghostmul;
+            nbghostseaten++;
+            ghostmul*=2;
             a->updatescore(score[partie]);
         }
         else{
             s->playdying();
-            if(a->reinit()){
+            if(fruittimer!=0){
+                fruittimer=0;
+                a->removeFruit();
+                fruit=0;
+            }
+            if(a->reinit()){            
                 partie++;
                 score.resize(partie+1,0);
             }
@@ -69,15 +80,61 @@ void MainWindow::tick(){
         if(s->getchomp()->isFinished())
             s->playchomp();
         if(a->getPac()->getpower())
-            a->blueghost(true);
-        score[partie]+=10;
+            a->blueghost(true);                            
+        score[partie]+=a->getBilleArray()->at(i)->getscore();
         if(a->removeBille(i,score[partie])){
+            if(fruittimer!=0){
+                fruittimer=0;
+                a->removeFruit();
+                fruit=0;
+            }
             partie++;
             score.resize(partie+1,0);
         }
     }
     else
         s->setchomploop(0);
+    if(fruittimer!=0 && c->colliding(a->getPac(),a->getFruit())){
+        s->playfruit();
+        a->removeFruit();
+        fruit++;
+        fruittimer=0;
+        score[partie]+=a->getFruit()->getscore();
+        a->updatescore(score[partie]);
+    }
+    if(fruittimer==0){
+        if(score[partie]%500==0 && score[partie]!=0){
+            switch(fruit){
+                case 0:
+                    a->showfruit(Fruit::cherry);
+                    break;
+                case 1:
+                    a->showfruit(Fruit::strawberry);
+                    break;
+                case 2:
+                    a->showfruit(Fruit::orange);
+                    break;
+                case 3:
+                    a->showfruit(Fruit::apple);
+                    break;
+                case 4:
+                    a->showfruit(Fruit::grapes);
+                    break;
+                case 5:
+                    a->showfruit(Fruit::galaxian);
+                    break;
+                case 6:
+                    a->showfruit(Fruit::bell);
+                    break;
+                case 7:
+                    a->showfruit(Fruit::key);
+                    break;
+                default:
+                    a->showfruit(Fruit::cherry);
+            }
+            fruittimer=50;
+        }
+    }
 }
 
 void MainWindow::animtick(){
@@ -87,7 +144,13 @@ void MainWindow::animtick(){
         if(!a->getPac()->getpower())
             a->blueghost(false);
     }
-
+    if(fruittimer!=0){
+        fruittimer--;
+        if(fruittimer==0){
+            a->removeFruit();
+            fruit=0;
+        }
+    }
 }
 
 void MainWindow::showEvent(QShowEvent *){

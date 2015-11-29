@@ -1,5 +1,10 @@
 #include "billearray.h"
 #include <QDebug>
+#ifndef Q_OS_WIN32
+#define OFFSET 0
+#else
+#define OFFSET 10
+#endif
 
 BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe *l,Pacman *P,Fantome *F)
 {
@@ -10,7 +15,7 @@ BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe
     Bille *tmp;
     while(x<l->getW()){
         while(y<l->getH()){
-            tmp=new Bille(x,y,false);
+            tmp=new Bille(x,y,false,10);
             while((tmp->getgobj()->collidesWithItem(l->getgobj()) || tmp->getgobj()->collidesWithItem(P->getgobj()) ||
                    (F->gety()-8<y && F->gety()+8>y && F->getx()-30<x && F->getx()+16>x)) && y<l->getH()){
                 y+=yoffset;
@@ -18,11 +23,11 @@ BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe
                 tmp->getgobj()->setPos(x,y);
             }
             if(y<l->getH()){
-                if((x==initx && y==inity) || (y==inity && x+xoffset+5>l->getW()) || (y+yoffset>l->getH() && x+xoffset+5>l->getW())
-                        || (x==initx && y+yoffset>l->getH()))
-                    B[i]= new Bille(tmp->getx(),tmp->gety(),true);
+                if((x==initx && y==inity) || (y==inity && x+xoffset+5>l->getW()) || (y+yoffset+OFFSET>l->getH() && x+xoffset+5>l->getW())
+                        || (x==initx && y+yoffset+OFFSET>l->getH()))
+                    B[i]= new Bille(tmp->getx(),tmp->gety(),true,10);
                 else
-                    B[i]= new Bille(tmp->getx(),tmp->gety(),false);
+                    B[i]= new Bille(tmp->getx(),tmp->gety(),false,10);
                 i++;
                 y+=yoffset;
 

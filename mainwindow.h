@@ -40,6 +40,10 @@ private:
     int ghost;    
     std::vector<int> score;
     int partie;
+    int nbghostseaten;
+    int ghostmul;
+    int fruit;
+    int fruittimer;
 };
 
 #endif // MAINWINDOW_H

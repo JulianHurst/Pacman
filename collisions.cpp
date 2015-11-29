@@ -26,6 +26,10 @@ int Collisions::colliding(Pacman *obj1,BilleArray *obj2){
     return -1;
 }
 
+bool Collisions::colliding(Pacman *obj1,Fruit *obj2){
+    return obj1->getgobj()->collidesWithItem(obj2->getgobj());
+}
+
 void Collisions::colliding(Personnage *obj1, Labyrinthe *obj2){    
     bool collision=false;
     while(obj1->getgobj()->collidesWithItem(obj2->getgobj(),Qt::IntersectsItemBoundingRect)){

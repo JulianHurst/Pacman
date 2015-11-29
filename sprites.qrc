@@ -16,10 +16,19 @@
         <file>res/pacup1.png</file>
         <file>res/pacup2.png</file>
         <file>res/blueghost.png</file>
+        <file>res/cherry.png</file>
+        <file>res/apple.png</file>
+        <file>res/bell.png</file>
+        <file>res/galaxian.png</file>
+        <file>res/grapes.png</file>
+        <file>res/key.png</file>
+        <file>res/orange.png</file>
+        <file>res/strawberry.png</file>
     </qresource>
     <qresource prefix="/Sounds">
         <file>res/sound/pacman_beginning.wav</file>
         <file>res/sound/pacman_death.wav</file>
         <file>res/sound/chomp.wav</file>
+        <file>res/sound/pacman_eatfruit.wav</file>
     </qresource>
 </RCC>

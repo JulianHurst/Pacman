@@ -1,7 +1,8 @@
 #include "bille.h"
 #include <QPixmap>
 
-Bille::Bille(float x,float y,bool power)
+Bille::Bille(float x,float y,bool power,int score):
+    Bonus(score)
 {
     this->x=x;
     this->y=y;
@@ -9,15 +10,14 @@ Bille::Bille(float x,float y,bool power)
     QPixmap B;
     B.load(":/Sprites/res/bille.png");
     gobj=new QGraphicsPixmapItem();
-    if(power)
+    if(power){
         gobj->setPixmap(B.scaled(4,4,Qt::IgnoreAspectRatio,Qt::FastTransformation));
-    else
-        gobj->setPixmap(B.scaled(2,2,Qt::IgnoreAspectRatio,Qt::FastTransformation));
+        this->score+=40;
+    }
+    else{
+        gobj->setPixmap(B.scaled(2,2,Qt::IgnoreAspectRatio,Qt::FastTransformation));        
+    }
     gobj->setPos(x,y);
-}
-
-QGraphicsPixmapItem *Bille::getgobj(){
-    return gobj;
 }
 
 float Bille::getx(){

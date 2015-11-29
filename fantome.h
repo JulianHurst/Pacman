@@ -16,6 +16,7 @@ public:
     Fantome(float x, float y, name N);
     name getName();
     bool getblue();
+    int getscore();
     Fantome * resize(int w,int h);
     void blueon();
     void blueoff();
@@ -23,6 +24,7 @@ public:
 private:
     name N;
     bool blue;
+    int score;
 };
 
 #endif // FANTOME_H

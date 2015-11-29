@@ -20,6 +20,7 @@ Affichage::Affichage(int width,int height)
     Blinky = new Fantome(Fantome::blinky);
     Inky = new Fantome(Fantome::inky);
     Clyde = new Fantome(Fantome::clyde);
+    F=new Fruit();
     Lives=new QGraphicsTextItem();
     Score=new QGraphicsTextItem();
     Score->setPos(0,0);
@@ -72,7 +73,7 @@ bool Affichage::reinit(){
     return false;
 }
 
-void Affichage::reset(){
+void Affichage::reset(){    
     Pinky->reinit();
     Blinky->reinit();
     Inky->reinit();
@@ -99,6 +100,7 @@ void Affichage::reset(){
     S="Score : ";
     S.append(QString::number(0));
     Score->setPlainText(S);
+    blueghost(false);
 }
 
 void Affichage::show(int w,int h){
@@ -134,6 +136,11 @@ void Affichage::showchildren(){
     gscene->addItem(Lives);
 }
 
+void Affichage::showfruit(Fruit::name n){
+    F=new Fruit(w/2,h/2,n,100);
+    gscene->addItem(F->getgobj());
+}
+
 bool Affichage::removeBille(int i,int score){
     gscene->removeItem(B->at(i)->getgobj());
     B->rearrange(i);    
@@ -144,10 +151,14 @@ bool Affichage::removeBille(int i,int score){
         M.setText("Gagné !\nScore : "+QString::number(score));
         M.setWindowTitle("Victoire !");
         M.exec();
-        reset();
+        reset();        
         return true;
     }
     return false;
+}
+
+void Affichage::removeFruit(){
+    gscene->removeItem(F->getgobj());
 }
 
 void Affichage::updatescore(int score){
@@ -207,6 +218,10 @@ int Affichage::geth(){
 
 Pacman *Affichage::getPac(){
     return P;
+}
+
+Fruit *Affichage::getFruit(){
+    return F;
 }
 
 BilleArray *Affichage::getBilleArray(){

@@ -4,6 +4,7 @@
 #include "../pacman.h"
 #include "../fantome.h"
 #include "../billearray.h"
+#include "../fruit.h"
 #include "../labyrinthe.h"
 #include <QTimer>
 
@@ -15,6 +16,7 @@ public:
     ~Affichage();
     QGraphicsScene *getscene();
     bool removeBille(int i, int score);
+    void removeFruit();
     void change_direction(Personnage::direction d);
     Pacman *getPac();
     BilleArray *getBilleArray();
@@ -23,6 +25,7 @@ public:
     Fantome *getBlinky();
     Fantome *getInky();
     Fantome *getClyde();
+    Fruit *getFruit();
     Labyrinthe *getLab();
     QGraphicsTextItem *getScore();
     QGraphicsTextItem *getLives();
@@ -38,6 +41,7 @@ public:
     void animate();
     void blueghost(bool blue);
     void updatescore(int score);
+    void showfruit(Fruit::name n);
 
 private:
     QGraphicsScene *gscene;
@@ -49,6 +53,7 @@ private:
     Fantome *Inky;
     Fantome *Clyde;
     BilleArray *B;
+    Fruit *F;
     Labyrinthe *l;     
     int w;
     int h;
