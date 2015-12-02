@@ -167,16 +167,17 @@ void Affichage::updatescore(int score){
     Score->setPlainText(S);
 }
 
-void Affichage::showscores(std::vector<int> score){    
+void Affichage::showscores(std::vector<int> score){
+    QMessageBox M;
     QString S="";
     S.append(QString::number(score[0]));
     for(unsigned int i=1;i<score.size();i++){
         S.append("\n");
         S.append(QString::number(score[i]));
     }
-    scoremsg.setText("Scores :\n"+S);
-    scoremsg.setWindowTitle("Scores");
-    scoremsg.exec();
+    M.setText("Scores :\n"+S);
+    M.setWindowTitle("Scores");
+    M.exec();
 }
 
 void Affichage::animate(){

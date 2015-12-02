@@ -57,10 +57,8 @@ private:
     Fruit *F;
     Labyrinthe *l;     
     int w;
-    int h;
-    QTimer *time;
-    int score;
-    QMessageBox scoremsg;
+    int h;    
+    int score;    
 };
 
 #endif // AFFICHAGE_H
