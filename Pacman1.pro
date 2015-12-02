@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     billearray.cpp \
     sound.cpp \
     fruit.cpp \
-    bonus.cpp
+    bonus.cpp \
+    porte.cpp
 
 HEADERS  += mainwindow.h \
     Graphics/affichage.h \
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h \
     billearray.h \
     sound.h \
     fruit.h \
-    bonus.h
+    bonus.h \
+    porte.h
 
 FORMS    += mainwindow.ui
 

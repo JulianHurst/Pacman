@@ -21,6 +21,7 @@ Affichage::Affichage(int width,int height)
     Inky = new Fantome(Fantome::inky);
     Clyde = new Fantome(Fantome::clyde);
     F=new Fruit();
+    D=new Porte(w/2,h/2);
     Lives=new QGraphicsTextItem();
     Score=new QGraphicsTextItem();
     Score->setPos(0,0);
@@ -118,6 +119,7 @@ void Affichage::showchildren(){
     Inky=Inky->resize(w,h);
     Clyde=Clyde->resize(w,h);
     l=l->resize(w,h);
+    D=new Porte(w/2,h/2);
     S.append(QString::number(P->getlives()));
     Lives->setPlainText(S);
     S="Score : ";
@@ -127,6 +129,7 @@ void Affichage::showchildren(){
     B=new BilleArray(104,26,8.3,10,l,P,Blinky);
     for(int i=0;i<B->getlength();i++)
         gscene->addItem(B->at(i)->getgobj());
+    gscene->addItem(D->getgobj());
     gscene->addItem(P->getgobj());
     gscene->addItem(Pinky->getgobj());
     gscene->addItem(Blinky->getgobj());
@@ -249,6 +252,22 @@ Fantome *Affichage::getFan(Fantome::name N){
 
 Labyrinthe *Affichage::getLab(){
     return l;
+}
+
+Porte *Affichage::getDoor(){
+    return D;
+}
+
+void Affichage::showdoor(){
+    QList<QGraphicsItem*> L = gscene->items();
+    if(!L.contains(D->getgobj()))
+        gscene->addItem(D->getgobj());
+}
+
+void Affichage::hidedoor(){
+    QList<QGraphicsItem*> L = gscene->items();
+    if(L.contains(D->getgobj()))
+        gscene->removeItem(D->getgobj());
 }
 
 Fantome *Affichage::getPinky(){

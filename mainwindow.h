@@ -43,7 +43,7 @@ private:
     int nbghostseaten;
     int ghostmul;
     int fruit;
-    int fruittimer;
+    int fruittimer;    
 };
 
 #endif // MAINWINDOW_H

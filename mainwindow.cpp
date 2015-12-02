@@ -32,14 +32,14 @@ MainWindow::MainWindow(QWidget *parent) :
     nbghostseaten=0;
     ghostmul=1;
     fruit=0;
-    fruittimer=0;
+    fruittimer=0;    
     score.resize(partie+1,0);    
     ui->graphicsView->setScene(a->getscene());
-    s->playintro();    
+    s->playintro();
 }
 
 void MainWindow::tick(){
-    int i;
+    int i;    
     a->pos();
     c->colliding(a->getPac(),a->getLab());
     //pour tous les fantômes
@@ -47,6 +47,14 @@ void MainWindow::tick(){
     c->colliding(a->getBlinky(),a->getLab());
     c->colliding(a->getInky(),a->getLab());
     c->colliding(a->getClyde(),a->getLab());
+
+    c->colliding(a->getPac(),a->getDoor());
+    //pour tous les fantômes
+    if(c->colliding(a->getPinky(),a->getDoor()) || c->colliding(a->getBlinky(),a->getDoor()) ||
+            c->colliding(a->getInky(),a->getDoor()) || c->colliding(a->getClyde(),a->getDoor()))
+        a->hidedoor();
+    else
+        a->showdoor();
     if(c->colliding(a->getPac(),a->getBlinky()) || c->colliding(a->getPac(),a->getPinky()) || c->colliding(a->getPac(),a->getInky()) || c->colliding(a->getPac(),a->getClyde())){
         if(a->getPac()->getpower()){
             if(c->colliding(a->getPac(),a->getBlinky()))

@@ -4,6 +4,7 @@
 
 Personnage::Personnage(){
     this->dir=none;
+    gobj=new QGraphicsPixmapItem();
 }
 
 Personnage::Personnage(float x, float y)

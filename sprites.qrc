@@ -24,6 +24,7 @@
         <file>res/key.png</file>
         <file>res/orange.png</file>
         <file>res/strawberry.png</file>
+        <file>res/porte.png</file>
     </qresource>
     <qresource prefix="/Sounds">
         <file>res/sound/pacman_beginning.wav</file>

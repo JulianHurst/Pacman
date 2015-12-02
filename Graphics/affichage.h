@@ -6,6 +6,7 @@
 #include "../billearray.h"
 #include "../fruit.h"
 #include "../labyrinthe.h"
+#include "../porte.h"
 #include <QTimer>
 
 class Affichage : public QObject
@@ -27,6 +28,7 @@ public:
     Fantome *getClyde();
     Fruit *getFruit();
     Labyrinthe *getLab();
+    Porte *getDoor();
     QGraphicsTextItem *getScore();
     QGraphicsTextItem *getLives();
     Personnage::direction getdpac();
@@ -42,6 +44,8 @@ public:
     void blueghost(bool blue);
     void updatescore(int score);
     void showfruit(Fruit::name n);
+    void showdoor();
+    void hidedoor();
 
 private:
     QGraphicsScene *gscene;
@@ -54,7 +58,8 @@ private:
     Fantome *Clyde;
     BilleArray *B;
     Fruit *F;
-    Labyrinthe *l;     
+    Labyrinthe *l;
+    Porte *D;
     int w;
     int h;    
     int score;

@@ -1,6 +1,6 @@
 #include "fantome.h"
 #ifndef Q_OS_WIN32
-#define YAXIS 8
+#define YAXIS 9
 #else
 #define YAXIS 11
 #endif
@@ -9,7 +9,6 @@ Fantome::Fantome(Fantome::name N):
     Personnage()
 {
     this->N=N;
-    gobj=new QGraphicsPixmapItem();
 }
 
 Fantome::Fantome(float x, float y,name N)

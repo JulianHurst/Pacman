@@ -3,16 +3,12 @@
 #include <QDebug>
 #include <QPainter>
 #ifndef Q_OS_WIN32
-#define YAXIS 53
+#define YAXIS 52
 #else
 #define YAXIS 50
 #endif
 
-Pacman::Pacman():
-    Personnage()
-{
-    gobj = new QGraphicsPixmapItem();
-}
+Pacman::Pacman(): Personnage(){}
 
 Pacman::Pacman(float x,float y)
     :Personnage(x,y)
