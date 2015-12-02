@@ -56,8 +56,7 @@ private:
     Fruit *F;
     Labyrinthe *l;     
     int w;
-    int h;
-    QTimer *time;
+    int h;    
     int score;
 };
 

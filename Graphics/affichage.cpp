@@ -273,7 +273,10 @@ Affichage::~Affichage(){
     delete Pinky;
     delete Inky;
     delete Clyde;
+    delete B;
+    delete F;
+    delete l;
     delete Score;
     delete Lives;
-
+    delete gscene;
 }

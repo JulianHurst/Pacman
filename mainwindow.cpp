@@ -261,6 +261,8 @@ MainWindow::~MainWindow()
 {
     delete a;
     delete c;
+    delete s;
     delete time;
+    delete animtimer;
     delete ui;
 }
