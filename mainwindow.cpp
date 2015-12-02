@@ -205,7 +205,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
             ghost=4;
             break;
         case Qt::Key_Return:
+            time->stop();
+            animtimer->stop();
             a->showscores(score);
+            time->start();
+            animtimer->start();
             break;
         case Qt::Key_Escape:
             qApp->quit();
