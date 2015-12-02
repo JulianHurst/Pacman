@@ -9,7 +9,7 @@
 BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe *l,Pacman *P,Fantome *F)
 {
     int i=0;
-    int j=217;
+    int j=218;
     B=new Bille*[j];
     float initx=x,inity=y;
     Bille *tmp;
@@ -36,7 +36,7 @@ BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe
         y=inity;
         x+=xoffset;
     }
-    length=i;    
+    length=i;
 }
 
 Bille *BilleArray::at(int i){    

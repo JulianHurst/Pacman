@@ -1,6 +1,6 @@
 #include "fruit.h"
 #ifndef Q_OS_WIN32
-#define YAXIS 53
+#define YAXIS 52
 #else
 #define YAXIS 50
 #endif

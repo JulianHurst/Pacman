@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "Graphics/affichage.h"
 #include "collisions.h"
-#include "sound.h"
+//#include "sound.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,7 +31,7 @@ private:
     Ui::MainWindow *ui;    
     Affichage *a;
     Collisions *c;
-    Sound *s;
+    //Sound *s;
     float t_xoffset;
     float t_yoffset;    
     QTimer *time;

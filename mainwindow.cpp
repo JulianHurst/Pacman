@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     t_xoffset=t_yoffset=0;      
     a=new Affichage(ui->graphicsView->width(),ui->graphicsView->height());
     c=new Collisions();
-    s=new Sound();
+    //s=new Sound();
     time=new QTimer(this);
     animtimer=new QTimer(this);
     connect(time,SIGNAL(timeout()),this,SLOT(tick()));
@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fruittimer=0;
     score.resize(partie+1,0);    
     ui->graphicsView->setScene(a->getscene());
-    s->playintro();    
+    //s->playintro();
 }
 
 void MainWindow::tick(){
@@ -63,7 +63,7 @@ void MainWindow::tick(){
             a->updatescore(score[partie]);
         }
         else{
-            s->playdying();
+            //s->playdying();
             if(fruittimer!=0){
                 fruittimer=0;
                 a->removeFruit();
@@ -76,9 +76,9 @@ void MainWindow::tick(){
         }
     }
     if((i=c->colliding(a->getPac(),a->getBilleArray()))!=-1){
-        s->setchomploop(2);
-        if(s->getchomp()->isFinished())
-            s->playchomp();
+        //s->setchomploop(2);
+        //if(s->getchomp()->isFinished())
+            //s->playchomp();
         if(a->getPac()->getpower())
             a->blueghost(true);                            
         score[partie]+=a->getBilleArray()->at(i)->getscore();
@@ -92,10 +92,10 @@ void MainWindow::tick(){
             score.resize(partie+1,0);
         }
     }
-    else
-        s->setchomploop(0);
+    //else
+        //s->setchomploop(0);
     if(fruittimer!=0 && c->colliding(a->getPac(),a->getFruit())){
-        s->playfruit();
+        //s->playfruit();
         a->removeFruit();
         fruit++;
         fruittimer=0;
@@ -177,7 +177,7 @@ void MainWindow::resizeEvent(QResizeEvent *){
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e){
-    if(s->getintro()->isFinished() && s->getdying()->isFinished()){
+    //if(s->getintro()->isFinished() && s->getdying()->isFinished()){
         Personnage::direction d=a->getPac()->getdir();
         switch(e->key()){
         case Qt::Key_Right:
@@ -205,7 +205,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
             ghost=4;
             break;
         case Qt::Key_Return:
+            time->stop();
+            animtimer->stop();
             a->showscores(score);
+            time->start();
+            animtimer->start();
             break;
         case Qt::Key_Escape:
             qApp->quit();
@@ -228,7 +232,7 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
         if(d!=a->getPac()->getdir())
             a->animate();
     }
-}
+//}
 
 void MainWindow::moveGhost(QKeyEvent *e,Fantome::name N){
     switch(e->key()){
@@ -257,6 +261,8 @@ MainWindow::~MainWindow()
 {
     delete a;
     delete c;
+    //delete s;
     delete time;
+    delete animtimer;
     delete ui;
 }

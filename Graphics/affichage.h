@@ -7,6 +7,7 @@
 #include "../fruit.h"
 #include "../labyrinthe.h"
 #include <QTimer>
+#include <QMessageBox>
 
 class Affichage : public QObject
 {
@@ -59,6 +60,7 @@ private:
     int h;
     QTimer *time;
     int score;
+    QMessageBox scoremsg;
 };
 
 #endif // AFFICHAGE_H

@@ -31,13 +31,12 @@ Affichage::Affichage(int width,int height)
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);
 }
 
-void Affichage::pos(){
-
-    P->move(l);    
-    Blinky->move(l);
-    Pinky->move(l);
-    Inky->move(l);
-    Clyde->move(l);
+void Affichage::pos(){   
+        P->move(l);
+        Blinky->move(l);
+        Pinky->move(l);
+        Inky->move(l);
+        Clyde->move(l);
 }
 
 bool Affichage::reinit(){
@@ -148,7 +147,7 @@ bool Affichage::removeBille(int i,int score){
     this->score=score;
     if(B->getlength()==0){
         QMessageBox M;
-        M.setText("Gagné !\nScore : "+QString::number(score));
+        M.setText(QString::fromUtf8("Gagné !\nScore : ")+QString::number(score));
         M.setWindowTitle("Victoire !");
         M.exec();
         reset();        
@@ -158,7 +157,7 @@ bool Affichage::removeBille(int i,int score){
 }
 
 void Affichage::removeFruit(){
-    gscene->removeItem(F->getgobj());
+        gscene->removeItem(F->getgobj());
 }
 
 void Affichage::updatescore(int score){
@@ -168,17 +167,16 @@ void Affichage::updatescore(int score){
     Score->setPlainText(S);
 }
 
-void Affichage::showscores(std::vector<int> score){
-    QMessageBox M;
+void Affichage::showscores(std::vector<int> score){    
     QString S="";
     S.append(QString::number(score[0]));
     for(unsigned int i=1;i<score.size();i++){
         S.append("\n");
         S.append(QString::number(score[i]));
     }
-    M.setText("Scores :\n"+S);
-    M.setWindowTitle("Scores");
-    M.exec();
+    scoremsg.setText("Scores :\n"+S);
+    scoremsg.setWindowTitle("Scores");
+    scoremsg.exec();
 }
 
 void Affichage::animate(){
@@ -267,13 +265,17 @@ Fantome *Affichage::getClyde(){
     return Clyde;
 }
 
-Affichage::~Affichage(){
+Affichage::~Affichage(){    
     delete P;
     delete Blinky;
     delete Pinky;
     delete Inky;
     delete Clyde;
+    delete B;
+    delete F;
+    delete l;
     delete Score;
-    delete Lives;
+    delete Lives;    
+    delete gscene;
 
 }

@@ -1,6 +1,6 @@
 #include "fantome.h"
 #ifndef Q_OS_WIN32
-#define YAXIS 8
+#define YAXIS 9
 #else
 #define YAXIS 11
 #endif

@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Pacman1
 TEMPLATE = app
@@ -22,7 +22,6 @@ SOURCES += main.cpp\
     collisions.cpp \
     bille.cpp \
     billearray.cpp \
-    sound.cpp \
     fruit.cpp \
     bonus.cpp
 
@@ -35,7 +34,6 @@ HEADERS  += mainwindow.h \
     collisions.h \
     bille.h \
     billearray.h \
-    sound.h \
     fruit.h \
     bonus.h
 
