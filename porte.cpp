@@ -2,7 +2,7 @@
 #ifndef Q_OS_WIN32
 #define YAXIS 18.2
 #else
-#define YAXIS 20.2
+#define YAXIS 22.2
 #endif
 
 Porte::Porte(float x,float y)
