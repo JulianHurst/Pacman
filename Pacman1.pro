@@ -48,4 +48,6 @@ OTHER_FILES += \
 
 RESOURCES += \
     sprites.qrc
+	
+RC_FILE = Pacman.rc
 
