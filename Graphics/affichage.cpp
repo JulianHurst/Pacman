@@ -9,6 +9,11 @@
 
 using namespace std;
 
+/**
+ * @brief Affichage::Affichage Prépare l'affichage du jeu
+ * @param width Largeur de la fenêtre
+ * @param height Hauteur de la fenêtre
+ */
 Affichage::Affichage(int width,int height)
 {            
     w=width;
@@ -32,6 +37,9 @@ Affichage::Affichage(int width,int height)
     gscene->setItemIndexMethod(QGraphicsScene::NoIndex);
 }
 
+/**
+ * @brief Affichage::pos
+ */
 void Affichage::pos(){
 
     P->move(l);    
@@ -41,6 +49,10 @@ void Affichage::pos(){
     Clyde->move(l);
 }
 
+/**
+ * @brief Affichage::reinit réinitialise la position des Fantômes, et de Pacman
+ * @return Vrai si il reste encore des vies, sinon faux
+ */
 bool Affichage::reinit(){
     QString S="Vies : ";
     S.append(QString::number(P->getlives()));
@@ -74,6 +86,9 @@ bool Affichage::reinit(){
     return false;
 }
 
+/**
+ * @brief Affichage::reset remet l'affichage à zéro
+ */
 void Affichage::reset(){    
     Pinky->reinit();
     Blinky->reinit();
@@ -104,12 +119,20 @@ void Affichage::reset(){
     blueghost(false);
 }
 
+/**
+ * @brief Affichage::show affiche la scène
+ * @param w Largeur
+ * @param h Hauteur
+ */
 void Affichage::show(int w,int h){
     this->w=w;
     this->h=h;
     showchildren();
 }
 
+/**
+ * @brief Affichage::showchildren Prépare la scene
+ */
 void Affichage::showchildren(){
     QString S;
     S="Vies : ";
@@ -139,11 +162,21 @@ void Affichage::showchildren(){
     gscene->addItem(Lives);
 }
 
+/**
+ * @brief Affichage::showfruit Ajoute les fruits à la scene
+ * @param n nom du fruit
+ */
 void Affichage::showfruit(Fruit::name n){
     F=new Fruit(w/2,h/2,n,100);
     gscene->addItem(F->getgobj());
 }
 
+/**
+ * @brief Affichage::removeBille Enlève une croquette du plateau
+ * @param i numéro de la croquette
+ * @param score
+ * @return vrai si plus de bille, faux sinon
+ */
 bool Affichage::removeBille(int i,int score){
     gscene->removeItem(B->at(i)->getgobj());
     B->rearrange(i);    
@@ -160,10 +193,17 @@ bool Affichage::removeBille(int i,int score){
     return false;
 }
 
+/**
+ * @brief Affichage::removeFruit Enlève le fruit de l'affichage
+ */
 void Affichage::removeFruit(){
     gscene->removeItem(F->getgobj());
 }
 
+/**
+ * @brief Affichage::updatescore Mets à jour l'affichage du score
+ * @param score
+ */
 void Affichage::updatescore(int score){
     QString S;
     S="Score : ";
@@ -171,6 +211,10 @@ void Affichage::updatescore(int score){
     Score->setPlainText(S);
 }
 
+/**
+ * @brief Affichage::showscores affiche le score
+ * @param score
+ */
 void Affichage::showscores(std::vector<int> score){
     QMessageBox M;
     QString S="";
@@ -188,6 +232,10 @@ void Affichage::animate(){
  P->animate();
 }
 
+/**
+ * @brief Affichage::blueghost Change l'affichage des fantômes celon leur état
+ * @param blue vari si vulnérable donc bleu, et faux sinon.
+ */
 void Affichage::blueghost(bool blue){
     if(blue){
         Blinky->blueon();
@@ -203,42 +251,83 @@ void Affichage::blueghost(bool blue){
     }
 }
 
+/**
+ * @brief Affichage::change_direction Change la direction
+ * @param d nouvelle direction
+ */
 void Affichage::change_direction(Personnage::direction d){    
     P->setdir(d);
 }
 
+/**
+ * @brief Affichage::getscene retourne la scène
+ * @return scène courante
+ */
 QGraphicsScene *Affichage::getscene(){
     return gscene;
 }
 
+/**
+ * @brief Affichage::getw retourne la largeur
+ * @return Largeur courante
+ */
 int Affichage::getw(){
     return w;
 }
 
+/**
+ * @brief Affichage::geth retourne la hauteur
+ * @return hauteur courante
+ */
 int Affichage::geth(){
     return h;
 }
 
+/**
+ * @brief Affichage::getPac retourne le Pacman
+ * @return Pacman
+ */
 Pacman *Affichage::getPac(){
     return P;
 }
 
+/**
+ * @brief Affichage::getFruit retourne le fruit courant
+ * @return fruit courant
+ */
 Fruit *Affichage::getFruit(){
     return F;
 }
 
+/**
+ * @brief Affichage::getBilleArray retourne le tableau de croquette présentes sur le plateau
+ * @return tableau de croquettes
+ */
 BilleArray *Affichage::getBilleArray(){
     return B;
 }
 
+/**
+ * @brief Affichage::getScore retourne le score courant
+ * @return score courant
+ */
 QGraphicsTextItem *Affichage::getScore(){
     return Score;
 }
 
+/**
+ * @brief Affichage::getLives retourne le nombre de vie
+ * @return vie courante
+ */
 QGraphicsTextItem *Affichage::getLives(){
     return Lives;
 }
 
+/**
+ * @brief Affichage::getFan retourne le fantômes voulue
+ * @param N nom du fantôme que l'on veut récupérer
+ * @return le fantôme courant selectionné
+ */
 Fantome *Affichage::getFan(Fantome::name N){
     if(Blinky->getName()==N)
         return Blinky;
@@ -250,6 +339,10 @@ Fantome *Affichage::getFan(Fantome::name N){
         return Clyde;
 }
 
+/**
+ * @brief Affichage::getLab retourne le labyrinthe courant
+ * @return labyrinthe courant
+ */
 Labyrinthe *Affichage::getLab(){
     return l;
 }
@@ -258,34 +351,58 @@ Porte *Affichage::getDoor(){
     return D;
 }
 
+/**
+ * @brief Affichage::showdoor affiche la porte qui bloque l'entrée de la chambre des fantômes
+ */
 void Affichage::showdoor(){
     QList<QGraphicsItem*> L = gscene->items();
     if(!L.contains(D->getgobj()))
         gscene->addItem(D->getgobj());
 }
 
+/**
+ * @brief Affichage::hidedoor masque la porte de la chambre des fantômes
+ */
 void Affichage::hidedoor(){
     QList<QGraphicsItem*> L = gscene->items();
     if(L.contains(D->getgobj()))
         gscene->removeItem(D->getgobj());
 }
-
+/**
+ * @brief Affichage::getPinky retourne pinky
+ * @return pinky
+ */
 Fantome *Affichage::getPinky(){
     return Pinky;
 }
 
+/**
+ * @brief Affichage::getBlinky retourne blinky
+ * @return blinky
+ */
 Fantome *Affichage::getBlinky(){
     return Blinky;
 }
 
+/**
+ * @brief Affichage::getInky retourne Inky
+ * @return Inky
+ */
 Fantome *Affichage::getInky(){
     return Inky;
 }
 
+/**
+ * @brief Affichage::getClyde retourne Clyde
+ * @return Clyde
+ */
 Fantome *Affichage::getClyde(){
     return Clyde;
 }
 
+/**
+ * @brief Affichage::~Affichage supresseur
+ */
 Affichage::~Affichage(){
     delete P;
     delete Blinky;

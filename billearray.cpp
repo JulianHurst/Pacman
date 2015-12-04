@@ -6,6 +6,16 @@
 #define OFFSET 10
 #endif
 
+/**
+ * @brief BilleArray::BilleArray Constructeur avec oaramètre du tableau de bille
+ * @param x
+ * @param y
+ * @param xoffset
+ * @param yoffset
+ * @param l Labyrinthe
+ * @param P Pacman
+ * @param F Fantome
+ */
 BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe *l,Pacman *P,Fantome *F)
 {
     int i=0;
@@ -39,10 +49,19 @@ BilleArray::BilleArray(float x, float y, float xoffset,float yoffset, Labyrinthe
     length=i;    
 }
 
+/**
+ * @brief BilleArray::at Retourne une case du tableau de croquette
+ * @param i case à retourner
+ * @return case choisie
+ */
 Bille *BilleArray::at(int i){    
     return B[i];
 }
 
+/**
+ * @brief BilleArray::rearrange supprime la case laissé vide suite à la suppréssion d'une croquette
+ * @param i point de départ du réarrangement
+ */
 void BilleArray::rearrange(int i){
     int j;
     for(j=i+1;j<length;j++,i++)
@@ -51,6 +70,10 @@ void BilleArray::rearrange(int i){
     length--;
 }
 
+/**
+ * @brief BilleArray::getlength retourne la taille du tableau de croquette
+ * @return taille du tableau
+ */
 int BilleArray::getlength(){
     return length;
 }

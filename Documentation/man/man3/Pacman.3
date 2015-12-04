@@ -1,0 +1,129 @@
+.TH "Pacman" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Pacman \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPersonnage\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPacman\fP (float x, float y)"
+.br
+.RI "\fIPacman::Pacman Constructeur avec deux paramètre de pacman\&. \fP"
+.ti -1c
+.RI "void \fBdie\fP ()"
+.br
+.RI "\fI\fBPacman::die\fP réduit le nombre de vie de \fBPacman\fP lorsqu'il meurt\&. \fP"
+.ti -1c
+.RI "int \fBgetlives\fP ()"
+.br
+.RI "\fI\fBPacman::getlives\fP retourne le nombre de vie\&. \fP"
+.ti -1c
+.RI "void \fBsetlives\fP (int lives)"
+.br
+.RI "\fI\fBPacman::setlives\fP définit le nombre de vie\&. \fP"
+.ti -1c
+.RI "void \fBCollisionFantome\fP ()"
+.br
+.RI "\fI\fBPacman::CollisionFantome\fP déclenche la mort de pacman lors d'une collision avec un fantôme\&. \fP"
+.ti -1c
+.RI "\fBPacman\fP * \fBresize\fP (int w, int h)"
+.br
+.RI "\fI\fBPacman::resize\fP adapte la taille de pacman\&. \fP"
+.ti -1c
+.RI "bool \fBgetpower\fP ()"
+.br
+.RI "\fI\fBPacman::getpower\fP retourne l'état de puissance de pacman\&. \fP"
+.ti -1c
+.RI "void \fBpowerup\fP ()"
+.br
+.RI "\fI\fBPacman::powerup\fP Passe le power à true, et sa durée à 50\&. \fP"
+.ti -1c
+.RI "void \fBpowerdown\fP ()"
+.br
+.RI "\fI\fBPacman::powerdown\fP baisse le temps du power et le désactive lorsque celui ci est à zéro\&. \fP"
+.ti -1c
+.RI "void \fBanimate\fP ()"
+.br
+.RI "\fI\fBPacman::animate\fP animation de pacman\&. \fP"
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Pacman::Pacman (float x, float y)"
+
+.PP
+Pacman::Pacman Constructeur avec deux paramètre de pacman\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP postion horizontale 
+.br
+\fIy\fP position verticale 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int Pacman::getlives ()"
+
+.PP
+\fBPacman::getlives\fP retourne le nombre de vie\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+nombre de vie 
+.RE
+.PP
+
+.SS "bool Pacman::getpower ()"
+
+.PP
+\fBPacman::getpower\fP retourne l'état de puissance de pacman\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+l'état de pacman 
+.RE
+.PP
+
+.SS "\fBPacman\fP * Pacman::resize (int w, int h)\fC [virtual]\fP"
+
+.PP
+\fBPacman::resize\fP adapte la taille de pacman\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIw\fP largeur 
+.br
+\fIh\fP hauteur 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+pacman 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPersonnage\fP\&.
+.SS "void Pacman::setlives (int lives)"
+
+.PP
+\fBPacman::setlives\fP définit le nombre de vie\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlives\fP nouveau nombre de vie 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

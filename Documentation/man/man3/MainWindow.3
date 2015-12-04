@@ -1,0 +1,74 @@
+.TH "MainWindow" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MainWindow \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBtick\fP ()"
+.br
+.ti -1c
+.RI "void \fBanimtick\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "void \fBshowEvent\fP (QShowEvent *)"
+.br
+.ti -1c
+.RI "void \fBresizeEvent\fP (QResizeEvent *)"
+.br
+.ti -1c
+.RI "void \fBkeyPressEvent\fP (QKeyEvent *)"
+.br
+.RI "\fI\fBMainWindow::keyPressEvent\fP gestion des evenements celon la touche enfoncé \fP"
+.ti -1c
+.RI "void \fBmousePressEvent\fP (QMouseEvent *)"
+.br
+.ti -1c
+.RI "void \fBmoveGhost\fP (QKeyEvent *e, Fantome::name N)"
+.br
+.RI "\fI\fBMainWindow::moveGhost\fP Déplacement des Fantômes celon la touche enfoncé \fP"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void MainWindow::keyPressEvent (QKeyEvent * e)"
+
+.PP
+\fBMainWindow::keyPressEvent\fP gestion des evenements celon la touche enfoncé 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP touche appuyé 
+.RE
+.PP
+
+.SS "void MainWindow::moveGhost (QKeyEvent * e, Fantome::name N)"
+
+.PP
+\fBMainWindow::moveGhost\fP Déplacement des Fantômes celon la touche enfoncé 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP touche enfoncé 
+.br
+\fIN\fP nom du fantôme 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

@@ -1,0 +1,420 @@
+.TH "Affichage" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Affichage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAffichage\fP (int width, int height)"
+.br
+.RI "\fI\fBAffichage::Affichage\fP Prépare l'affichage du jeu\&. \fP"
+.ti -1c
+.RI "\fB~Affichage\fP ()"
+.br
+.RI "\fI\fBAffichage::~Affichage\fP supresseur\&. \fP"
+.ti -1c
+.RI "QGraphicsScene * \fBgetscene\fP ()"
+.br
+.RI "\fI\fBAffichage::getscene\fP retourne la scène\&. \fP"
+.ti -1c
+.RI "bool \fBremoveBille\fP (int i, int score)"
+.br
+.RI "\fI\fBAffichage::removeBille\fP Enlève une croquette du plateau\&. \fP"
+.ti -1c
+.RI "void \fBremoveFruit\fP ()"
+.br
+.RI "\fI\fBAffichage::removeFruit\fP Enlève le fruit de l'affichage\&. \fP"
+.ti -1c
+.RI "void \fBchange_direction\fP (Personnage::direction d)"
+.br
+.RI "\fI\fBAffichage::change_direction\fP Change la direction\&. \fP"
+.ti -1c
+.RI "\fBPacman\fP * \fBgetPac\fP ()"
+.br
+.RI "\fI\fBAffichage::getPac\fP retourne le \fBPacman\fP\&. \fP"
+.ti -1c
+.RI "\fBBilleArray\fP * \fBgetBilleArray\fP ()"
+.br
+.RI "\fI\fBAffichage::getBilleArray\fP retourne le tableau de croquette présentes sur le plateau\&. \fP"
+.ti -1c
+.RI "\fBFantome\fP * \fBgetFan\fP (Fantome::name N)"
+.br
+.RI "\fI\fBAffichage::getFan\fP retourne le fantômes voulue\&. \fP"
+.ti -1c
+.RI "\fBFantome\fP * \fBgetPinky\fP ()"
+.br
+.RI "\fI\fBAffichage::getPinky\fP retourne pinky\&. \fP"
+.ti -1c
+.RI "\fBFantome\fP * \fBgetBlinky\fP ()"
+.br
+.RI "\fI\fBAffichage::getBlinky\fP retourne blinky\&. \fP"
+.ti -1c
+.RI "\fBFantome\fP * \fBgetInky\fP ()"
+.br
+.RI "\fI\fBAffichage::getInky\fP retourne Inky\&. \fP"
+.ti -1c
+.RI "\fBFantome\fP * \fBgetClyde\fP ()"
+.br
+.RI "\fI\fBAffichage::getClyde\fP retourne Clyde\&. \fP"
+.ti -1c
+.RI "\fBFruit\fP * \fBgetFruit\fP ()"
+.br
+.RI "\fI\fBAffichage::getFruit\fP retourne le fruit courant\&. \fP"
+.ti -1c
+.RI "\fBLabyrinthe\fP * \fBgetLab\fP ()"
+.br
+.RI "\fI\fBAffichage::getLab\fP retourne le labyrinthe courant\&. \fP"
+.ti -1c
+.RI "\fBPorte\fP * \fBgetDoor\fP ()"
+.br
+.ti -1c
+.RI "QGraphicsTextItem * \fBgetScore\fP ()"
+.br
+.RI "\fI\fBAffichage::getScore\fP retourne le score courant\&. \fP"
+.ti -1c
+.RI "QGraphicsTextItem * \fBgetLives\fP ()"
+.br
+.RI "\fI\fBAffichage::getLives\fP retourne le nombre de vie\&. \fP"
+.ti -1c
+.RI "Personnage::direction \fBgetdpac\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetw\fP ()"
+.br
+.RI "\fI\fBAffichage::getw\fP retourne la largeur\&. \fP"
+.ti -1c
+.RI "int \fBgeth\fP ()"
+.br
+.RI "\fI\fBAffichage::geth\fP retourne la hauteur\&. \fP"
+.ti -1c
+.RI "bool \fBreinit\fP ()"
+.br
+.RI "\fI\fBAffichage::reinit\fP réinitialise la position des Fantômes, et de \fBPacman\fP\&. \fP"
+.ti -1c
+.RI "void \fBpos\fP ()"
+.br
+.RI "\fI\fBAffichage::pos\fP\&. \fP"
+.ti -1c
+.RI "void \fBshow\fP (int w, int h)"
+.br
+.RI "\fI\fBAffichage::show\fP affiche la scène\&. \fP"
+.ti -1c
+.RI "void \fBshowchildren\fP ()"
+.br
+.RI "\fI\fBAffichage::showchildren\fP Prépare la scene\&. \fP"
+.ti -1c
+.RI "void \fBshowscores\fP (std::vector< int > score)"
+.br
+.RI "\fI\fBAffichage::showscores\fP affiche le score\&. \fP"
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.RI "\fI\fBAffichage::reset\fP remet l'affichage à zéro\&. \fP"
+.ti -1c
+.RI "void \fBanimate\fP ()"
+.br
+.ti -1c
+.RI "void \fBblueghost\fP (bool blue)"
+.br
+.RI "\fI\fBAffichage::blueghost\fP Change l'affichage des fantômes celon leur état\&. \fP"
+.ti -1c
+.RI "void \fBupdatescore\fP (int score)"
+.br
+.RI "\fI\fBAffichage::updatescore\fP Mets à jour l'affichage du score\&. \fP"
+.ti -1c
+.RI "void \fBshowfruit\fP (Fruit::name n)"
+.br
+.RI "\fI\fBAffichage::showfruit\fP Ajoute les fruits à la scene\&. \fP"
+.ti -1c
+.RI "void \fBshowdoor\fP ()"
+.br
+.RI "\fI\fBAffichage::showdoor\fP affiche la porte qui bloque l'entrée de la chambre des fantômes\&. \fP"
+.ti -1c
+.RI "void \fBhidedoor\fP ()"
+.br
+.RI "\fI\fBAffichage::hidedoor\fP masque la porte de la chambre des fantômes\&. \fP"
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Affichage::Affichage (int width, int height)"
+
+.PP
+\fBAffichage::Affichage\fP Prépare l'affichage du jeu\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwidth\fP Largeur de la fenêtre 
+.br
+\fIheight\fP Hauteur de la fenêtre 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Affichage::blueghost (bool blue)"
+
+.PP
+\fBAffichage::blueghost\fP Change l'affichage des fantômes celon leur état\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIblue\fP vari si vulnérable donc bleu, et faux sinon\&. 
+.RE
+.PP
+
+.SS "void Affichage::change_direction (Personnage::direction d)"
+
+.PP
+\fBAffichage::change_direction\fP Change la direction\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP nouvelle direction 
+.RE
+.PP
+
+.SS "\fBBilleArray\fP * Affichage::getBilleArray ()"
+
+.PP
+\fBAffichage::getBilleArray\fP retourne le tableau de croquette présentes sur le plateau\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+tableau de croquettes 
+.RE
+.PP
+
+.SS "\fBFantome\fP * Affichage::getBlinky ()"
+
+.PP
+\fBAffichage::getBlinky\fP retourne blinky\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+blinky 
+.RE
+.PP
+
+.SS "\fBFantome\fP * Affichage::getClyde ()"
+
+.PP
+\fBAffichage::getClyde\fP retourne Clyde\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Clyde 
+.RE
+.PP
+
+.SS "\fBFantome\fP * Affichage::getFan (Fantome::name N)"
+
+.PP
+\fBAffichage::getFan\fP retourne le fantômes voulue\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIN\fP nom du fantôme que l'on veut récupérer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+le fantôme courant selectionné 
+.RE
+.PP
+
+.SS "\fBFruit\fP * Affichage::getFruit ()"
+
+.PP
+\fBAffichage::getFruit\fP retourne le fruit courant\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+fruit courant 
+.RE
+.PP
+
+.SS "int Affichage::geth ()"
+
+.PP
+\fBAffichage::geth\fP retourne la hauteur\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+hauteur courante 
+.RE
+.PP
+
+.SS "\fBFantome\fP * Affichage::getInky ()"
+
+.PP
+\fBAffichage::getInky\fP retourne Inky\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Inky 
+.RE
+.PP
+
+.SS "\fBLabyrinthe\fP * Affichage::getLab ()"
+
+.PP
+\fBAffichage::getLab\fP retourne le labyrinthe courant\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+labyrinthe courant 
+.RE
+.PP
+
+.SS "QGraphicsTextItem * Affichage::getLives ()"
+
+.PP
+\fBAffichage::getLives\fP retourne le nombre de vie\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+vie courante 
+.RE
+.PP
+
+.SS "\fBPacman\fP * Affichage::getPac ()"
+
+.PP
+\fBAffichage::getPac\fP retourne le \fBPacman\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPacman\fP 
+.RE
+.PP
+
+.SS "\fBFantome\fP * Affichage::getPinky ()"
+
+.PP
+\fBAffichage::getPinky\fP retourne pinky\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+pinky 
+.RE
+.PP
+
+.SS "QGraphicsScene * Affichage::getscene ()"
+
+.PP
+\fBAffichage::getscene\fP retourne la scène\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+scène courante 
+.RE
+.PP
+
+.SS "QGraphicsTextItem * Affichage::getScore ()"
+
+.PP
+\fBAffichage::getScore\fP retourne le score courant\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+score courant 
+.RE
+.PP
+
+.SS "int Affichage::getw ()"
+
+.PP
+\fBAffichage::getw\fP retourne la largeur\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Largeur courante 
+.RE
+.PP
+
+.SS "bool Affichage::reinit ()"
+
+.PP
+\fBAffichage::reinit\fP réinitialise la position des Fantômes, et de \fBPacman\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Vrai si il reste encore des vies, sinon faux 
+.RE
+.PP
+
+.SS "bool Affichage::removeBille (int i, int score)"
+
+.PP
+\fBAffichage::removeBille\fP Enlève une croquette du plateau\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP numéro de la croquette 
+.br
+\fIscore\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+vrai si plus de bille, faux sinon 
+.RE
+.PP
+
+.SS "void Affichage::show (int w, int h)"
+
+.PP
+\fBAffichage::show\fP affiche la scène\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIw\fP Largeur 
+.br
+\fIh\fP Hauteur 
+.RE
+.PP
+
+.SS "void Affichage::showfruit (Fruit::name n)"
+
+.PP
+\fBAffichage::showfruit\fP Ajoute les fruits à la scene\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP nom du fruit 
+.RE
+.PP
+
+.SS "void Affichage::showscores (std::vector< int > score)"
+
+.PP
+\fBAffichage::showscores\fP affiche le score\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscore\fP 
+.RE
+.PP
+
+.SS "void Affichage::updatescore (int score)"
+
+.PP
+\fBAffichage::updatescore\fP Mets à jour l'affichage du score\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscore\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

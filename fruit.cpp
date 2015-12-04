@@ -11,6 +11,13 @@ Bonus()
     gobj=new QGraphicsPixmapItem();
 }
 
+/**
+ * @brief Fruit::Fruit constructeur de fruit avec 4 paramètres
+ * @param x position horizontale
+ * @param y position verticale
+ * @param n nom du fruit
+ * @param score
+ */
 Fruit::Fruit(float x, float y, name n, int score):
     Bonus(score)
 {

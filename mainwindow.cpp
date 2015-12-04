@@ -184,6 +184,10 @@ void MainWindow::resizeEvent(QResizeEvent *){
     height=ui->graphicsView->height();        
 }
 
+/**
+ * @brief MainWindow::keyPressEvent gestion des evenements celon la touche enfoncé
+ * @param e touche appuyé
+ */
 void MainWindow::keyPressEvent(QKeyEvent *e){
     if(s->getintro()->isFinished() && s->getdying()->isFinished()){
         Personnage::direction d=a->getPac()->getdir();
@@ -242,6 +246,11 @@ void MainWindow::keyPressEvent(QKeyEvent *e){
     }
 }
 
+/**
+ * @brief MainWindow::moveGhost Déplacement des Fantômes celon la touche enfoncé
+ * @param e touche enfoncé
+ * @param N nom du fantôme
+ */
 void MainWindow::moveGhost(QKeyEvent *e,Fantome::name N){
     switch(e->key()){
         case Qt::Key_D:
@@ -258,7 +267,6 @@ void MainWindow::moveGhost(QKeyEvent *e,Fantome::name N){
             break;
     }
 }
-
 
 void MainWindow::mousePressEvent(QMouseEvent *){
     this->setFocus();

@@ -1,0 +1,97 @@
+.TH "BilleArray" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BilleArray \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBilleArray\fP (float x, float y, float xoffset, float yoffset, \fBLabyrinthe\fP *l, \fBPacman\fP *P, \fBFantome\fP *F)"
+.br
+.RI "\fI\fBBilleArray::BilleArray\fP Constructeur avec oaramètre du tableau de bille\&. \fP"
+.ti -1c
+.RI "\fBBille\fP * \fBat\fP (int i)"
+.br
+.RI "\fI\fBBilleArray::at\fP Retourne une case du tableau de croquette\&. \fP"
+.ti -1c
+.RI "int \fBgetlength\fP ()"
+.br
+.RI "\fI\fBBilleArray::getlength\fP retourne la taille du tableau de croquette\&. \fP"
+.ti -1c
+.RI "void \fBrearrange\fP (int i)"
+.br
+.RI "\fI\fBBilleArray::rearrange\fP supprime la case laissé vide suite à la suppréssion d'une croquette\&. \fP"
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BilleArray::BilleArray (float x, float y, float xoffset, float yoffset, \fBLabyrinthe\fP * l, \fBPacman\fP * P, \fBFantome\fP * F)"
+
+.PP
+\fBBilleArray::BilleArray\fP Constructeur avec oaramètre du tableau de bille\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP 
+.br
+\fIy\fP 
+.br
+\fIxoffset\fP 
+.br
+\fIyoffset\fP 
+.br
+\fIl\fP \fBLabyrinthe\fP 
+.br
+\fIP\fP \fBPacman\fP 
+.br
+\fIF\fP \fBFantome\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBBille\fP * BilleArray::at (int i)"
+
+.PP
+\fBBilleArray::at\fP Retourne une case du tableau de croquette\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP case à retourner 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+case choisie 
+.RE
+.PP
+
+.SS "int BilleArray::getlength ()"
+
+.PP
+\fBBilleArray::getlength\fP retourne la taille du tableau de croquette\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+taille du tableau 
+.RE
+.PP
+
+.SS "void BilleArray::rearrange (int i)"
+
+.PP
+\fBBilleArray::rearrange\fP supprime la case laissé vide suite à la suppréssion d'une croquette\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP point de départ du réarrangement 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

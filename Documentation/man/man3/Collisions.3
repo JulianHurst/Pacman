@@ -1,0 +1,96 @@
+.TH "Collisions" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Collisions \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCollisions\fP ()"
+.br
+.RI "\fI\fBCollisions::Collisions\fP constructeur par défaut\&. \fP"
+.ti -1c
+.RI "bool \fBcolliding\fP (\fBPacman\fP *obj1, \fBFantome\fP *obj2)"
+.br
+.RI "\fI\fBCollisions::colliding\fP collision entre \fBPacman\fP et les fantomes\&. \fP"
+.ti -1c
+.RI "int \fBcolliding\fP (\fBPacman\fP *obj1, \fBBilleArray\fP *obj2)"
+.br
+.RI "\fI\fBCollisions::colliding\fP Collision entre pacman et les croquettes\&. \fP"
+.ti -1c
+.RI "bool \fBcolliding\fP (\fBPacman\fP *obj1, \fBFruit\fP *obj2)"
+.br
+.RI "\fI\fBCollisions::colliding\fP Collision entre \fBPacman\fP et un fruit\&. \fP"
+.ti -1c
+.RI "void \fBcolliding\fP (\fBPersonnage\fP *obj1, \fBLabyrinthe\fP *obj2)"
+.br
+.ti -1c
+.RI "void \fBcolliding\fP (\fBPacman\fP *obj1, \fBPorte\fP *obj2)"
+.br
+.ti -1c
+.RI "bool \fBcolliding\fP (\fBFantome\fP *obj1, \fBPorte\fP *obj2)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Collisions::colliding (\fBPacman\fP * obj1, \fBFantome\fP * obj2)"
+
+.PP
+\fBCollisions::colliding\fP collision entre \fBPacman\fP et les fantomes\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj1\fP pointer vers \fBPacman\fP 
+.br
+\fIobj2\fP pointer vers Fantôme 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Vrai si collision, faux sinon 
+.RE
+.PP
+
+.SS "int Collisions::colliding (\fBPacman\fP * obj1, \fBBilleArray\fP * obj2)"
+
+.PP
+\fBCollisions::colliding\fP Collision entre pacman et les croquettes\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj1\fP pointer vers \fBPacman\fP 
+.br
+\fIobj2\fP pointer vers Croquette 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+retourne le numéro de la bille avec laquelle il y a collision sinon 
+.RE
+.PP
+
+.SS "bool Collisions::colliding (\fBPacman\fP * obj1, \fBFruit\fP * obj2)"
+
+.PP
+\fBCollisions::colliding\fP Collision entre \fBPacman\fP et un fruit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj1\fP 
+.br
+\fIobj2\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

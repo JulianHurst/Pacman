@@ -1,0 +1,128 @@
+.TH "Fantome" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Fantome \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPersonnage\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBname\fP { \fBblinky\fP, \fBpinky\fP, \fBinky\fP, \fBclyde\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFantome\fP (name N)"
+.br
+.RI "\fI\fBFantome::Fantome\fP Constructeur de fantôme avec 1 paramètre\&. \fP"
+.ti -1c
+.RI "\fBFantome\fP (float x, float y, name N)"
+.br
+.RI "\fI\fBFantome::Fantome\fP Constructeur de fantôme avec 3 paramètre\&. \fP"
+.ti -1c
+.RI "name \fBgetName\fP ()"
+.br
+.RI "\fI\fBFantome::getName\fP retourne le nom du fantôme\&. \fP"
+.ti -1c
+.RI "bool \fBgetblue\fP ()"
+.br
+.RI "\fI\fBFantome::getblue\fP retourne l'état du fantôme\&. \fP"
+.ti -1c
+.RI "int \fBgetscore\fP ()"
+.br
+.ti -1c
+.RI "\fBFantome\fP * \fBresize\fP (int w, int h)"
+.br
+.RI "\fI\fBFantome::resize\fP Adapte la taille du fantôme\&. \fP"
+.ti -1c
+.RI "void \fBblueon\fP ()"
+.br
+.RI "\fI\fBFantome::blueon\fP charge l'image du fantôme vulnérable\&. \fP"
+.ti -1c
+.RI "void \fBblueoff\fP ()"
+.br
+.RI "\fI\fBFantome::blueoff\fP charge l'image du fantôme dans son état normal\&. \fP"
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Fantome::Fantome (Fantome::name N)"
+
+.PP
+\fBFantome::Fantome\fP Constructeur de fantôme avec 1 paramètre\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIN\fP Nom du fantôme 
+.RE
+.PP
+
+.SS "Fantome::Fantome (float x, float y, name N)"
+
+.PP
+\fBFantome::Fantome\fP Constructeur de fantôme avec 3 paramètre\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP position horizontale 
+.br
+\fIy\fP position veticale 
+.br
+\fIN\fP nom du fantôme 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Fantome::getblue ()"
+
+.PP
+\fBFantome::getblue\fP retourne l'état du fantôme\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+l'état du fantôme 
+.RE
+.PP
+
+.SS "Fantome::name Fantome::getName ()"
+
+.PP
+\fBFantome::getName\fP retourne le nom du fantôme\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+nom du fantôme 
+.RE
+.PP
+
+.SS "\fBFantome\fP * Fantome::resize (int w, int h)\fC [virtual]\fP"
+
+.PP
+\fBFantome::resize\fP Adapte la taille du fantôme\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIw\fP largeur 
+.br
+\fIh\fP hauteur 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPersonnage\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

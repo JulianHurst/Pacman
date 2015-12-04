@@ -1,5 +1,8 @@
 #include "sound.h"
 
+/**
+ * @brief Sound::Sound constructeur par défaut, charge tout les sont nécessaire
+ */
 Sound::Sound()
 {
     intro = new QSound(":/Sounds/res/sound/pacman_beginning.wav");
@@ -9,14 +12,26 @@ Sound::Sound()
     chomploop=0;
 }
 
+/**
+ * @brief Sound::getintro retourne l'intro de début de partie
+ * @return intro
+ */
 QSound * Sound::getintro(){
     return intro;
 }
 
+/**
+ * @brief Sound::getdying son déclenché en cas de mort du pacman
+ * @return dying
+ */
 QSound * Sound::getdying(){
     return dying;
 }
 
+/**
+ * @brief Sound::getchomp sont déclenché lors de la consommation d'une croquette
+ * @return chomp
+ */
 QSound * Sound::getchomp(){
     return chomp;
 }

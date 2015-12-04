@@ -1,0 +1,88 @@
+.TH "Sound" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sound \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSound\fP ()"
+.br
+.RI "\fI\fBSound::Sound\fP constructeur par défaut, charge tout les sont nécessaire\&. \fP"
+.ti -1c
+.RI "QSound * \fBgetintro\fP ()"
+.br
+.RI "\fI\fBSound::getintro\fP retourne l'intro de début de partie\&. \fP"
+.ti -1c
+.RI "QSound * \fBgetdying\fP ()"
+.br
+.RI "\fI\fBSound::getdying\fP son déclenché en cas de mort du pacman\&. \fP"
+.ti -1c
+.RI "QSound * \fBgetchomp\fP ()"
+.br
+.RI "\fI\fBSound::getchomp\fP sont déclenché lors de la consommation d'une croquette\&. \fP"
+.ti -1c
+.RI "QSound * \fBgetfruit\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetchomploop\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetchomploop\fP (int chomploop)"
+.br
+.ti -1c
+.RI "void \fBplayintro\fP ()"
+.br
+.ti -1c
+.RI "void \fBplaychomp\fP ()"
+.br
+.ti -1c
+.RI "void \fBplayfruit\fP ()"
+.br
+.ti -1c
+.RI "void \fBplaydying\fP ()"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "QSound * Sound::getchomp ()"
+
+.PP
+\fBSound::getchomp\fP sont déclenché lors de la consommation d'une croquette\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+chomp 
+.RE
+.PP
+
+.SS "QSound * Sound::getdying ()"
+
+.PP
+\fBSound::getdying\fP son déclenché en cas de mort du pacman\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+dying 
+.RE
+.PP
+
+.SS "QSound * Sound::getintro ()"
+
+.PP
+\fBSound::getintro\fP retourne l'intro de début de partie\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+intro 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.

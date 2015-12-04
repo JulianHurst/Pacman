@@ -1,0 +1,287 @@
+\hypertarget{class_personnage}{}\section{Personnage Class Reference}
+\label{class_personnage}\index{Personnage@{Personnage}}
+Inheritance diagram for Personnage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_personnage}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_personnage_a4fd878262e17985fe2c4d59b5d816bd5}{}enum {\bfseries direction} \{ \\*
+{\bfseries right}, 
+{\bfseries left}, 
+{\bfseries up}, 
+{\bfseries down}, 
+\\*
+{\bfseries none}
+ \}\label{class_personnage_a4fd878262e17985fe2c4d59b5d816bd5}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_personnage_ac0d494004d7fc8aac08112ff5ffacfe9}{Personnage} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Personnage\+::\+Personnage constructeur avec paramètre de personnage. \end{DoxyCompactList}\item 
+float \hyperlink{class_personnage_a27cc1b2cd8f95546b646d5693157b3c6}{getx} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a27cc1b2cd8f95546b646d5693157b3c6}{Personnage\+::getx}. \end{DoxyCompactList}\item 
+float \hyperlink{class_personnage_acaa6215bf06086ebf688e2b2e2e676f5}{gety} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_acaa6215bf06086ebf688e2b2e2e676f5}{Personnage\+::gety}. \end{DoxyCompactList}\item 
+int \hyperlink{class_personnage_aac0bd2c4c3bda5d26af8060f348e2b38}{getw} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_aac0bd2c4c3bda5d26af8060f348e2b38}{Personnage\+::getw}. \end{DoxyCompactList}\item 
+int \hyperlink{class_personnage_a29d38db07c8e6406caeea2fa832374af}{geth} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a29d38db07c8e6406caeea2fa832374af}{Personnage\+::geth}. \end{DoxyCompactList}\item 
+direction \hyperlink{class_personnage_afff305624380f7fea61ea34d25a23db0}{getdir} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_afff305624380f7fea61ea34d25a23db0}{Personnage\+::getdir}. \end{DoxyCompactList}\item 
+void \hyperlink{class_personnage_a017efb88daf72424a7b1e23431bcf60f}{setx} (float x)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a017efb88daf72424a7b1e23431bcf60f}{Personnage\+::setx} modifie la position horizontale. \end{DoxyCompactList}\item 
+void \hyperlink{class_personnage_ac91b7c71a7f25e3e1696469e7012383d}{sety} (float y)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_ac91b7c71a7f25e3e1696469e7012383d}{Personnage\+::sety} modifie la position verticale. \end{DoxyCompactList}\item 
+void \hyperlink{class_personnage_adb1c763969fee6521f870a21b2593387}{setw} (int w)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_adb1c763969fee6521f870a21b2593387}{Personnage\+::setw} modifie la largeur. \end{DoxyCompactList}\item 
+void \hyperlink{class_personnage_a27cec3441dcb29cdd98aceb107e0a6d4}{seth} (int h)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a27cec3441dcb29cdd98aceb107e0a6d4}{Personnage\+::seth} modifie hauteur. \end{DoxyCompactList}\item 
+void \hyperlink{class_personnage_a4f68109b5502cf8dd451cfde07ea0f80}{setdir} (direction dir)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a4f68109b5502cf8dd451cfde07ea0f80}{Personnage\+::setdir} change la direction. \end{DoxyCompactList}\item 
+\hypertarget{class_personnage_aa0e21a766208ea65c9929a8121e18dbe}{}Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries getgobj} ()\label{class_personnage_aa0e21a766208ea65c9929a8121e18dbe}
+
+\item 
+\hypertarget{class_personnage_a99c5442355ae6ebd56f34055a114ba69}{}void \hyperlink{class_personnage_a99c5442355ae6ebd56f34055a114ba69}{reinit} ()\label{class_personnage_a99c5442355ae6ebd56f34055a114ba69}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a99c5442355ae6ebd56f34055a114ba69}{Personnage\+::reinit}. \end{DoxyCompactList}\item 
+void \hyperlink{class_personnage_a6ae5430d11fd2f01a4219722d860929f}{move} (\hyperlink{class_labyrinthe}{Labyrinthe} $\ast$l)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a6ae5430d11fd2f01a4219722d860929f}{Personnage\+::move} gère le déplacement d\textquotesingle{}un personnage dans le labyrinthe. \end{DoxyCompactList}\item 
+\hypertarget{class_personnage_a5791bfb8523c996039f4376c7daf4881}{}void \hyperlink{class_personnage_a5791bfb8523c996039f4376c7daf4881}{Collision\+Lab} ()\label{class_personnage_a5791bfb8523c996039f4376c7daf4881}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_personnage_a5791bfb8523c996039f4376c7daf4881}{Personnage\+::\+Collision\+Lab} gestion de la position du personnage en cas de collision avec un mur du labyrinthe. \end{DoxyCompactList}\item 
+\hypertarget{class_personnage_a97bb68a40dc43e1c4a0ac920fb24e4ad}{}virtual \hyperlink{class_personnage}{Personnage} $\ast$ {\bfseries resize} (int w, int h)\label{class_personnage_a97bb68a40dc43e1c4a0ac920fb24e4ad}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_personnage_a6b996f03f323c2c74c5087ea69845a12}{}Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries gobj}\label{class_personnage_a6b996f03f323c2c74c5087ea69845a12}
+
+\item 
+\hypertarget{class_personnage_ad69bcd59258593fb200adb0e86bd7e9b}{}float {\bfseries x}\label{class_personnage_ad69bcd59258593fb200adb0e86bd7e9b}
+
+\item 
+\hypertarget{class_personnage_a3827e0cf147db7cc31e3967b23c4395d}{}float {\bfseries y}\label{class_personnage_a3827e0cf147db7cc31e3967b23c4395d}
+
+\item 
+\hypertarget{class_personnage_ab246d91c6787ccd5cec5664f7e5d478a}{}int {\bfseries w}\label{class_personnage_ab246d91c6787ccd5cec5664f7e5d478a}
+
+\item 
+\hypertarget{class_personnage_a5dd35ace58df8299a92fddee390e1e55}{}int {\bfseries h}\label{class_personnage_a5dd35ace58df8299a92fddee390e1e55}
+
+\item 
+\hypertarget{class_personnage_a9ea72b045c379d8fa5938fcb7129ace2}{}int {\bfseries offset}\label{class_personnage_a9ea72b045c379d8fa5938fcb7129ace2}
+
+\item 
+\hypertarget{class_personnage_a7a74d1843f448cb007e5c4db909f9bac}{}int {\bfseries initx}\label{class_personnage_a7a74d1843f448cb007e5c4db909f9bac}
+
+\item 
+\hypertarget{class_personnage_ac94d042476be54e7a84446a35aaa82e1}{}int {\bfseries inity}\label{class_personnage_ac94d042476be54e7a84446a35aaa82e1}
+
+\item 
+\hypertarget{class_personnage_a03d309b13ca5e26fcc04dca85378baf8}{}direction {\bfseries dir}\label{class_personnage_a03d309b13ca5e26fcc04dca85378baf8}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_personnage_ac0d494004d7fc8aac08112ff5ffacfe9}{}\index{Personnage@{Personnage}!Personnage@{Personnage}}
+\index{Personnage@{Personnage}!Personnage@{Personnage}}
+\subsubsection[{Personnage(float x, float y)}]{\setlength{\rightskip}{0pt plus 5cm}Personnage\+::\+Personnage (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\label{class_personnage_ac0d494004d7fc8aac08112ff5ffacfe9}
+
+
+Personnage\+::\+Personnage constructeur avec paramètre de personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position horizontale \\
+\hline
+{\em y} & position verticale \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_personnage_afff305624380f7fea61ea34d25a23db0}{}\index{Personnage@{Personnage}!getdir@{getdir}}
+\index{getdir@{getdir}!Personnage@{Personnage}}
+\subsubsection[{getdir()}]{\setlength{\rightskip}{0pt plus 5cm}Personnage\+::direction Personnage\+::getdir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_personnage_afff305624380f7fea61ea34d25a23db0}
+
+
+\hyperlink{class_personnage_afff305624380f7fea61ea34d25a23db0}{Personnage\+::getdir}. 
+
+\begin{DoxyReturn}{Returns}
+direction 
+\end{DoxyReturn}
+\hypertarget{class_personnage_a29d38db07c8e6406caeea2fa832374af}{}\index{Personnage@{Personnage}!geth@{geth}}
+\index{geth@{geth}!Personnage@{Personnage}}
+\subsubsection[{geth()}]{\setlength{\rightskip}{0pt plus 5cm}int Personnage\+::geth (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_personnage_a29d38db07c8e6406caeea2fa832374af}
+
+
+\hyperlink{class_personnage_a29d38db07c8e6406caeea2fa832374af}{Personnage\+::geth}. 
+
+\begin{DoxyReturn}{Returns}
+hauteur 
+\end{DoxyReturn}
+\hypertarget{class_personnage_aac0bd2c4c3bda5d26af8060f348e2b38}{}\index{Personnage@{Personnage}!getw@{getw}}
+\index{getw@{getw}!Personnage@{Personnage}}
+\subsubsection[{getw()}]{\setlength{\rightskip}{0pt plus 5cm}int Personnage\+::getw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_personnage_aac0bd2c4c3bda5d26af8060f348e2b38}
+
+
+\hyperlink{class_personnage_aac0bd2c4c3bda5d26af8060f348e2b38}{Personnage\+::getw}. 
+
+\begin{DoxyReturn}{Returns}
+largeur 
+\end{DoxyReturn}
+\hypertarget{class_personnage_a27cc1b2cd8f95546b646d5693157b3c6}{}\index{Personnage@{Personnage}!getx@{getx}}
+\index{getx@{getx}!Personnage@{Personnage}}
+\subsubsection[{getx()}]{\setlength{\rightskip}{0pt plus 5cm}float Personnage\+::getx (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_personnage_a27cc1b2cd8f95546b646d5693157b3c6}
+
+
+\hyperlink{class_personnage_a27cc1b2cd8f95546b646d5693157b3c6}{Personnage\+::getx}. 
+
+\begin{DoxyReturn}{Returns}
+position horizontale 
+\end{DoxyReturn}
+\hypertarget{class_personnage_acaa6215bf06086ebf688e2b2e2e676f5}{}\index{Personnage@{Personnage}!gety@{gety}}
+\index{gety@{gety}!Personnage@{Personnage}}
+\subsubsection[{gety()}]{\setlength{\rightskip}{0pt plus 5cm}float Personnage\+::gety (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_personnage_acaa6215bf06086ebf688e2b2e2e676f5}
+
+
+\hyperlink{class_personnage_acaa6215bf06086ebf688e2b2e2e676f5}{Personnage\+::gety}. 
+
+\begin{DoxyReturn}{Returns}
+position verticale 
+\end{DoxyReturn}
+\hypertarget{class_personnage_a6ae5430d11fd2f01a4219722d860929f}{}\index{Personnage@{Personnage}!move@{move}}
+\index{move@{move}!Personnage@{Personnage}}
+\subsubsection[{move(\+Labyrinthe $\ast$l)}]{\setlength{\rightskip}{0pt plus 5cm}void Personnage\+::move (
+\begin{DoxyParamCaption}
+\item[{{\bf Labyrinthe} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}\label{class_personnage_a6ae5430d11fd2f01a4219722d860929f}
+
+
+\hyperlink{class_personnage_a6ae5430d11fd2f01a4219722d860929f}{Personnage\+::move} gère le déplacement d\textquotesingle{}un personnage dans le labyrinthe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & pointeur vers le labyrinthe \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_personnage_a4f68109b5502cf8dd451cfde07ea0f80}{}\index{Personnage@{Personnage}!setdir@{setdir}}
+\index{setdir@{setdir}!Personnage@{Personnage}}
+\subsubsection[{setdir(direction dir)}]{\setlength{\rightskip}{0pt plus 5cm}void Personnage\+::setdir (
+\begin{DoxyParamCaption}
+\item[{direction}]{dir}
+\end{DoxyParamCaption}
+)}\label{class_personnage_a4f68109b5502cf8dd451cfde07ea0f80}
+
+
+\hyperlink{class_personnage_a4f68109b5502cf8dd451cfde07ea0f80}{Personnage\+::setdir} change la direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & nouvelle direction \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_personnage_a27cec3441dcb29cdd98aceb107e0a6d4}{}\index{Personnage@{Personnage}!seth@{seth}}
+\index{seth@{seth}!Personnage@{Personnage}}
+\subsubsection[{seth(int h)}]{\setlength{\rightskip}{0pt plus 5cm}void Personnage\+::seth (
+\begin{DoxyParamCaption}
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)}\label{class_personnage_a27cec3441dcb29cdd98aceb107e0a6d4}
+
+
+\hyperlink{class_personnage_a27cec3441dcb29cdd98aceb107e0a6d4}{Personnage\+::seth} modifie hauteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & hauteur \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_personnage_adb1c763969fee6521f870a21b2593387}{}\index{Personnage@{Personnage}!setw@{setw}}
+\index{setw@{setw}!Personnage@{Personnage}}
+\subsubsection[{setw(int w)}]{\setlength{\rightskip}{0pt plus 5cm}void Personnage\+::setw (
+\begin{DoxyParamCaption}
+\item[{int}]{w}
+\end{DoxyParamCaption}
+)}\label{class_personnage_adb1c763969fee6521f870a21b2593387}
+
+
+\hyperlink{class_personnage_adb1c763969fee6521f870a21b2593387}{Personnage\+::setw} modifie la largeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & largeur \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_personnage_a017efb88daf72424a7b1e23431bcf60f}{}\index{Personnage@{Personnage}!setx@{setx}}
+\index{setx@{setx}!Personnage@{Personnage}}
+\subsubsection[{setx(float x)}]{\setlength{\rightskip}{0pt plus 5cm}void Personnage\+::setx (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)}\label{class_personnage_a017efb88daf72424a7b1e23431bcf60f}
+
+
+\hyperlink{class_personnage_a017efb88daf72424a7b1e23431bcf60f}{Personnage\+::setx} modifie la position horizontale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & nouvelle position horizontale \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_personnage_ac91b7c71a7f25e3e1696469e7012383d}{}\index{Personnage@{Personnage}!sety@{sety}}
+\index{sety@{sety}!Personnage@{Personnage}}
+\subsubsection[{sety(float y)}]{\setlength{\rightskip}{0pt plus 5cm}void Personnage\+::sety (
+\begin{DoxyParamCaption}
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\label{class_personnage_ac91b7c71a7f25e3e1696469e7012383d}
+
+
+\hyperlink{class_personnage_ac91b7c71a7f25e3e1696469e7012383d}{Personnage\+::sety} modifie la position verticale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & nouvelle position verticale \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/personnage.\+h\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/personnage.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\hypertarget{class_collisions}{}\section{Collisions Class Reference}
+\label{class_collisions}\index{Collisions@{Collisions}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_collisions_a006630da4b62b10ebf123c6333c2b198}{}\hyperlink{class_collisions_a006630da4b62b10ebf123c6333c2b198}{Collisions} ()\label{class_collisions_a006630da4b62b10ebf123c6333c2b198}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_collisions_a006630da4b62b10ebf123c6333c2b198}{Collisions\+::\+Collisions} constructeur par défaut. \end{DoxyCompactList}\item 
+bool \hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{colliding} (\hyperlink{class_pacman}{Pacman} $\ast$obj1, \hyperlink{class_fantome}{Fantome} $\ast$obj2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{Collisions\+::colliding} collision entre \hyperlink{class_pacman}{Pacman} et les fantomes. \end{DoxyCompactList}\item 
+int \hyperlink{class_collisions_abb2c6a1d9521cf58911f212e2817dfc7}{colliding} (\hyperlink{class_pacman}{Pacman} $\ast$obj1, \hyperlink{class_bille_array}{Bille\+Array} $\ast$obj2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{Collisions\+::colliding} Collision entre pacman et les croquettes. \end{DoxyCompactList}\item 
+bool \hyperlink{class_collisions_adabbc973e6cb6880f93b338538f05efa}{colliding} (\hyperlink{class_pacman}{Pacman} $\ast$obj1, \hyperlink{class_fruit}{Fruit} $\ast$obj2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{Collisions\+::colliding} Collision entre \hyperlink{class_pacman}{Pacman} et un fruit. \end{DoxyCompactList}\item 
+\hypertarget{class_collisions_a5c22844d08ebf198357076dbe0d64966}{}void {\bfseries colliding} (\hyperlink{class_personnage}{Personnage} $\ast$obj1, \hyperlink{class_labyrinthe}{Labyrinthe} $\ast$obj2)\label{class_collisions_a5c22844d08ebf198357076dbe0d64966}
+
+\item 
+\hypertarget{class_collisions_a0921b974606f241b29da427dc26b2716}{}void {\bfseries colliding} (\hyperlink{class_pacman}{Pacman} $\ast$obj1, \hyperlink{class_porte}{Porte} $\ast$obj2)\label{class_collisions_a0921b974606f241b29da427dc26b2716}
+
+\item 
+\hypertarget{class_collisions_ad2f30075fe874c81a1eb6912dcab6932}{}bool {\bfseries colliding} (\hyperlink{class_fantome}{Fantome} $\ast$obj1, \hyperlink{class_porte}{Porte} $\ast$obj2)\label{class_collisions_ad2f30075fe874c81a1eb6912dcab6932}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_collisions_a121f130f16ab50d0c7374028137dd984}{}\index{Collisions@{Collisions}!colliding@{colliding}}
+\index{colliding@{colliding}!Collisions@{Collisions}}
+\subsubsection[{colliding(\+Pacman $\ast$obj1, Fantome $\ast$obj2)}]{\setlength{\rightskip}{0pt plus 5cm}bool Collisions\+::colliding (
+\begin{DoxyParamCaption}
+\item[{{\bf Pacman} $\ast$}]{obj1, }
+\item[{{\bf Fantome} $\ast$}]{obj2}
+\end{DoxyParamCaption}
+)}\label{class_collisions_a121f130f16ab50d0c7374028137dd984}
+
+
+\hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{Collisions\+::colliding} collision entre \hyperlink{class_pacman}{Pacman} et les fantomes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj1} & pointer vers \hyperlink{class_pacman}{Pacman} \\
+\hline
+{\em obj2} & pointer vers Fantôme \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_collisions_abb2c6a1d9521cf58911f212e2817dfc7}{}\index{Collisions@{Collisions}!colliding@{colliding}}
+\index{colliding@{colliding}!Collisions@{Collisions}}
+\subsubsection[{colliding(\+Pacman $\ast$obj1, Bille\+Array $\ast$obj2)}]{\setlength{\rightskip}{0pt plus 5cm}int Collisions\+::colliding (
+\begin{DoxyParamCaption}
+\item[{{\bf Pacman} $\ast$}]{obj1, }
+\item[{{\bf Bille\+Array} $\ast$}]{obj2}
+\end{DoxyParamCaption}
+)}\label{class_collisions_abb2c6a1d9521cf58911f212e2817dfc7}
+
+
+\hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{Collisions\+::colliding} Collision entre pacman et les croquettes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj1} & pointer vers \hyperlink{class_pacman}{Pacman} \\
+\hline
+{\em obj2} & pointer vers Croquette \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retourne le numéro de la bille avec laquelle il y a collision sinon 
+\end{DoxyReturn}
+\hypertarget{class_collisions_adabbc973e6cb6880f93b338538f05efa}{}\index{Collisions@{Collisions}!colliding@{colliding}}
+\index{colliding@{colliding}!Collisions@{Collisions}}
+\subsubsection[{colliding(\+Pacman $\ast$obj1, Fruit $\ast$obj2)}]{\setlength{\rightskip}{0pt plus 5cm}bool Collisions\+::colliding (
+\begin{DoxyParamCaption}
+\item[{{\bf Pacman} $\ast$}]{obj1, }
+\item[{{\bf Fruit} $\ast$}]{obj2}
+\end{DoxyParamCaption}
+)}\label{class_collisions_adabbc973e6cb6880f93b338538f05efa}
+
+
+\hyperlink{class_collisions_a121f130f16ab50d0c7374028137dd984}{Collisions\+::colliding} Collision entre \hyperlink{class_pacman}{Pacman} et un fruit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj1} & \\
+\hline
+{\em obj2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/collisions.\+h\item 
+C\+:/\+Users/kelku/\+Documents/\+Git\+Hub/pac/\+Pacman/collisions.\+cpp\end{DoxyCompactItemize}

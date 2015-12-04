@@ -1,0 +1,256 @@
+.TH "Personnage" 3 "Fri Dec 4 2015" "Version 1.0" "Pacman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Personnage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBFantome\fP, and \fBPacman\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBdirection\fP { \fBright\fP, \fBleft\fP, \fBup\fP, \fBdown\fP, \fBnone\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPersonnage\fP (float x, float y)"
+.br
+.RI "\fIPersonnage::Personnage constructeur avec paramètre de personnage\&. \fP"
+.ti -1c
+.RI "float \fBgetx\fP ()"
+.br
+.RI "\fI\fBPersonnage::getx\fP\&. \fP"
+.ti -1c
+.RI "float \fBgety\fP ()"
+.br
+.RI "\fI\fBPersonnage::gety\fP\&. \fP"
+.ti -1c
+.RI "int \fBgetw\fP ()"
+.br
+.RI "\fI\fBPersonnage::getw\fP\&. \fP"
+.ti -1c
+.RI "int \fBgeth\fP ()"
+.br
+.RI "\fI\fBPersonnage::geth\fP\&. \fP"
+.ti -1c
+.RI "direction \fBgetdir\fP ()"
+.br
+.RI "\fI\fBPersonnage::getdir\fP\&. \fP"
+.ti -1c
+.RI "void \fBsetx\fP (float x)"
+.br
+.RI "\fI\fBPersonnage::setx\fP modifie la position horizontale\&. \fP"
+.ti -1c
+.RI "void \fBsety\fP (float y)"
+.br
+.RI "\fI\fBPersonnage::sety\fP modifie la position verticale\&. \fP"
+.ti -1c
+.RI "void \fBsetw\fP (int w)"
+.br
+.RI "\fI\fBPersonnage::setw\fP modifie la largeur\&. \fP"
+.ti -1c
+.RI "void \fBseth\fP (int h)"
+.br
+.RI "\fI\fBPersonnage::seth\fP modifie hauteur\&. \fP"
+.ti -1c
+.RI "void \fBsetdir\fP (direction dir)"
+.br
+.RI "\fI\fBPersonnage::setdir\fP change la direction\&. \fP"
+.ti -1c
+.RI "QGraphicsPixmapItem * \fBgetgobj\fP ()"
+.br
+.ti -1c
+.RI "void \fBreinit\fP ()"
+.br
+.RI "\fI\fBPersonnage::reinit\fP\&. \fP"
+.ti -1c
+.RI "void \fBmove\fP (\fBLabyrinthe\fP *l)"
+.br
+.RI "\fI\fBPersonnage::move\fP gère le déplacement d'un personnage dans le labyrinthe\&. \fP"
+.ti -1c
+.RI "void \fBCollisionLab\fP ()"
+.br
+.RI "\fI\fBPersonnage::CollisionLab\fP gestion de la position du personnage en cas de collision avec un mur du labyrinthe\&. \fP"
+.ti -1c
+.RI "virtual \fBPersonnage\fP * \fBresize\fP (int w, int h)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QGraphicsPixmapItem * \fBgobj\fP"
+.br
+.ti -1c
+.RI "float \fBx\fP"
+.br
+.ti -1c
+.RI "float \fBy\fP"
+.br
+.ti -1c
+.RI "int \fBw\fP"
+.br
+.ti -1c
+.RI "int \fBh\fP"
+.br
+.ti -1c
+.RI "int \fBoffset\fP"
+.br
+.ti -1c
+.RI "int \fBinitx\fP"
+.br
+.ti -1c
+.RI "int \fBinity\fP"
+.br
+.ti -1c
+.RI "direction \fBdir\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Personnage::Personnage (float x, float y)"
+
+.PP
+Personnage::Personnage constructeur avec paramètre de personnage\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP position horizontale 
+.br
+\fIy\fP position verticale 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Personnage::direction Personnage::getdir ()"
+
+.PP
+\fBPersonnage::getdir\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+direction 
+.RE
+.PP
+
+.SS "int Personnage::geth ()"
+
+.PP
+\fBPersonnage::geth\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+hauteur 
+.RE
+.PP
+
+.SS "int Personnage::getw ()"
+
+.PP
+\fBPersonnage::getw\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+largeur 
+.RE
+.PP
+
+.SS "float Personnage::getx ()"
+
+.PP
+\fBPersonnage::getx\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+position horizontale 
+.RE
+.PP
+
+.SS "float Personnage::gety ()"
+
+.PP
+\fBPersonnage::gety\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+position verticale 
+.RE
+.PP
+
+.SS "void Personnage::move (\fBLabyrinthe\fP * l)"
+
+.PP
+\fBPersonnage::move\fP gère le déplacement d'un personnage dans le labyrinthe\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP pointeur vers le labyrinthe 
+.RE
+.PP
+
+.SS "void Personnage::setdir (direction dir)"
+
+.PP
+\fBPersonnage::setdir\fP change la direction\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdir\fP nouvelle direction 
+.RE
+.PP
+
+.SS "void Personnage::seth (int h)"
+
+.PP
+\fBPersonnage::seth\fP modifie hauteur\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP hauteur 
+.RE
+.PP
+
+.SS "void Personnage::setw (int w)"
+
+.PP
+\fBPersonnage::setw\fP modifie la largeur\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIw\fP largeur 
+.RE
+.PP
+
+.SS "void Personnage::setx (float x)"
+
+.PP
+\fBPersonnage::setx\fP modifie la position horizontale\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP nouvelle position horizontale 
+.RE
+.PP
+
+.SS "void Personnage::sety (float y)"
+
+.PP
+\fBPersonnage::sety\fP modifie la position verticale\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIy\fP nouvelle position verticale 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Pacman from the source code\&.
